@@ -25,19 +25,23 @@ main {
   justify-content: center;
   padding-block: min(20vh, 5em);
 }
+
 main .header {
   margin-bottom: 55px;
 }
+
 @media screen and (max-width: 600px) {
   main .header {
     margin-bottom: 70px !important;
   }
 }
+
 main .header h1 {
   font-weight: 800;
   font-size: 3rem;
   margin: 5px -5px 15px;
 }
+
 main .header span {
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -46,6 +50,7 @@ main .header span {
   font-size: 14px;
   color: #471aa0;
 }
+
 main .header p {
   max-width: min(40ch, 100% - 2rem);
   line-height: 1.6;

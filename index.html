@@ -31,6 +31,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link rel="stylesheet" href="OwlCarousel2/dist/assets/owl.carousel.css">
+    <link rel="stylesheet" href="OwlCarousel2/dist/assets/owl.theme.default.min.css">
     <title>Bereket Assefa page</title>
   </head>
 
@@ -39,13 +41,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="OwlCarousel2/dist/owl.carousel.js"></script>
+    
     <!-- Navbar -->
     <nav>
       <h1>Bereket Assefa</h1>
-      <ul class="nav-bar">
+      <ul class="navigation">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#skills" class="nav-link">Tools</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li> 
 
       </ul>
       <button class="burger-menu" id="burger-menu">
@@ -62,34 +67,51 @@
         loading="lazy"
         class="hero-img"
       />
-  
-      <div class="bio animate__animated animate__shakeX">
-        <h2 class="bio-title">About Me</h2>
-        <p class="bio-text">
-        I am Bereket Assefa and
-        was brought up in Ethiopia. I moved to Korea to attend the undergraduate degree program offered by Korea Advanced
-        Institute Of Science And Technology (KAIST). I graduated from KAIST with a Bachelor's degree in Electrical Engineering
-        and Computer Science (Double Major). Having graduated, I am now seeking full-time entry level Software
-        Engineering or Backend Developer positions.
-        </p>
+      
+      <div class="">
+        <div class="social mb-5" style="display: flex; justify-content: center">
+          <a href="https://github.com/rabberdabber" target="_blank" class="hvr-grow"><span class=""><i
+                style="font-size: 30px" class="fa-brands fa-github"></i>
+            </span></a>
+          <a href="https://www.linkedin.com/in/bereket-assefa-251a79178/" target="_blank" class="ml-3 hvr-grow"><span><i
+                style="font-size: 30px" class="fa-brands fa-linkedin-in"></i>
+            </span></a>
+          <a href="/assets/files/Bereket_Resume.pdf" target="_blank" class="ml-3 hvr-grow"><span><i
+                style="font-size: 30px" class="far fa-file-pdf fa-xs" aria-hidden="true"></i>
+              <small>Resume</small>
+            </span></a>
+        </div>
       </div>
-      <p></p>
+
+
+        <div class="bio animate__animated animate__shakeX">
+          <h2 class="bio-title">About Me</h2>
+          <p class="bio-text">
+          I am Bereket Assefa and
+          was brought up in Ethiopia. I moved to Korea to attend the undergraduate degree program offered by Korea Advanced
+          Institute Of Science And Technology (KAIST). I graduated from KAIST with a Bachelor's degree in Electrical Engineering
+          and Computer Science (Double Major). Having graduated, I am now seeking full-time entry level Software
+          Engineering or Backend Developer positions.
+          </p>
+        </div>
+        
+        <p></p>
     </section>
 
     <!-- Skills section -->
     <section class="skills" id="skills">
-      <h2 class="skill-header"><i class="fa-solid fa-toolbox fa-lg"></i> My Tools</h2>
+      <h2 class="skill-header"><i class="fa-solid fa-toolbox fa-lg"></i> Tools</h2>
       <h5>
         <b>Programming Languages</b> :
-        <i class="fab fa-python"></i> Python, <i class="fa-brands fa-js-square"></i> JavaScript, C/C++, Scala, OCaml, Haskell <br />
+        <i class="fab fa-python"></i> Python, <i class="fa-brands fa-js-square"></i> JavaScript,   C/C++,  Scala, OCaml,  Haskell <br />
         <br>
         <b> Front-end</b>:
-        <i class="fab fa-js-square"></i> Vanilla JavaScript,<i class="fa-brands fa-html5"></i>/<i class="fa-brands fa-css3"></i> HTML5/CSS3,<i class="fa-brands fa-bootstrap"></i> Bootstrap, jQuery <br />
+        <i class="fab fa-js-square"></i> Vanilla JavaScript,  <i class="fa-brands fa-html5"></i>/<i class="fa-brands fa-css3"></i>  HTML5/CSS3,  <i class="fa-brands fa-bootstrap"></i> Bootstrap,  jQuery <br />
         <br>
-        <b> Back-end</b>: <i class="fab fa-node-js"></i> Node.js,
-        Express.js, Flask, gRPC, MongoDB, PostgreSQL, MySQL <br />
+        <b> Back-end</b>: <i class="fab fa-node-js"></i> Node.js   ,
+          Express.js,  Flask  , gRPC , MongoDB ,  PostgreSQL , MySQL <br />
         <br>
-        <b>Others</b>: <i class="fab fa-aws"></i> AWS (EC2),<i class="fa-brands fa-git-alt"></i> Git,<i class="fa-brands fa-linux"></i> Linux,<i class="fa-brands fa-docker"></i> Docker, Kubernetes, GCP(GKE)
+        <b>Others</b>:  <i class="fab fa-aws"></i> AWS (EC2)  ,  <i class="fa-brands fa-git-alt"></i>  Git,  <i class="fa-brands fa-linux"></i> Linux  , <i class="fa-brands fa-docker"></i> Docker,  Kubernetes,   GCP  (GKE)
       </h5>
         </div>
       </div>
@@ -97,16 +119,15 @@
 
     <!-- Projects section -->
     <section class="projects" id="projects">
-      <h2 class="projects-title">Some of my Recent Projects</h2>
-      <div class="projects-container">
-        <div class="project-container project-card">
+      <h2 class="projects-container projects-title carousel-wrap">Some of my Projects</h2>
+
+      <div class="projects-container owl-carousel owl-theme">
+        <div class="project-container project-card item">
           <img style="background-color: #f8f9fa" class="img-fluid" src="assets/images/FlashCardTranslate.gif" />
       
           <h3 class="project-title">FlashCardTranslate</h3>
           <p class="project-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-            ratione vel inventore labore commodi modi quos culpa aut saepe!
-            Alias!
+            a Flashcard Application to create, save, and view language flashcards with instant translation in the background. It is a Restful Api with Identity Access Management and deployed using AWS.
           </p>
         <a href="https://github.com/rabberdabber/FlashCardTranslate" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> Source Code </a>
         <br>
@@ -114,13 +135,12 @@
         <br>
         <a href="https://rabberdabber.dpgon835n9iag.ap-northeast-2.cs.amazonlightsail.com/"><i class="fa-solid fa-globe"></i> App Site</a>
         </div>
-        <div class="project-container project-card">
+
+        <div class="project-container project-card item">
           <img style="background-color: #f8f9fa" class="img-fluid" src="assets/images/chatapp.gif" />
           <h3 class="project-title">ChatApp</h3>
           <p class="project-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-            ratione vel inventore labore commodi modi quos culpa aut saepe!
-            Alias!
+            A Chat Application that uses Microservices architecture and the services communicate using Restful API. It also has Identity Access Management and is deployed using Kubernetes in Google Kubernetes Engine.
           </p>
           <a href="https://github.com/rabberdabber/ChatApp" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> Source Code </a>
           <br>
@@ -128,46 +148,59 @@
           <br>
           <a href="http://148.236.64.34.bc.googleusercontent.com:3000/"><i class="fa-solid fa-globe"></i>  App Site</a>
         </div>
-        <div class="project-container project-card">
-          <img
-            src="assets/images/greenyEarth.png"
-            alt="greeny-earth"
-            loading="lazy"
-            class="project-pic"
-          />
+
+        <div class="project-container project-card item">
+          <img src="assets/images/decrypt.png" alt="decrypt" loading="lazy" class="project-pic" />
           <h3 class="project-title">Distributed Decryptor</h3>
           <p class="project-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-            ratione vel inventore labore commodi modi quos culpa aut saepe!
-            Alias!
-          </p>
-      
-          <a href="https://github.com/rabberdabber/DistributedDecryptor" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> Source Code  </a>
-          
-          </div>
-        <div class="project-container project-card">
-          <img src="assets/images/greenyEarth.png" alt="greeny-earth" loading="lazy" class="project-pic" />
-          <h3 class="project-title">Distributed Decryptor</h3>
-          <p class="project-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-            ratione vel inventore labore commodi modi quos culpa aut saepe!
-            Alias!
+            A distributed decryptor, which decrypts source files using gRPC and Protobuf in C++. Master/Slave architecture, Parallelism, Multithreading are used to implement the project.
           </p>
         
           <a href="https://github.com/rabberdabber/DistributedDecryptor" target="_blank" class="project-link"><i
               class="fa-brands fa-github"></i> Source Code </a>
-        
         </div>
-        <div class="project-container project-card">
-          <img src="assets/images/greenyEarth.png" alt="greeny-earth" loading="lazy" class="project-pic" />
-          <h3 class="project-title">Distributed Decryptor</h3>
+
+        <div class="project-container project-card item">
+          <img src="assets/images/search-engine.png" alt="search-engine" loading="lazy" class="project-pic" />
+          <h3 class="project-title">Search Engine</h3>
           <p class="project-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-            ratione vel inventore labore commodi modi quos culpa aut saepe!
-            Alias!
+            A Very fast Search Engine that serves up to 100k clients to find words in some directory using C. I/O multiplexing and Multithreading are used to implement the project.
           </p>
         
-          <a href="https://github.com/rabberdabber/DistributedDecryptor" target="_blank" class="project-link"><i
+          <a href="https://github.com/rabberdabber/SearchEngine" target="_blank" class="project-link"><i
+              class="fa-brands fa-github"></i> Source Code </a>
+        
+        </div>
+        <div class="project-container project-card item">
+          <img src="assets/images/redis.png" alt="redis" loading="lazy" class="project-pic" />
+          <h3 class="project-title">Redis Web Server</h3>
+          <p class="project-details">
+            Three different Redis Web Servers that serve up to 100k clients to store information in a redis database. The implementations have a significant efficiency difference. The best implementation uses thread pool and asynchronous requests.
+          </p>
+        
+          <a href="https://github.com/rabberdabber/RedisServer" target="_blank" class="project-link"><i
+              class="fa-brands fa-github"></i> Source Code </a>
+        
+        </div>
+        <div class="project-container project-card item">
+          <img src="assets/images/malloc.png" alt="malloc" loading="lazy" class="project-pic" />
+          <h3 class="project-title">TCMalloc</h3>
+          <p class="project-details">
+            My own implementation of Google's Thread Caching Malloc(TCMalloc) in C.
+          </p>
+        
+          <a href="https://github.com/rabberdabber/tcMalloc" target="_blank" class="project-link"><i
+              class="fa-brands fa-github"></i> Source Code </a>
+        
+        </div>
+        <div class="project-container project-card item">
+          <img src="assets/images/os.jpeg" alt="malloc" loading="lazy" class="project-pic" />
+          <h3 class="project-title">Pintos Operating System</h3>
+          <p class="project-details">
+            Implementation of threads, user programs, virtual memory and file systems of Pintos Operating System in C.
+          </p>
+        
+          <a href="https://github.com/rabberdabber/MyPintos" target="_blank" class="project-link"><i
               class="fa-brands fa-github"></i> Source Code </a>
         
         </div>
@@ -175,13 +208,74 @@
     </section>
 
   
-    <div class="socials">
-      <a href="/assets/files/Bereket_Resume.pdf" target="_blank" class="ml-3 hvr-grow"><span><i style="font-size: 30px"
-          class="fa-solid fa-file-pdf socicon" aria-hidden="true"></i>
-        <h6>Resume</h6>
-      </span></a>
-    </div>
-
+    <!-- Contact section -->
+    <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <div class="container">
+        <form>
+          <div class="form-group row">
+            <label for="firstname" class="col-md-2 col-form-label">First Name</label>
+            <div class="col-md-10">
+              <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="lastname" class="col-md-2 col-form-label">Last Name</label>
+            <div class="col-md-10">
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
+            </div>
+          </div>
+        </form>
+      
+        <div class="form-group row">
+          <label for="telnum" class="col-12 col-md-2 col-form-label">Contact Tel.</label>
+          <div class="col-5 col-md-3">
+            <input type="tel" class="form-control" id="areacode" name="areacode" placeholder="Area code">
+          </div>
+          <div class="col-7 col-md-7">
+            <input type="tel" class="form-control" id="telnum" name="telnum" placeholder="Tel. number">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="emailid" class="col-md-2 col-form-label">Email</label>
+          <div class="col-md-10">
+            <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email">
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <div class="col-md-6 offset-md-2">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="approve" id="approve" value="">
+              <label class="form-check-label" for="approve">
+                <strong>May we contact you?</strong>
+              </label>
+            </div>
+          </div>
+          <div class="col-md-3 offset-md-1">
+            <select class="form-control">
+              <option>Tel.</option>
+              <option>Email</option>
+            </select>
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <label for="feedback" class="col-md-2 col-form-label">Your Feedback</label>
+          <div class="col-md-10">
+            <textarea class="form-control" id="feedback" name="feedback" rows="12"></textarea>
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <div class="offset-md-2 col-md-10">
+            <a href="#" role="submit" class="btn btn-primary">Send Feedback</a>
+      
+          </div>
+        </div>
+      </div>
+    </section>
+  
     <!-- Scroll to top -->
     <i class="scroll-up" id="scroll-up"
       ><img

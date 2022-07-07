@@ -195,6 +195,10 @@ nav ul li {
   margin-top: 2rem;
 }
 
+.projects h2 {
+  color: white;
+}
+
 .project-pic {
   width: 65%;
   height: 60%;
@@ -213,7 +217,9 @@ nav ul li {
 
 .project-container {
   text-align: center;
-  width: 25.875rem;
+  width: 35.875rem;
+  height: 35 rem;
+  max-height: 35 rem;
   padding: 1rem;
 }
 
@@ -425,6 +431,40 @@ footer {
   }
 }
 
+.social a {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  position: relative;
+  text-align: center;
+  color: #0d1e2d;
+}
+
+.fab {
+  color: blueviolet;
+}
+
+.fa-brands {
+  color: blue;
+}
+.fa-solid {
+  color: red;
+}
+
+.social a span {
+  display: inline-block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: blue;
+}
+
+.social a:hover {
+  color: #000;
+}
 
 
 @media screen and (max-width: 420px) {
@@ -435,10 +475,6 @@ footer {
 
   .bio {
     width: 18.3rem;
-  }
-
-  .project-container {
-    width: 17.875rem;
   }
 
   .contact-form-container {

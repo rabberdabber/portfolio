@@ -7,6 +7,7 @@
 
     <!--CSS Styles -->
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/carousel.css" />
 
     <!-- Favicons -->
     <link
@@ -24,6 +25,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Animate CSS CDN -->
     <link
       rel="stylesheet"
@@ -40,9 +42,9 @@
     <!-- Navbar -->
     <nav>
       <h1>Bereket Assefa</h1>
-      <ul class="navigation">
+      <ul class="nav-bar">
         <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#skills" class="nav-link">Tools</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
 
       </ul>
@@ -60,63 +62,35 @@
         loading="lazy"
         class="hero-img"
       />
-    </section>
-
-    <!-- More about -->
-    <section class="more-about">
-      <h2>About Me</h2>
-      <p>
-      I am Bereket Assefa and
-      was brought up in Ethiopia. I moved to Korea to attend the undergraduate degree program offered by Korea Advanced Institute Of Science And Technology (KAIST). I graduated from KAIST with a Bachelor's degree in Electrical Engineering and Computer Science (Double Major). Having graduated, I am now seeking full-time entry level Software
-      Engineering or Backend Developer positions. 
-      </p>
+  
+      <div class="bio animate__animated animate__shakeX">
+        <h2 class="bio-title">About Me</h2>
+        <p class="bio-text">
+        I am Bereket Assefa and
+        was brought up in Ethiopia. I moved to Korea to attend the undergraduate degree program offered by Korea Advanced
+        Institute Of Science And Technology (KAIST). I graduated from KAIST with a Bachelor's degree in Electrical Engineering
+        and Computer Science (Double Major). Having graduated, I am now seeking full-time entry level Software
+        Engineering or Backend Developer positions.
+        </p>
+      </div>
+      <p></p>
     </section>
 
     <!-- Skills section -->
     <section class="skills" id="skills">
-      <h2 class="skill-header">My Top Skills</h2>
-
-      <div class="skills-wrapper">
-        <div class="first-set animate__animated animate__pulse">
-          <img
-            src="assets/icons/icons8-html-5.svg"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-css3.svg"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-javascript.svg"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-        </div>
-
-        <div class="second-set animate__animated animate__pulse">
-          <img
-            src="assets/icons/icons8-bootstrap.svg"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-react-native.svg"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-git.svg"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
+      <h2 class="skill-header"><i class="fa-solid fa-toolbox fa-lg"></i> My Tools</h2>
+      <h5>
+        <b>Programming Languages</b> :
+        <i class="fab fa-python"></i> Python, <i class="fa-brands fa-js-square"></i> JavaScript, C/C++, Scala, OCaml, Haskell <br />
+        <br>
+        <b> Front-end</b>:
+        <i class="fab fa-js-square"></i> Vanilla JavaScript,<i class="fa-brands fa-html5"></i>/<i class="fa-brands fa-css3"></i> HTML5/CSS3,<i class="fa-brands fa-bootstrap"></i> Bootstrap, jQuery <br />
+        <br>
+        <b> Back-end</b>: <i class="fab fa-node-js"></i> Node.js,
+        Express.js, Flask, gRPC, MongoDB, PostgreSQL, MySQL <br />
+        <br>
+        <b>Others</b>: <i class="fab fa-aws"></i> AWS (EC2),<i class="fa-brands fa-git-alt"></i> Git,<i class="fa-brands fa-linux"></i> Linux,<i class="fa-brands fa-docker"></i> Docker, Kubernetes, GCP(GKE)
+      </h5>
         </div>
       </div>
     </section>
@@ -171,11 +145,43 @@
           <a href="https://github.com/rabberdabber/DistributedDecryptor" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> Source Code  </a>
           
           </div>
+        <div class="project-container project-card">
+          <img src="assets/images/greenyEarth.png" alt="greeny-earth" loading="lazy" class="project-pic" />
+          <h3 class="project-title">Distributed Decryptor</h3>
+          <p class="project-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+            ratione vel inventore labore commodi modi quos culpa aut saepe!
+            Alias!
+          </p>
+        
+          <a href="https://github.com/rabberdabber/DistributedDecryptor" target="_blank" class="project-link"><i
+              class="fa-brands fa-github"></i> Source Code </a>
+        
+        </div>
+        <div class="project-container project-card">
+          <img src="assets/images/greenyEarth.png" alt="greeny-earth" loading="lazy" class="project-pic" />
+          <h3 class="project-title">Distributed Decryptor</h3>
+          <p class="project-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+            ratione vel inventore labore commodi modi quos culpa aut saepe!
+            Alias!
+          </p>
+        
+          <a href="https://github.com/rabberdabber/DistributedDecryptor" target="_blank" class="project-link"><i
+              class="fa-brands fa-github"></i> Source Code </a>
+        
         </div>
       </div>
     </section>
 
   
+    <div class="socials">
+      <a href="/assets/files/Bereket_Resume.pdf" target="_blank" class="ml-3 hvr-grow"><span><i style="font-size: 30px"
+          class="fa-solid fa-file-pdf socicon" aria-hidden="true"></i>
+        <h6>Resume</h6>
+      </span></a>
+    </div>
+
     <!-- Scroll to top -->
     <i class="scroll-up" id="scroll-up"
       ><img

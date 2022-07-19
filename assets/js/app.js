@@ -35,8 +35,10 @@ $(".owl-carousel").owlCarousel({
   loop: true,
   margin: 50,
   nav: true,
+  center: true,
   autoplay: true,
   autoplayTimeout: 10000,
+  singleItem: true,
   responsive: {
     0: {
       items: 1

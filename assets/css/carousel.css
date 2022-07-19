@@ -103,6 +103,10 @@ main .item .overlay > div h2 {
   top: -100px;
   right: 0;
 }
+
+.owl-carousel{
+  justify-content: center;  
+}
 @media screen and (max-width: 600px) {
   .owl-nav {
     top: -60px !important;

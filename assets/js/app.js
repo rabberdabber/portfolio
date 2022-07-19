@@ -33,7 +33,7 @@ scrollUp.addEventListener("click", () => {
 
 $(".owl-carousel").owlCarousel({
   loop: true,
-  margin: 10,
+  margin: 50,
   nav: true,
   autoplay: true,
   autoplayTimeout: 10000,
@@ -42,7 +42,7 @@ $(".owl-carousel").owlCarousel({
       items: 1
     },
     600: {
-      items: 2
+      items: 1
     }
   }
 });

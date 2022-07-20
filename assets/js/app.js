@@ -38,13 +38,12 @@ $(".owl-carousel").owlCarousel({
   center: true,
   autoplay: true,
   autoplayTimeout: 10000,
-  singleItem: true,
   responsive: {
     0: {
       items: 1
     },
     600: {
-      items: 1
+      items: 2
     }
   }
 });

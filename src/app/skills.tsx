@@ -1,11 +1,7 @@
 "use client";
 import React from "react";
-
+import SkillCards from "@/components/skill-cards";
 
 export default function Skills() {
-  return (
-    <div className="h-dvh w-dvw grid place-content-center">
-      Skills
-    </div>
-  );
+  return <SkillCards />;
 }

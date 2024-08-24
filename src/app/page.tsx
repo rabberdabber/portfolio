@@ -9,12 +9,17 @@ import Skills from "@/app/skills";
 
 type Section = "home" | "projects" | "contact" | "experience" | "skills";
 
-
 export default function Home() {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState(0);
-  const sections: Section[] = ['home', 'projects', 'contact', 'experience', 'skills'];
+  const sections: Section[] = [
+    "home",
+    "projects",
+    "contact",
+    "experience",
+    "skills",
+  ];
 
   useEffect(() => {
     const container = containerRef.current;
@@ -24,20 +29,20 @@ export default function Home() {
       const scrollPosition = container.scrollTop;
       const windowHeight = window.innerHeight;
       const newActiveSection = Math.round(scrollPosition / windowHeight);
-      
+
       if (newActiveSection !== activeSection) {
         setActiveSection(newActiveSection);
         router.push(`#${sections[newActiveSection]}`, { scroll: false });
       }
     };
 
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
   }, [activeSection, router, sections]);
 
   return (
     <div ref={containerRef} className="snap-y snap-mandatory">
-      <section id="home" className="h-dvh snap-start">
+      <section id="home" className="h-[calc(100dvh-5rem)] snap-start">
         <Hero />
       </section>
       <section id="projects" className="h-dvh snap-start">
@@ -53,5 +58,5 @@ export default function Home() {
         <Skills />
       </section>
     </div>
-    );
+  );
 }

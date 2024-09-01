@@ -1,13 +1,21 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { MutableRefObject, useEffect, useRef, useState } from "react";
-import Hero from "@/app/hero";
-import Contact from "@/app/contact";
-import Experience from "@/app/experience";
-import Projects from "@/app/projects";
-import Skills from "@/app/skills";
+import Hero from "@/app/(sections)/hero";
+import Contact from "@/app/(sections)/contact";
+import Experience from "@/app/(sections)/experience";
+import Projects from "@/app/(sections)/projects";
+import Skills from "@/app/(sections)/skills";
+import About from "@/app/(sections)/about";
+import Certifications from "@/app/(sections)/certifications";
 
-type Section = "home" | "projects" | "contact" | "experience" | "skills";
+type Section =
+  | "home"
+  | "projects"
+  | "contact"
+  | "experience"
+  | "skills"
+  | "about";
 
 export default function Home() {
   const router = useRouter();
@@ -19,6 +27,7 @@ export default function Home() {
     "contact",
     "experience",
     "skills",
+    "about",
   ];
 
   useEffect(() => {
@@ -45,6 +54,9 @@ export default function Home() {
       <section id="home" className="h-[calc(100dvh-5rem)] snap-start">
         <Hero />
       </section>
+      <section id="about" className="h-[calc(100dvh-5rem)] snap-start">
+        <About />
+      </section>
       <section id="projects" className="h-dvh snap-start">
         <Projects />
       </section>
@@ -53,6 +65,9 @@ export default function Home() {
       </section>
       <section id="experience" className="h-dvh snap-start">
         <Experience />
+      </section>
+      <section id="certifications" className="h-dvh snap-start">
+        <Certifications />
       </section>
       <section id="skills" className="h-dvh snap-start">
         <Skills />

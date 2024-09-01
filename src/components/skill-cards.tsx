@@ -98,7 +98,7 @@ export default function SkillCards() {
             const [tools, description] = value;
             return (
               <motion.div key={key} layout variants={cardVariants}>
-                <Card className="group overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
+                <Card className="relative group overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
                   <CardHeader className="bg-slate-700 text-white">
                     <CardTitle className="text-2xl font-bold">{key}</CardTitle>
                   </CardHeader>

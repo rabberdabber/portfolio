@@ -5,6 +5,10 @@ export const siteConfig = {
   description: "my portfolio website.",
   mainNav: [
     {
+      title: "about",
+      href: "/#about",
+    },
+    {
       title: "experience",
       href: "/#experience",
     },
@@ -17,8 +21,8 @@ export const siteConfig = {
       href: "/#skills",
     },
     {
-      title: "courses",
-      href: "/#courses",
+      title: "certifications",
+      href: "/#certifications",
     },
     {
       title: "contact",

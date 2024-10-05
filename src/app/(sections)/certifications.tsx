@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Card,
@@ -11,6 +12,8 @@ import {
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { CalendarIcon, CircleAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 interface Certification {
   id: number;
@@ -18,6 +21,8 @@ interface Certification {
   date: string;
   instructor: string;
   imageUrl: string;
+  tags: string[];
+  websiteUrl: string;
 }
 
 const certifications: Certification[] = [
@@ -27,14 +32,38 @@ const certifications: Certification[] = [
     date: "2024-08-25",
     instructor: "Matt Pocock",
     imageUrl: "/certifications/advanced-react-with-typescript.png",
+    websiteUrl: "https://www.totaltypescript.com/workshops/advanced-react-with-typescript",
+    tags: ["React", "TypeScript"],
   },
   {
-    id: 1,
+    id: 2,
     name: "Zod Workshop",
     date: "2024-07-10",
     instructor: "Matt Pocock",
     imageUrl: "/certifications/zod.png",
+    tags: ["typescript", "data validation"],
+    websiteUrl: "https://www.totaltypescript.com/tutorials/zod",
   },
+  {
+    id: 3,
+    name: "CSS for JavaScript Developers",
+    date: "2024-06-01",
+    instructor: "Josh Comeau",
+    imageUrl: "/certifications/css_for_javascript.png",
+    tags: ["React", "JavaScript"],
+    websiteUrl: "https://css-for-js.dev/",
+  },
+  {
+    id: 4,
+    name: "The Joy of React",
+    date: "2024-05-15",
+    instructor: "Josh Comeau",
+    imageUrl: "/certifications/joy_of_react.png",
+    tags: ["React", "JavaScript"],
+    websiteUrl: "https://www.joyofreact.com/",
+  },
+
+
 ];
 
 export default function Component() {
@@ -66,6 +95,19 @@ function CertificationCard({
           {new Date(certification.date).toLocaleDateString()}
         </p>
         <p className="text-sm">Instructor: {certification.instructor}</p>
+        <p className="text-sm">
+          Website: <Link href={certification.websiteUrl} className="text-sm text-muted-foreground hover:text-indigo-600">{certification.websiteUrl}</Link>
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {certification.tags.map((tag) => (
+            <Badge
+              key={tag}
+              className="rounded-md bg-indigo-600/20 px-2 py-1 text-sm text-indigo-600 mt-2"
+            >
+              {tag}
+            </Badge>
+          ))}
+        </div>
       </CardContent>
       <CardFooter>
         <Dialog>
@@ -81,31 +123,37 @@ function CertificationCard({
                     scale: 1,
                     rotate: "0deg",
                     transition: {
-                      type: "spring",
-                      bounce: 0.25,
+                      type: "tween",
+                      bounce: 0.3,
+                      duration: 0.75,
                     },
                   }}
                   exit={{ scale: 0, rotate: "180deg" }}
                 >
                   <div className="flex flex-col gap-3">
-                    <CircleAlert className="mx-auto text-white" size={48} />
-                    <h3 className={cn("text-center text-3xl font-bold", {})}>
+                    {/* <CircleAlert className="mx-auto text-white" size={48} /> */}
+                    {/* <h3 className={cn("text-center text-3xl font-bold", {})}>
                       Welcome to the modal!
-                    </h3>
-                    <img
-                      src={certification.imageUrl}
-                      alt={`${certification.name} Certificate`}
-                      className="w-full h-auto"
-                    />
+                    </h3> */}
+                    <div className="p-2 bg-white rounded-lg shadow-lg">
+                      <Image
+                        src={certification.imageUrl}
+                        alt={`${certification.name} Certificate`}
+                        className="w-full h-auto border-4 border-gray-200 rounded"
+                        width={1000}
+                        height={1000}
+                      />
+                    </div>
                     <div className="flex gap-2">
                       <button className="w-full rounded bg-transparent py-2 font-semibold text-white transition-colors hover:bg-white/30">
                         Close!
                       </button>
                       <button className="w-full rounded bg-white py-2 font-semibold text-indigo-600 transition-opacity hover:opacity-80">
-                        Understood!
+                        Viewed!
                       </button>
                     </div>
                   </div>
+
                 </motion.div>
               </div>
             </AnimatePresence>

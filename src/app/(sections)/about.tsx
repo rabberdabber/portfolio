@@ -45,7 +45,7 @@ function About() {
           </Button>
         </div>
       </div>
-      <div className="absolute top-4 left-0 right-0 rotate-180">
+      {/* <div className="absolute top-4 left-0 right-0 rotate-180">
         <svg
           className="w-full h-auto text-muted/30"
           width="1001"
@@ -60,7 +60,7 @@ function About() {
             fillOpacity="1"
           />
         </svg>
-      </div>
+      </div> */}
     </MotionWrap>
   );
 }

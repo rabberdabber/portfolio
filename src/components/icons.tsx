@@ -1,4 +1,15 @@
-import { LucideIcon, LucideProps, Link, Sun, Moon } from "lucide-react";
+import {
+  LucideIcon,
+  LucideProps,
+  Link,
+  Sun,
+  Moon,
+  Download,
+  FileText,
+  Mail,
+  MapPin,
+  ExternalLink,
+} from "lucide-react";
 
 export type Icon = LucideIcon;
 
@@ -6,6 +17,11 @@ export const Icons = {
   sun: Sun,
   moon: Moon,
   link: Link,
+  download: Download,
+  fileText: FileText,
+  mail: Mail,
+  mapPin: MapPin,
+  externalLink: ExternalLink,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

@@ -16,10 +16,12 @@ export default function Experience() {
               title: "Software Engineer",
               company: "Emocog",
               companyUrl: "https://www.emocog.com/en",
-              date: "August 2022 - Present",
+              startDate: "2022-08-22",
+              endDate: "2024-12-31",
               description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien.",
+                "Led development of key features in the cognitive assessment platform. Implemented responsive UI components and optimized database queries for improved performance.",
               companyLogo: "/emocog_logo.png",
+              skills: ["React", "TypeScript", "Node.js", "PostgreSQL"],
             },
           ]}
           isActive

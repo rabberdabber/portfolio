@@ -1,14 +1,31 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Icons } from "./icons";
-import Link from "next/link";
-import Image from "next/image";
-
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { DateBadge } from "@/components/ui/date-badge";
+import { Icons } from "./icons";
 
 interface TimelineItemProps {
   isActive?: boolean;
   shouldHideLine?: boolean;
+}
+
+interface ExperienceCardProps {
+  title: string;
+  company: string;
+  companyUrl: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  companyLogo: string;
+  isActive?: boolean;
+  isLast?: boolean;
+  skills: string[];
+}
+
+interface ExperienceTimelineProps {
+  experiences: Omit<ExperienceCardProps, "isLast">[];
+  isActive: boolean;
 }
 
 const TimelineItem: React.FC<TimelineItemProps> = ({
@@ -35,11 +52,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     </div>
   );
 };
-
-interface ExperienceTimelineProps {
-  experiences: Omit<ExperienceCardProps, "isLast">[];
-  isActive: boolean;
-}
 
 const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
   experiences,
@@ -71,22 +83,12 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
   );
 };
 
-interface ExperienceCardProps {
-  title: string;
-  company: string;
-  companyUrl: string;
-  date: string;
-  description: string;
-  companyLogo: string;
-  isActive?: boolean;
-  isLast?: boolean;
-}
-
 const ExperienceCard: React.FC<ExperienceCardProps> = ({
   title,
   company,
   companyUrl,
-  date,
+  startDate,
+  endDate,
   description,
   companyLogo,
 }) => {
@@ -124,12 +126,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 </p>
               </div>
             </div>
-            <Badge
-              variant="outline"
-              className="text-muted-foreground whitespace-nowrap mt-2 lg:mt-0"
-            >
-              {date}
-            </Badge>
+            <div className="space-y-2 flex items-center gap-2">
+              <DateBadge
+                startDate={new Date(startDate)}
+                endDate={new Date(endDate)}
+              />
+            </div>
           </div>
         </CardHeader>
         <CardContent>

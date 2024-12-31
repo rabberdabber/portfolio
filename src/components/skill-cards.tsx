@@ -90,7 +90,7 @@ export default function SkillCards() {
       initial="hidden"
       animate={controls}
       variants={containerVariants}
-      className="container"
+      className="container pt-4"
     >
       <LayoutGroup>
         <motion.div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">

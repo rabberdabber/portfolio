@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-
+import Layout from "@/components/layout";
 
 export default function Home() {
   return (
-    <div className="h-dvh w-dvw grid place-content-center">
-      Contact
-    </div>
+    <Layout>
+      <div className="h-dvh w-dvw grid place-content-center">Contact</div>
+    </Layout>
   );
 }

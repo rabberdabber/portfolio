@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
+import Layout from "@/components/layout";
 
-
-export default function Home() {
+export default function Projects() {
   return (
-    <div className="h-dvh w-dvw grid place-content-center">
-      Projects
-    </div>
+    <Layout>
+      <div className="h-dvh w-dvw grid place-content-center">Projects</div>
+    </Layout>
   );
 }

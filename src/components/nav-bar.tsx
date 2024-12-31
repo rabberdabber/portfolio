@@ -22,7 +22,6 @@ export default function MainNav({ items }: MainNavProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(entry.target.getAttribute("data-section"));
             setActiveSection(entry.target.getAttribute("data-section"));
           }
         });
@@ -38,7 +37,6 @@ export default function MainNav({ items }: MainNavProps) {
     };
   }, []);
 
-  console.log(activeSection);
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">

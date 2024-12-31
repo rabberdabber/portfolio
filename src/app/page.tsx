@@ -8,27 +8,13 @@ import Projects from "@/app/(sections)/projects";
 import Skills from "@/app/(sections)/skills";
 import About from "@/app/(sections)/about";
 import Certifications from "@/app/(sections)/certifications";
-
-type Section =
-  | "home"
-  | "projects"
-  | "contact"
-  | "experience"
-  | "skills"
-  | "about";
+import { siteConfig } from "@/config/site";
 
 export default function Home() {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState(0);
-  const sections: Section[] = [
-    "home",
-    "projects",
-    "contact",
-    "experience",
-    "skills",
-    "about",
-  ];
+  const sections = useRef(siteConfig.mainNav.map((item) => item.href));
 
   useEffect(() => {
     const container = containerRef.current;
@@ -41,37 +27,34 @@ export default function Home() {
 
       if (newActiveSection !== activeSection) {
         setActiveSection(newActiveSection);
-        router.push(`#${sections[newActiveSection]}`, { scroll: false });
+        router.push(sections.current[newActiveSection], { scroll: false });
       }
     };
 
     container.addEventListener("scroll", handleScroll);
     return () => container.removeEventListener("scroll", handleScroll);
-  }, [activeSection, router, sections]);
+  }, [activeSection, router]);
+
+  const titleToComponent: Record<
+    (typeof siteConfig.mainNav)[number]["title"],
+    React.ReactNode
+  > = {
+    home: <Hero />,
+    about: <About />,
+    experience: <Experience />,
+    projects: <Projects />,
+    skills: <Skills />,
+    certifications: <Certifications />,
+    contact: <Contact />,
+  };
 
   return (
     <div ref={containerRef} className="snap-y snap-mandatory">
-      <section id="home" className="h-[calc(100dvh-5rem)] snap-start">
-        <Hero />
-      </section>
-      <section id="about" className="h-[calc(100dvh-5rem)] snap-start">
-        <About />
-      </section>
-      <section id="projects" className="h-dvh snap-start">
-        <Projects />
-      </section>
-      <section id="contact" className="h-dvh snap-start">
-        <Contact />
-      </section>
-      <section id="experience" className="h-dvh snap-start">
-        <Experience />
-      </section>
-      <section id="certifications" className="h-dvh snap-start">
-        <Certifications />
-      </section>
-      <section id="skills" className="h-dvh snap-start">
-        <Skills />
-      </section>
+      {siteConfig.mainNav.map((item, index) => (
+        <section key={index} id={item.title} className="h-screen">
+          {titleToComponent[item.title]}
+        </section>
+      ))}
     </div>
   );
 }

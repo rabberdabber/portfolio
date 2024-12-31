@@ -14,75 +14,28 @@ import { CalendarIcon, CircleAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import certifications from "@/config/certificates";
+import Layout from "@/components/layout";
 
-interface Certification {
-  id: number;
-  name: string;
-  date: string;
-  instructor: string;
-  imageUrl: string;
-  tags: string[];
-  websiteUrl: string;
-}
-
-const certifications: Certification[] = [
-  {
-    id: 1,
-    name: "Advanced React with TypeScript",
-    date: "2024-08-25",
-    instructor: "Matt Pocock",
-    imageUrl: "/certifications/advanced-react-with-typescript.png",
-    websiteUrl: "https://www.totaltypescript.com/workshops/advanced-react-with-typescript",
-    tags: ["React", "TypeScript"],
-  },
-  {
-    id: 2,
-    name: "Zod Workshop",
-    date: "2024-07-10",
-    instructor: "Matt Pocock",
-    imageUrl: "/certifications/zod.png",
-    tags: ["typescript", "data validation"],
-    websiteUrl: "https://www.totaltypescript.com/tutorials/zod",
-  },
-  {
-    id: 3,
-    name: "CSS for JavaScript Developers",
-    date: "2024-06-01",
-    instructor: "Josh Comeau",
-    imageUrl: "/certifications/css_for_javascript.png",
-    tags: ["React", "JavaScript"],
-    websiteUrl: "https://css-for-js.dev/",
-  },
-  {
-    id: 4,
-    name: "The Joy of React",
-    date: "2024-05-15",
-    instructor: "Josh Comeau",
-    imageUrl: "/certifications/joy_of_react.png",
-    tags: ["React", "JavaScript"],
-    websiteUrl: "https://www.joyofreact.com/",
-  },
-
-
-];
-
-export default function Component() {
+export default function Certifications() {
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-6">My Certifications</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {certifications.map((cert) => (
-          <CertificationCard key={cert.id} certification={cert} />
-        ))}
+    <Layout>
+      <div className="container mx-auto p-4">
+        <h2 className="text-2xl font-bold mb-6">My Certifications</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {certifications.map((cert) => (
+            <CertificationCard key={cert.id} certification={cert} />
+          ))}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 
 function CertificationCard({
   certification,
 }: {
-  certification: Certification;
+  certification: (typeof certifications)[number];
 }) {
   return (
     <Card className="flex flex-col h-full">
@@ -96,7 +49,13 @@ function CertificationCard({
         </p>
         <p className="text-sm">Instructor: {certification.instructor}</p>
         <p className="text-sm">
-          Website: <Link href={certification.websiteUrl} className="text-sm text-muted-foreground hover:text-indigo-600">{certification.websiteUrl}</Link>
+          Website:{" "}
+          <Link
+            href={certification.websiteUrl}
+            className="text-sm text-muted-foreground hover:text-indigo-600"
+          >
+            {certification.websiteUrl}
+          </Link>
         </p>
         <div className="flex flex-wrap gap-2">
           {certification.tags.map((tag) => (
@@ -153,7 +112,6 @@ function CertificationCard({
                       </button>
                     </div>
                   </div>
-
                 </motion.div>
               </div>
             </AnimatePresence>

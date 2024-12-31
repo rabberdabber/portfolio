@@ -1,9 +1,10 @@
+import React from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import React from "react";
 
-const Hero = () => {
+export default function Hero() {
   const router = useRouter();
   return (
     <div className="max-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground relative overflow-hidden">
@@ -44,10 +45,12 @@ const Hero = () => {
         </p>
         <div className="flex items-center space-x-4">
           <div className="relative">
-            <img
+            <Image
               src="/profile.jpeg"
               alt="Author"
               className="w-12 h-12 rounded-full"
+              width={48}
+              height={48}
             />
             <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
           </div>
@@ -83,6 +86,4 @@ const Hero = () => {
       </div>
     </div>
   );
-};
-
-export default Hero;
+}

@@ -94,36 +94,36 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 }) => {
   return (
     <div className="w-full max-w-2xl mx-auto">
-      {" "}
       <Card className="bg-card">
         <CardHeader className="pb-2">
           <div className="flex flex-col lg:flex-row justify-between items-start gap-2">
             <div className="w-full lg:w-3/4 flex items-center">
-              <Image
-                src={companyLogo}
-                alt={`${company} logo`}
-                width={48}
-                height={48}
-                className="mr-3 flex-shrink-0"
-              />
+              <div className="w-[60px] h-[60px] flex items-center justify-center rounded-full overflow-hidden border border-gray-200 dark:border-gray-800 mr-3">
+                <Image
+                  src={companyLogo}
+                  alt={`${company} logo`}
+                  width={48}
+                  height={48}
+                  objectFit="contain"
+                  className="flex-shrink-0"
+                />
+              </div>
               <div className="min-w-0 flex-1">
                 <CardTitle className="text-xl font-semibold truncate">
                   {title}
                 </CardTitle>
-                <p className="text-muted-foreground flex items-center">
+                <Link
+                  href={companyUrl}
+                  className="text-muted-foreground hover:text-primary/80 flex items-center gap-1"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span className="truncate">{company}</span>
-                  <Link
-                    href={companyUrl}
-                    className="ml-1 text-primary hover:text-primary/80 flex-shrink-0"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <Icons.externalLink
-                      size={14}
-                      className="text-muted-foreground"
-                    />
-                  </Link>
-                </p>
+                  <Icons.externalLink
+                    size={14}
+                    className="text-muted-foreground"
+                  />
+                </Link>
               </div>
             </div>
             <div className="space-y-2 flex items-center gap-2">

@@ -3,11 +3,22 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
 
 export default function Hero() {
+  const theme = useTheme();
   const router = useRouter();
   return (
-    <div className="max-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground relative overflow-hidden">
+    <div className="relative max-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground overflow-hidden pt-[100px]">
+      <div className="absolute top-0 left-0 right-0 overflow-hidden w-full">
+        <Image
+          src={theme.theme === "dark" ? "/wave-dark.svg" : "/wave-light.svg"}
+          alt="Wave"
+          className="w-full h-auto"
+          width={1440}
+          height={270}
+        />
+      </div>
       <main className="flex flex-col items-center justify-center min-h-screen relative z-10 px-4 gap-4">
         {/* <h1 className="text-6xl font-bold mb-4 text-center max-w-4xl">
           <span className="bg-gradient-to-r from-pink-500 via-yellow-500 to-cyan-500 text-transparent bg-clip-text">
@@ -71,7 +82,7 @@ export default function Hero() {
         </div>
       </main>
 
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+      {/* <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 270"
@@ -83,7 +94,7 @@ export default function Hero() {
             d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
-      </div>
+      </div> */}
     </div>
   );
 }

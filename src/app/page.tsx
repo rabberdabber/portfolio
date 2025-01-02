@@ -1,6 +1,6 @@
 "use client";
-import { useRouter } from "next/navigation";
-import React, { MutableRefObject, useEffect, useRef, useState } from "react";
+
+import React, { useEffect, useRef } from "react";
 import Hero from "@/app/(sections)/hero";
 import Contact from "@/app/(sections)/contact";
 import Experience from "@/app/(sections)/experience";
@@ -9,12 +9,13 @@ import Skills from "@/app/(sections)/skills";
 import About from "@/app/(sections)/about";
 import Certifications from "@/app/(sections)/certifications";
 import { siteConfig } from "@/config/site";
+import { useSection } from "@/context/section-context";
+import { Section } from "@/types/nav";
 
 export default function Home() {
-  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeSection, setActiveSection] = useState(0);
-  const sections = useRef(siteConfig.mainNav.map((item) => item.href));
+  const { activeSection, setActiveSection } = useSection();
+  const sections = useRef(siteConfig.mainNav.map((item) => item.title));
 
   useEffect(() => {
     const container = containerRef.current;
@@ -25,15 +26,14 @@ export default function Home() {
       const windowHeight = window.innerHeight;
       const newActiveSection = Math.round(scrollPosition / windowHeight);
 
-      if (newActiveSection !== activeSection) {
-        setActiveSection(newActiveSection);
-        router.push(sections.current[newActiveSection], { scroll: false });
+      if (sections.current[newActiveSection] !== activeSection) {
+        setActiveSection(sections.current[newActiveSection] as Section);
       }
     };
 
     container.addEventListener("scroll", handleScroll);
     return () => container.removeEventListener("scroll", handleScroll);
-  }, [activeSection, router]);
+  }, [activeSection, setActiveSection]);
 
   const titleToComponent: Record<
     (typeof siteConfig.mainNav)[number]["title"],

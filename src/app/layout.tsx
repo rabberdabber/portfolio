@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import SiteHeader from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SectionProvider } from "@/context/section-context";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -39,24 +40,22 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
-          )}
-        >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-            </div>
-            <TailwindIndicator />
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SectionProvider>
+            <SiteHeader />
+            <div className="flex-1">{children}</div>
+          </SectionProvider>
+          <TailwindIndicator />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

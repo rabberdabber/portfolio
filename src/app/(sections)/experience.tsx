@@ -5,7 +5,7 @@ import Layout from "@/components/layout";
 
 export default function Experience() {
   return (
-    <Layout>
+    <Layout id="experience">
       <div className="flex flex-col items-center justify-between gap-1">
         <h1 className="text-4xl font-bold mb-2 flex items-center justify-center">
           Experience

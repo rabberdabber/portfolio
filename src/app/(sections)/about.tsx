@@ -10,7 +10,7 @@ import Layout from "@/components/layout";
 
 export default function About() {
   return (
-    <Layout>
+    <Layout id="about">
       <MotionWrap className="w-full py-24 lg:py-32 relative" id="about">
         <div className="grid place-content-center space-y-4 px-4 md:px-6 lg:space-y-10">
           {/* <div className="flex w-full flex-col items-center justify-center text-center lg:flex-row lg:justify-between lg:text-left">

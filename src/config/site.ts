@@ -1,36 +1,40 @@
-type NavItem = {
-  title: string;
-  href: string;
-};
+import { NavItem } from "@/types/nav";
 
 const mainNav = [
   {
     title: "home",
     href: "/",
+    disabled: false,
   },
   {
     title: "about",
     href: "/#about",
+    disabled: false,
   },
   {
     title: "experience",
     href: "/#experience",
+    disabled: false,
   },
   {
     title: "projects",
     href: "/#projects",
+    disabled: false,
   },
   {
     title: "skills",
     href: "/#skills",
+    disabled: false,
   },
   {
     title: "certifications",
     href: "/#certifications",
+    disabled: false,
   },
   {
     title: "contact",
     href: "/#contact",
+    disabled: false,
   },
 ] as const satisfies NavItem[];
 

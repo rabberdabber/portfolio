@@ -9,6 +9,12 @@ import {
   Mail,
   MapPin,
   ExternalLink,
+  Home,
+  User,
+  Briefcase,
+  FolderGit2,
+  Brain,
+  GraduationCap,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -22,6 +28,12 @@ export const Icons = {
   mail: Mail,
   mapPin: MapPin,
   externalLink: ExternalLink,
+  home: Home,
+  user: User,
+  briefcase: Briefcase,
+  folderGit2: FolderGit2,
+  brain: Brain,
+  graduationCap: GraduationCap,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

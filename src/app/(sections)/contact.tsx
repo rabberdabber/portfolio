@@ -82,12 +82,12 @@ export function ContactForm() {
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout id="contact">
       <div className="h-dvh w-dvw grid place-content-center p-4">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold mb-2">Get in Touch</h2>
           <p className="text-muted-foreground">
-            Have a question? We'd love to hear from you.
+            Have a question? We&apos;d love to hear from you.
           </p>
         </div>
         <ContactForm />

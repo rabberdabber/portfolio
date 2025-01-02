@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,8 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { CalendarIcon, CircleAlert } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { CalendarIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import certifications from "@/config/certificates";
@@ -19,7 +17,7 @@ import Layout from "@/components/layout";
 
 export default function Certifications() {
   return (
-    <Layout>
+    <Layout id="certifications">
       <div className="container mx-auto p-4">
         <h2 className="text-2xl font-bold mb-6">My Certifications</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

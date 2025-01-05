@@ -5,6 +5,7 @@ import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import Layout from "@/components/layout";
+import { TextLoop } from "@/components/ui/text-loop";
 
 export default function Hero() {
   const theme = useTheme();
@@ -35,7 +36,14 @@ export default function Hero() {
                   </svg>
                 </span>
               </h1>
-              <p className="text-muted-foreground flex items-center">
+              <TextLoop interval={3}>
+                <p className="text-xl font-medium">Backend Engineer</p>
+                <p className="text-xl font-medium">Frontend Engineer</p>
+                <p className="text-xl font-medium">
+                  Full Stack Software Engineer
+                </p>
+              </TextLoop>
+              <p className="text-muted-foreground text-sm flex items-center mt-1">
                 <Icons.mapPin className="w-4 h-4 mr-1" />
                 Seoul, South Korea
               </p>

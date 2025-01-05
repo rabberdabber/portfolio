@@ -82,7 +82,7 @@ function CertificationCard({
                     transition: {
                       type: "tween",
                       bounce: 0.3,
-                      duration: 0.75,
+                      duration: 0.3,
                     },
                   }}
                   exit={{ scale: 0, rotate: "180deg" }}

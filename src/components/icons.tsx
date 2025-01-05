@@ -15,6 +15,7 @@ import {
   FolderGit2,
   Brain,
   GraduationCap,
+  Search,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -34,6 +35,7 @@ export const Icons = {
   folderGit2: FolderGit2,
   brain: Brain,
   graduationCap: GraduationCap,
+  search: Search,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

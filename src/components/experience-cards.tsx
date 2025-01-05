@@ -21,6 +21,7 @@ interface ExperienceCardProps {
   isActive?: boolean;
   isLast?: boolean;
   skills: string[];
+  certificate?: string;
 }
 
 interface ExperienceTimelineProps {
@@ -59,9 +60,30 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
 }) => {
   return (
     <div className="space-y-8">
+      {!isActive && (
+        <div className="flex">
+          <TimelineItem isActive={true} />
+          <Card className="w-full max-w-2xl mx-auto bg-card">
+            <CardHeader className="flex flex-col items-center justify-center text-center">
+              <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mb-4">
+                <Icons.search className="w-8 h-8 text-green-500" />
+              </div>
+              <CardTitle className="text-xl font-semibold">
+                Looking for New Opportunities
+              </CardTitle>
+              <p className="text-sm text-muted-foreground mt-2">
+                Open to exciting new roles and challenges
+              </p>
+            </CardHeader>
+          </Card>
+        </div>
+      )}
       {experiences.map((experience, index) => (
         <div key={index} className="flex">
-          <TimelineItem isActive={isActive && index === 0} />
+          <TimelineItem
+            isActive={isActive && index === 0}
+            shouldHideLine={index === experiences.length - 1}
+          />
           <ExperienceCard
             {...experience}
             isActive={isActive && index === 0}
@@ -69,16 +91,6 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
           />
         </div>
       ))}
-      {experiences.length < 2 && (
-        <div className="flex">
-          <TimelineItem shouldHideLine isActive={false} />
-          <Card className="flex flex-col items-center justify-center m-auto">
-            <CardHeader>
-              <CardTitle>No prior experience</CardTitle>
-            </CardHeader>
-          </Card>
-        </div>
-      )}
     </div>
   );
 };
@@ -91,6 +103,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   endDate,
   description,
   companyLogo,
+  certificate,
 }) => {
   return (
     <div className="w-full max-w-2xl mx-auto">
@@ -135,9 +148,21 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           </div>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground line-clamp-3">
+          <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
             {description}
           </p>
+          {certificate && (
+            <Link
+              href={certificate}
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icons.fileText className="w-4 h-4" />
+              Download Certificate
+              <Icons.externalLink size={12} className="text-muted-foreground" />
+            </Link>
+          )}
         </CardContent>
       </Card>
     </div>

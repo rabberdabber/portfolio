@@ -1,14 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import { Icons } from "@/components/icons";
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogHeader,
+//   DialogTitle,
+//   DialogDescription,
+//   DialogTrigger,
+// } from "./ui/dialog";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from "./ui/dialog";
+  MorphingDialog,
+  MorphingDialogContent,
+  MorphingDialogTitle,
+  MorphingDialogDescription,
+  MorphingDialogTrigger,
+  MorphingDialogContainer,
+} from "./ui/morphing-dialog";
 
 interface Tag {
   name: string;
@@ -33,14 +41,27 @@ export function ProjectCard({
   githubUrl,
 }: ProjectCardProps) {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
+    <MorphingDialog
+      transition={{
+        type: "spring",
+        bounce: 0.05,
+        duration: 0.25,
+      }}
+    >
+      <MorphingDialogTrigger
+        style={{
+          borderRadius: "12px",
+        }}
+        className="flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+      >
         <div className="bg-white rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02] cursor-pointer">
           <div className="relative h-48 overflow-hidden">
-            <img
+            <Image
               src={imageUrl}
               alt={title}
               className="w-full h-full object-cover"
+              width={500}
+              height={500}
             />
           </div>
           <div className="p-6">
@@ -82,10 +103,12 @@ export function ProjectCard({
             </div>
           </div>
         </div>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
-        <DialogHeader>
-          <DialogTitle className="text-2xl mb-4">{title}</DialogTitle>
+      </MorphingDialogTrigger>
+      <MorphingDialogContainer className="border-2 border-red-500">
+        <MorphingDialogContent className="sm:max-w-[600px]">
+          <MorphingDialogTitle className="text-2xl mb-4">
+            {title}
+          </MorphingDialogTitle>
           <div className="mb-6">
             <Image
               src={imageUrl}
@@ -94,9 +117,9 @@ export function ProjectCard({
               width={500}
               height={500}
             />
-            <DialogDescription className="text-base leading-relaxed">
+            <MorphingDialogDescription className="text-base leading-relaxed">
               {description}
-            </DialogDescription>
+            </MorphingDialogDescription>
           </div>
           <div className="flex flex-wrap gap-2 mb-4">
             {tags.map((tag) => (
@@ -130,8 +153,8 @@ export function ProjectCard({
               </a>
             )}
           </div>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
+        </MorphingDialogContent>
+      </MorphingDialogContainer>
+    </MorphingDialog>
   );
 }

@@ -5,35 +5,25 @@ import {
   useAnimationControls,
   LayoutGroup,
 } from "framer-motion";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import Marquee from "@/components/marquee";
 import { Badge } from "@/components/ui/badge";
+import { skills } from "@/config/skills";
+import { Icons } from "@/components/icons";
 
-const skills = {
-  Backend: [
-    ["FastAPI", "Node.js", "PostgreSQL", "Firebase", "Redis"],
-    "implement RESTful or GRPC APIs and manage databases",
-  ],
-  Frontend: [
-    ["React", "React Native", "Next.js", "TailwindCSS", "HTML", "CSS"],
-    "implement UI components",
-  ],
-  DevOps: [["Docker", "Kubernetes"], "manage infrastructure and deployment"],
-  Languages: [
-    ["Typescript", "Python", "C/C++"],
-    "implement backend and frontend logic",
-  ],
-  Tools: [
-    ["Figma", "VS Code", "Git", "GitHub", "GitLab"],
-    "design and develop UI components",
-  ],
-} satisfies Record<string, [string[], string]>;
+const iconMap: { [key: string]: any } = {
+  Backend: Icons.serverIcon,
+  Frontend: Icons.layoutIcon,
+  DevOps: Icons.cloudIcon,
+  Languages: Icons.codeIcon,
+  Tools: Icons.wrenchIcon,
+};
+
+const bgColorMap: { [key: string]: string } = {
+  Backend: "from-amber-900/90 to-amber-950/90",
+  Frontend: "from-blue-900/90 to-blue-950/90",
+  DevOps: "from-purple-900/90 to-purple-950/90",
+  Languages: "from-emerald-900/90 to-emerald-950/90",
+  Tools: "from-rose-900/90 to-rose-950/90",
+};
 
 export default function SkillCards() {
   const ref = useRef(null);
@@ -68,18 +58,6 @@ export default function SkillCards() {
     },
   };
 
-  const marqueeVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 1,
-        duration: 0.8,
-      },
-    },
-  };
-
   if (isInView) {
     controls.start("visible");
   }
@@ -90,66 +68,51 @@ export default function SkillCards() {
       initial="hidden"
       animate={controls}
       variants={containerVariants}
-      className="container pt-4"
+      className="container mx-auto px-4 py-8"
     >
       <LayoutGroup>
-        <motion.div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(skills).map(([key, value], index) => {
             const [tools, description] = value;
+            const Icon = iconMap[key] || LightbulbIcon;
+            const bgGradient =
+              bgColorMap[key] || "from-gray-900/90 to-gray-950/90";
+
             return (
-              <motion.div key={key} layout variants={cardVariants}>
-                <Card className="relative group overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
-                  <CardHeader className="bg-slate-700 text-white">
-                    <CardTitle className="text-2xl font-bold">{key}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-6 flex-grow">
-                    <p className="text-slate-600">{description}</p>
-                  </CardContent>
-                  <CardFooter className="bg-slate-100 p-4">
-                    <div className="flex flex-wrap gap-2">
-                      {tools.map((tool) => (
-                        <Badge
-                          key={tool}
-                          className="bg-slate-200 text-slate-800 hover:bg-slate-300 transition-colors duration-200"
-                        >
-                          {tool}
-                        </Badge>
-                      ))}
+              <motion.div
+                key={key}
+                layout
+                variants={cardVariants}
+                className="group"
+              >
+                <div
+                  className={`relative h-full rounded-2xl bg-gradient-to-br ${bgGradient} p-6 transition-all duration-300 hover:scale-[1.02]`}
+                >
+                  <div className="mb-4">
+                    <div className="inline-block rounded-lg bg-white/10 p-3">
+                      <Icon className="h-6 w-6 text-white" />
                     </div>
-                  </CardFooter>
-                  <motion.div
-                    className="absolute bottom-0 left-0 w-full h-1 bg-blue-600"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </Card>
+                  </div>
+
+                  <h3 className="mb-2 text-2xl font-bold text-white">{key}</h3>
+                  <p className="mb-4 text-sm text-gray-300">{description}</p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {tools.map((tool) => (
+                      <Badge
+                        key={tool}
+                        className="bg-white/20 text-white hover:bg-white/30 transition-colors duration-200"
+                      >
+                        {tool}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             );
           })}
         </motion.div>
       </LayoutGroup>
-      <motion.div
-        className="mt-8 bg-slate-700 p-1 rounded-lg"
-        variants={marqueeVariants}
-      >
-        <div className="bg-white rounded-md p-2">
-          <Marquee pauseOnHover className="overflow-hidden">
-            {[
-              "Implement Restful and grpc server and design database",
-              "Create UI components and pages",
-              "Self host and deploy application",
-            ].map((skill) => (
-              <div
-                key={skill}
-                className="mx-6 text-lg font-semibold text-slate-700"
-              >
-                {skill}
-              </div>
-            ))}
-          </Marquee>
-        </div>
-      </motion.div>
     </motion.div>
   );
 }

@@ -11,7 +11,7 @@ import { siteConfig } from "@/config/site";
 import { useSection } from "@/context/section-context";
 import { Section } from "@/types/nav";
 
-export function NavList() {
+export function NavList({ className }: { className?: string }) {
   const { activeSection, setActiveSection } = useSection();
   const sectionToIconObject = {
     home: Icons.home,
@@ -30,7 +30,7 @@ export function NavList() {
   };
 
   return (
-    <NavigationMenuList className="gap-2 relative">
+    <NavigationMenuList className={cn("gap-2 relative", className)}>
       {siteConfig.mainNav.slice(1, 7).map((item) => (
         <NavigationMenuItem key={item.title}>
           <NavigationMenuLink

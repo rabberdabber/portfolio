@@ -28,6 +28,21 @@ export default function SiteHeader() {
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
+            <Link
+              href={siteConfig.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={buttonVariants({
+                  size: "icon",
+                  variant: "ghost",
+                })}
+              >
+                <Icons.linkedin />
+                <span className="sr-only">LinkedIn</span>
+              </div>
+            </Link>
             <ThemeToggle />
           </nav>
         </div>

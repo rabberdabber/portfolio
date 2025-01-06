@@ -8,6 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { skills } from "@/config/skills";
 import { Icons } from "@/components/icons";
+import { BentoCard } from "@/components/ui/bento-card";
 
 const iconMap: { [key: string]: any } = {
   Backend: Icons.serverIcon,
@@ -18,101 +19,73 @@ const iconMap: { [key: string]: any } = {
 };
 
 const bgColorMap: { [key: string]: string } = {
-  Backend: "from-amber-900/90 to-amber-950/90",
-  Frontend: "from-blue-900/90 to-blue-950/90",
-  DevOps: "from-purple-900/90 to-purple-950/90",
-  Languages: "from-emerald-900/90 to-emerald-950/90",
-  Tools: "from-rose-900/90 to-rose-950/90",
+  Backend:
+    "dark:from-amber-950/90 dark:to-amber-900/90 from-amber-50 to-amber-100/90",
+  Frontend:
+    "dark:from-blue-950/90 dark:to-blue-900/90 from-blue-50 to-blue-100/90",
+  DevOps:
+    "dark:from-purple-950/90 dark:to-purple-900/90 from-purple-50 to-purple-100/90",
+  Languages:
+    "dark:from-emerald-950/90 dark:to-emerald-900/90 from-emerald-50 to-emerald-100/90",
+  Tools:
+    "dark:from-rose-950/90 dark:to-rose-900/90 from-rose-50 to-rose-100/90",
 };
 
-export default function SkillCards() {
+const sizeMap = {
+  Backend: "lg:col-span-2 lg:row-span-1",
+  Frontend: "lg:col-span-1 lg:row-span-1",
+  DevOps: "lg:col-span-1 lg:row-span-1",
+  Languages: "lg:col-span-2 lg:row-span-1",
+  Tools: "lg:col-span-1 lg:row-span-1",
+};
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+export function BentoGrid() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const controls = useAnimationControls();
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-      scale: 0.9,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-        duration: 0.6,
-      },
-    },
-  };
 
   if (isInView) {
     controls.start("visible");
   }
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={containerVariants}
-      className="container mx-auto px-4 py-8"
-    >
+    <div className="mx-auto max-w-7xl p-8">
       <LayoutGroup>
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(skills).map(([key, value], index) => {
-            const [tools, description] = value;
-            const Icon = iconMap[key] || LightbulbIcon;
-            const bgGradient =
-              bgColorMap[key] || "from-gray-900/90 to-gray-950/90";
-
-            return (
-              <motion.div
-                key={key}
-                layout
-                variants={cardVariants}
-                className="group"
-              >
-                <div
-                  className={`relative h-full rounded-2xl bg-gradient-to-br ${bgGradient} p-6 transition-all duration-300 hover:scale-[1.02]`}
-                >
-                  <div className="mb-4">
-                    <div className="inline-block rounded-lg bg-white/10 p-3">
-                      <Icon className="h-6 w-6 text-white" />
-                    </div>
-                  </div>
-
-                  <h3 className="mb-2 text-2xl font-bold text-white">{key}</h3>
-                  <p className="mb-4 text-sm text-gray-300">{description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {tools.map((tool) => (
-                      <Badge
-                        key={tool}
-                        className="bg-white/20 text-white hover:bg-white/30 transition-colors duration-200"
-                      >
-                        {tool}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+        >
+          {Object.entries(skills).map(([key, [tools, description]], index) => (
+            <BentoCard
+              key={key}
+              title={key}
+              description={description}
+              icon={iconMap[key as keyof typeof iconMap]}
+              tools={tools}
+              className={`bg-gradient-to-br p-6 rounded-3xl ${
+                bgColorMap[key as keyof typeof bgColorMap]
+              } ${sizeMap[key as keyof typeof sizeMap]}`}
+              index={index}
+            />
+          ))}
         </motion.div>
       </LayoutGroup>
-    </motion.div>
+    </div>
   );
+}
+
+export default function SkillCards() {
+  return <BentoGrid />;
 }

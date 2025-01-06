@@ -13,7 +13,7 @@ export default function MainNav() {
         <Icons.logo className="h-6 w-6" />
         <span className="inline-block font-bold">{siteConfig.name}</span>
       </Link>
-      <NavigationMenu className="fixed top-2 right-[200px]">
+      <NavigationMenu>
         <div className="rounded-full border-2 border-border/40 p-1 backdrop-blur">
           <NavList />
         </div>

@@ -1,69 +1,107 @@
 import React from "react";
-import MotionWrap from "@/components/motion-wrap";
 import Image from "next/image";
-import Reveal from "@/components/reveal";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ArrowUpRightIcon } from "lucide-react";
-import RevealText from "@/components/text-reveal";
+import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout";
+import { Icons } from "@/components/icons";
+import Link from "next/link";
+import { useTheme } from "next-themes";
 
 export default function About() {
+  const theme = useTheme();
   return (
     <Layout id="about">
-      <MotionWrap className="w-full py-24 lg:py-32 relative" id="about">
-        <div className="grid place-content-center space-y-4 px-4 md:px-6 lg:space-y-10">
-          {/* <div className="flex w-full flex-col items-center justify-center text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="flex flex-col items-center lg:items-start">
-            <Reveal>
-              <h2 className="text-4xl font-bold leading-tight tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight">
-                About
-              </h2>
-            </Reveal>
-            <Reveal>
-              <h2 className="-mt-2 text-4xl font-bold leading-tight tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight">
-                Me
-              </h2>
-            </Reveal>
+      <div className="container mx-auto py-24 px-4 md:px-6 relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground overflow-hidden">
+        {/* Top Wave */}
+        <div className="absolute top-0 left-0 right-0 overflow-hidden w-full">
+          <Image
+            src={theme.theme === "dark" ? "/wave-dark.svg" : "/wave-light.svg"}
+            alt="Wave"
+            className="w-full h-auto border-b-2 border-primary/50"
+            width={200}
+            height={150}
+          />
+        </div>
+
+        {/* Decorative Frame - Adjusted positioning */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ top: "150px" }}
+        >
+          {/* Top Left Corner */}
+          <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/50" />
+          {/* Top Right Corner */}
+          <div className="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-primary/50" />
+          {/* Bottom Left Corner */}
+          <div className="absolute bottom-4 left-0 w-32 h-32 border-l-2 border-b-2 border-primary/50" />
+          {/* Bottom Right Corner */}
+          <div className="absolute bottom-4 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/50" />
+        </div>
+
+        {/* Main Content - Adjusted padding top */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center relative z-10 pt-16">
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative size-64 md:size-80">
+              <Image
+                src="/profile.png"
+                alt="Profile photo"
+                fill
+                className="object-cover rounded-full border-4 border-background shadow-xl"
+                priority
+              />
+            </div>
           </div>
-          <p className="mt-4 hidden text-gray-500 dark:text-gray-400 lg:mt-0 lg:block lg:w-[35%]">
-            Here&apos;s where I share my journey through tech, highlighting the
-            experiences and passions that drive my innovative pursuits.
-          </p>
-        </div> */}
-          <div className="space-y-4">
-            <p className="mt-6 max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              <RevealText>
-                I am a passionate and creative Web Developer with a love for
-                beautiful and functional websites. I have experience working
-                with a variety of web technologies and frameworks and I am
-                always eager to learn new things and take on new challenges.
-              </RevealText>
-            </p>
-            <Button asChild>
-              <Link href="resume.pdf" target="_blank">
-                View Resume <ArrowUpRightIcon className="ml-2 size-5" />
-              </Link>
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                About Me
+              </h1>
+              <p className="text-gray-500 dark:text-gray-400">
+                Full Stack Engineer
+              </p>
+            </div>
+            <div className="space-y-4">
+              <p className="text-gray-500 dark:text-gray-400">
+                Hello! I&apos;m a passionate software developer specializing in
+                full-cycle web development. From product conceptualization to
+                deployment, I focus on building scalable applications that solve
+                real business problems using cutting-edge technologies.
+              </p>
+              <p className="text-gray-500 dark:text-gray-400">
+                Curious and good problem solving skills. Believe I can be an
+                asset to any team building software.
+              </p>
+            </div>
+            <Card className="p-6 bg-muted/50">
+              <div className="space-y-4">
+                <h2 className="text-xl font-semibold">Quick Facts</h2>
+                <div className="flex flex-col space-y-6">
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium min-w-24">Experience:</span>
+                    <span>2+ Years</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium min-w-24">Education:</span>
+                    <span>
+                      BS Computer Science and Electrical Engineering from{" "}
+                      <Link
+                        href="https://www.topuniversities.com/universities/kaist-korea-advanced-institute-science-technology"
+                        className="text-primary underline hover:text-primary/80"
+                      >
+                        KAIST
+                      </Link>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+            <Button className="gap-2">
+              <Icons.download className="size-4" />
+              Download Resume
             </Button>
           </div>
         </div>
-        {/* <div className="absolute top-4 left-0 right-0 rotate-180">
-        <svg
-          className="w-full h-auto text-muted/30"
-          width="1001"
-          height="51"
-          viewBox="0 0 1001 51"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M276.335 23.0009C167.075 22.9529 0.5 50.5664 0.5 50.5664H1000.5C1000.5 50.5664 891.737 8.51346 812.228 1.78471C697.762 -7.90236 641.186 43.2892 525.612 45.6108C427.173 47.5882 374.831 23.0442 276.335 23.0009Z"
-            fill="currentColor"
-            fillOpacity="1"
-          />
-        </svg>
-      </div> */}
-      </MotionWrap>
+      </div>
     </Layout>
   );
 }

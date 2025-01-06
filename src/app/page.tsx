@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div ref={containerRef} className="snap-y snap-mandatory">
       {siteConfig.mainNav.map((item, index) => (
-        <section key={index} id={item.title} className="h-screen">
+        <section key={index} id={item.title} className="min-h-screen">
           {titleToComponent[item.title]}
         </section>
       ))}

@@ -35,20 +35,21 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 }) => {
   return (
     <div className="relative pl-8 pb-12">
-      <div className="absolute left-0 top-1/2 flex items-center justify-center">
+      <div className="absolute left-0 top-0 flex items-center justify-center">
         <div
-          className={`w-5 h-5 rounded-full ${
-            isActive ? "bg-green-500 animate-pulse" : "bg-gray-300"
-          }`}
-        />
-        <div
-          className={`absolute w-3 h-3 rounded-full ${
-            isActive ? "bg-green-300" : "bg-gray-200"
-          }`}
-        />
+          className={`w-6 h-6 rounded-full ${
+            isActive ? "bg-green-500/20" : ""
+          } flex items-center justify-center`}
+        >
+          <div
+            className={`w-3 h-3 rounded-full ${
+              isActive ? "bg-green-500 animate-pulse" : "bg-gray-400"
+            }`}
+          />
+        </div>
       </div>
       {!shouldHideLine && (
-        <div className="absolute left-2.5 top-[calc(50%+1.25rem)] -bottom-1/2 w-0.5 bg-gradient-to-b from-green-500 via-green-300 to-gray-300" />
+        <div className="absolute left-[11px] top-6 h-full w-[2px] bg-gradient-to-b from-green-500/50 to-gray-200/50" />
       )}
     </div>
   );

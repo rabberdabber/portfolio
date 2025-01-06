@@ -16,6 +16,12 @@ import {
   Brain,
   GraduationCap,
   Search,
+  ServerIcon,
+  LayoutIcon,
+  CloudIcon,
+  CodeIcon,
+  WrenchIcon,
+  ArrowRight,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -36,6 +42,12 @@ export const Icons = {
   brain: Brain,
   graduationCap: GraduationCap,
   search: Search,
+  serverIcon: ServerIcon,
+  layoutIcon: LayoutIcon,
+  cloudIcon: CloudIcon,
+  codeIcon: CodeIcon,
+  wrenchIcon: WrenchIcon,
+  arrowRight: ArrowRight,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

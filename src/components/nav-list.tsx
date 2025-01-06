@@ -11,22 +11,6 @@ import { siteConfig } from "@/config/site";
 import { useSection } from "@/context/section-context";
 import { Section } from "@/types/nav";
 
-{
-  /* <Link
-key={index}
-href={item.href}
-data-section={item.title}
-onClick={() => setActiveSection(item.title as Section)}
-className={cn(
-  "flex items-center text-sm font-medium text-foreground/60 hover:text-foreground",
-  activeSection === item.title && "text-foreground",
-  item.disabled && "cursor-not-allowed opacity-80"
-)}
->
-{item.title}
-</Link> */
-}
-
 export function NavList() {
   const { activeSection, setActiveSection } = useSection();
   const sectionToIconObject = {
@@ -47,7 +31,7 @@ export function NavList() {
 
   return (
     <NavigationMenuList className="gap-2 relative">
-      {siteConfig.mainNav.map((item) => (
+      {siteConfig.mainNav.slice(1, 7).map((item) => (
         <NavigationMenuItem key={item.title}>
           <NavigationMenuLink
             href={item.href}
@@ -60,7 +44,9 @@ export function NavList() {
             onClick={() => setActiveSection(item.title)}
           >
             {sectionToIcon(item.title)}
-            <span>{item.title}</span>
+            <span>
+              {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
+            </span>
             {activeSection === item.title && (
               <motion.div
                 layoutId="active-pill"

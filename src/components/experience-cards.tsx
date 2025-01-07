@@ -133,10 +133,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                   target="_blank"
                 >
                   <span className="truncate">{company}</span>
-                  <Icons.externalLink
-                    size={14}
-                    className="text-muted-foreground"
-                  />
+                  <Icons.fileText size={14} className="text-muted-foreground" />
                 </Link>
               </div>
             </div>
@@ -160,7 +157,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               rel="noopener noreferrer"
             >
               <Icons.fileText className="w-4 h-4" />
-              Download Certificate
+              Career Certificate
               <Icons.externalLink size={12} className="text-muted-foreground" />
             </Link>
           )}

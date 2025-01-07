@@ -12,22 +12,8 @@ export default function About() {
   return (
     <Layout id="about">
       <div className="container mx-auto py-24 px-4 md:px-6 relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground overflow-hidden">
-        {/* Top Wave */}
-        <div className="absolute top-0 left-0 right-0 overflow-hidden w-full">
-          <Image
-            src={theme.theme === "dark" ? "/wave-dark.svg" : "/wave-light.svg"}
-            alt="Wave"
-            className="w-full h-auto border-b-2 border-primary/50"
-            width={200}
-            height={150}
-          />
-        </div>
-
         {/* Decorative Frame - Adjusted positioning */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ top: "150px" }}
-        >
+        <div className="absolute inset-0 pointer-events-none">
           {/* Top Left Corner */}
           <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/50" />
           {/* Top Right Corner */}
@@ -62,7 +48,7 @@ export default function About() {
             </div>
             <div className="space-y-4">
               <p className="text-gray-500 dark:text-gray-400">
-                Hello! I&apos;m a passionate software developer specializing in
+                I&apos;m a passionate software developer specializing in
                 full-cycle web development. From product conceptualization to
                 deployment, I focus on building scalable applications that solve
                 real business problems using cutting-edge technologies.

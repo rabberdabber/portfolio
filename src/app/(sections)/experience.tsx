@@ -21,7 +21,7 @@ export default function Experience() {
               description:
                 "Led development of key features in the cognitive assessment platform. Implemented responsive UI components and optimized database queries for improved performance.",
               companyLogo: "/emocog_logo.png",
-              certificate: "/certification_of_employment.pdf",
+              certificate: "/career_certificate.pdf",
               skills: ["React", "TypeScript", "Node.js", "PostgreSQL"],
             },
           ]}

@@ -5,7 +5,6 @@ import {
   useAnimationControls,
   LayoutGroup,
 } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { skills } from "@/config/skills";
 import { Icons } from "@/components/icons";
 import { BentoCard } from "@/components/ui/bento-card";
@@ -43,7 +42,22 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: [0.4, 0, 0.2, 1],
     },
   },
 };
@@ -68,17 +82,25 @@ export function BentoGrid() {
           className="grid grid-cols-1 lg:grid-cols-3 gap-6"
         >
           {Object.entries(skills).map(([key, [tools, description]], index) => (
-            <BentoCard
+            <motion.div
               key={key}
-              title={key}
-              description={description}
-              icon={iconMap[key as keyof typeof iconMap]}
-              tools={tools}
-              className={`bg-gradient-to-br p-6 rounded-3xl ${
-                bgColorMap[key as keyof typeof bgColorMap]
-              } ${sizeMap[key as keyof typeof sizeMap]}`}
-              index={index}
-            />
+              variants={itemVariants}
+              layoutId={`skill-card-${index}`}
+              transition={{
+                layout: { duration: 0.4, ease: "easeOut" },
+              }}
+            >
+              <BentoCard
+                title={key}
+                description={description}
+                icon={iconMap[key as keyof typeof iconMap]}
+                tools={tools}
+                className={`bg-gradient-to-br p-6 rounded-3xl ${
+                  bgColorMap[key as keyof typeof bgColorMap]
+                } ${sizeMap[key as keyof typeof sizeMap]}`}
+                index={index}
+              />
+            </motion.div>
           ))}
         </motion.div>
       </LayoutGroup>

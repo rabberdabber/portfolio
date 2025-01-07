@@ -11,11 +11,28 @@ import Certifications from "@/app/(sections)/certifications";
 import { siteConfig } from "@/config/site";
 import { useSection } from "@/context/section-context";
 import { Section } from "@/types/nav";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { ScrollNavigator } from "@/components/ui/scroll-navigator";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { activeSection, setActiveSection } = useSection();
   const sections = useRef(siteConfig.mainNav.map((item) => item.title));
+
+  const scrollToSection = (direction: "up" | "down") => {
+    if (!containerRef.current) return;
+
+    const currentIndex = sections.current.indexOf(activeSection);
+    const nextIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
+
+    if (nextIndex >= 0 && nextIndex < sections.current.length) {
+      const targetSection = document.getElementById(
+        sections.current[nextIndex]
+      );
+      targetSection?.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(sections.current[nextIndex] as Section);
+    }
+  };
 
   useEffect(() => {
     const container = containerRef.current;
@@ -49,12 +66,27 @@ export default function Home() {
   };
 
   return (
-    <div ref={containerRef} className="snap-y snap-mandatory">
+    <div ref={containerRef} className="snap-y snap-mandatory relative">
       {siteConfig.mainNav.map((item, index) => (
-        <section key={index} id={item.title} className="min-h-screen">
+        <AnimatedSection key={index} id={item.title}>
           {titleToComponent[item.title]}
-        </section>
+        </AnimatedSection>
       ))}
+
+      <div className="fixed right-8 bottom-8 flex flex-col gap-4">
+        {activeSection !== "home" && (
+          <ScrollNavigator
+            direction="up"
+            onClick={() => scrollToSection("up")}
+          />
+        )}
+        {activeSection !== "contact" && (
+          <ScrollNavigator
+            direction="down"
+            onClick={() => scrollToSection("down")}
+          />
+        )}
+      </div>
     </div>
   );
 }

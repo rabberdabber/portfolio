@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout";
 import { motion } from "framer-motion";
 import StaggeredLetter from "@/components/ui/staggered-letter";
+import DiscloseImage from "@/components/ui/disclose-image";
 
 export default function Hero() {
   return (
@@ -78,45 +79,17 @@ export default function Hero() {
           </div>
 
           {/* Right side image */}
-          <div className="order-first lg:order-last">
-            <div className="relative mx-auto w-full max-w-[700px] aspect-square">
-              {/* Decorative frames that follow the skew */}
-              <div
-                className="absolute inset-0 border-[3px] border-primary/20 rounded-2xl transform rotate-3
-                transition-all duration-300 ease-in-out 
-                [clip-path:polygon(0_0,_100%_0,_100%_100%,_0_100%)] 
-                group-hover:[clip-path:polygon(0_5%,_100%_0,_100%_95%,_0%_100%)]
-                group-hover:scale-95"
-              ></div>
-              <div
-                className="absolute inset-0 border-[3px] border-primary/30 rounded-2xl transform -rotate-2
-                transition-all duration-300 ease-in-out 
-                [clip-path:polygon(0_0,_100%_0,_100%_100%,_0_100%)] 
-                group-hover:[clip-path:polygon(0_5%,_100%_0,_100%_95%,_0%_100%)]
-                group-hover:scale-95"
-              ></div>
-
-              {/* Main image with skew effect */}
-              <div
-                className="relative border-[3px] border-primary rounded-2xl overflow-hidden 
-                transition-all duration-300 ease-in-out 
-                [clip-path:polygon(0_0,_100%_0,_100%_100%,_0_100%)] 
-                group-hover:[clip-path:polygon(0_5%,_100%_0,_100%_95%,_0%_100%)]
-                group-hover:scale-95"
-              >
-                <div className="group-hover:[&>img]:scale-125">
-                  <Image
-                    src="/coding_laptop.jpg"
-                    alt="Hero Background"
-                    className="rounded-xl transition-all duration-300 ease-in-out"
-                    style={{ objectFit: "cover" }}
-                    priority
-                    width={700}
-                    height={700}
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="relative mx-auto w-full max-w-[700px] aspect-square">
+            {/* Main image with skew effect */}
+            <DiscloseImage
+              src="/coding_laptop.jpeg"
+              alt="Hero Background"
+              className="rounded-xl transition-all duration-300 ease-in-out"
+              style={{ objectFit: "contain" }}
+              width={700}
+              height={700}
+              priority
+            />
           </div>
         </main>
       </div>

@@ -42,7 +42,7 @@ export default function StaggeredLetter({
             transition={{
               delay: index * delay,
             }}
-            key={letter}
+            key={`${letter}-${index}`}
           >
             {letter === " " ? <span>&nbsp;</span> : letter}
           </motion.div>

@@ -9,7 +9,7 @@ import { useMediaQuery, breakpoints } from "@/hooks/useMediaQuery";
 import { MobileNav } from "@/components/ui/mobile-nav";
 
 export default function MainNav() {
-  const isDesktop = useMediaQuery(breakpoints.md) && false;
+  const isDesktop = useMediaQuery(breakpoints.md);
 
   return (
     <>

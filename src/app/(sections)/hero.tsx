@@ -7,12 +7,15 @@ import Layout from "@/components/layout";
 import { motion } from "framer-motion";
 import StaggeredLetter from "@/components/ui/staggered-letter";
 import DiscloseImage from "@/components/ui/disclose-image";
+import { useMediaQuery, breakpoints } from "@/hooks/useMediaQuery";
 
 export default function Hero() {
+  const isMobile = !useMediaQuery(breakpoints.md);
+
   return (
     <Layout id="home" addPadding={false}>
-      <div className="relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground overflow-hidden pt-4">
-        <main className="container grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[calc(100dvh-4rem)] relative z-10">
+      <div className="relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground overflow-hidden">
+        <main className="container grid grid-cols-1 pt-8 lg:grid-cols-2 lg:pt-0 gap-8 items-center justify-center min-h-[calc(100dvh-4rem)] relative z-10">
           {/* Left side content */}
           <div className="flex flex-col items-center justify-center space-y-8 text-center max-w-2xl mx-auto w-full">
             <motion.div
@@ -79,14 +82,14 @@ export default function Hero() {
           </div>
 
           {/* Right side image */}
-          <div className="relative mx-auto w-full max-w-[700px] aspect-square">
-            {/* Main image with skew effect */}
+          <div className="relative mx-auto w-full flex items-center justify-center">
+            {/* Main image with  disclosing effect */}
             <DiscloseImage
               src="/coding_laptop.jpeg"
               alt="Hero Background"
-              className="rounded-xl transition-all duration-300 ease-in-out"
+              className="rounded-xl transition-all ease-[cubic-bezier(.405,_0,_.025,_1)] duration-[5000ms]"
               style={{ objectFit: "contain" }}
-              width={700}
+              width={isMobile ? 300 : 700}
               height={700}
               priority
             />

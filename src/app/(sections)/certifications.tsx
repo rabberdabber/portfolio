@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, ExternalLink, Award } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import certifications from "@/config/certificates";
@@ -17,18 +19,53 @@ import Layout from "@/components/layout";
 import { breakpoints, useMediaQuery } from "@/hooks/useMediaQuery";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 20 },
+};
+
 export default function Certifications() {
   return (
     <Layout id="certifications">
-      <div className="container mx-auto p-4">
-        <h2 className="text-2xl font-bold mb-6 text-center">
-          My Certifications
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {certifications.map((cert) => (
-            <CertificationCard key={cert.id} certification={cert} />
+      <div className="container mx-auto px-4 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Professional Certifications
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A collection of my professional certifications in software
+            engineering.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={{
+            animate: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+          initial="initial"
+          animate="animate"
+        >
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={cert.id}
+              variants={fadeInUp}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+            >
+              <CertificationCard certification={cert} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </Layout>
   );
@@ -42,37 +79,33 @@ function CertificateDialog({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">View Certificate</Button>
+        <Button
+          variant="outline"
+          className="w-full transition-all hover:scale-105 hover:shadow-lg"
+        >
+          <Award className="mr-2 h-4 w-4" />
+          View Certificate
+        </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="max-w-4xl">
         <AnimatePresence>
-          <div className="flex cursor-pointer items-center justify-center overflow-y-scroll bg-slate-900/20 p-8 backdrop-blur">
-            <motion.div
-              initial={{ scale: 0, rotate: "180deg" }}
-              animate={{
-                scale: 1,
-                rotate: "0deg",
-                transition: {
-                  type: "tween",
-                  bounce: 0.3,
-                  duration: 0.3,
-                },
-              }}
-              exit={{ scale: 0, rotate: "180deg" }}
-            >
-              <div className="flex flex-col gap-3">
-                <div className="p-2 bg-white rounded-lg shadow-lg">
-                  <Image
-                    src={certification.imageUrl}
-                    alt={`${certification.name} Certificate`}
-                    className="w-full h-auto border-4 border-gray-200 rounded"
-                    width={1000}
-                    height={1000}
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          <motion.div
+            className="relative backdrop-blur p-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+          >
+            <div className="bg-card rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src={certification.imageUrl}
+                alt={`${certification.name} Certificate`}
+                className="w-full h-auto transition-transform hover:scale-[1.02]"
+                width={1200}
+                height={800}
+                priority
+              />
+            </div>
+          </motion.div>
         </AnimatePresence>
       </DialogContent>
     </Dialog>
@@ -87,7 +120,13 @@ function CertificateDrawer({
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="outline">View Certificate</Button>
+        <Button
+          variant="outline"
+          className="w-full transition-all hover:scale-105 hover:shadow-lg"
+        >
+          <Award className="mr-2 h-4 w-4" />
+          View Certificate
+        </Button>
       </DrawerTrigger>
       <DrawerContent className="h-[90vh]">
         <div className="flex flex-col items-center p-4 h-full overflow-y-auto">
@@ -101,14 +140,16 @@ function CertificateDrawer({
                 duration: 0.4,
               },
             }}
+            className="w-full max-w-2xl mx-auto"
           >
-            <div className="p-2 bg-white rounded-lg shadow-lg">
+            <div className="bg-card rounded-xl overflow-hidden shadow-2xl">
               <Image
                 src={certification.imageUrl}
                 alt={`${certification.name} Certificate`}
-                className="w-full h-auto border-4 border-gray-200 rounded"
-                width={1000}
-                height={1000}
+                className="w-full h-auto"
+                width={1200}
+                height={800}
+                priority
               />
             </div>
           </motion.div>
@@ -126,30 +167,44 @@ function CertificationCard({
   const isMobile = !useMediaQuery(breakpoints.md);
 
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="group h-full transition-all hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02]">
       <CardHeader>
-        <CardTitle>{certification.name}</CardTitle>
+        <CardTitle className="flex items-center gap-2 text-xl">
+          <Award className="h-5 w-5 text-primary" />
+          {certification.name}
+        </CardTitle>
       </CardHeader>
-      <CardContent className="flex-grow">
-        <p className="text-sm text-muted-foreground mb-2">
-          <CalendarIcon className="inline-block mr-1 h-4 w-4" />
-          {new Date(certification.date).toLocaleDateString()}
-        </p>
-        <p className="text-sm">Instructor: {certification.instructor}</p>
-        <p className="text-sm">
-          Website:{" "}
+      <CardContent className="flex-grow space-y-4">
+        <div className="flex items-center text-sm text-muted-foreground">
+          <CalendarIcon className="mr-2 h-4 w-4" />
+          {new Date(certification.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-sm font-medium">
+            Instructor: {certification.instructor}
+          </p>
           <Link
             href={certification.websiteUrl}
-            className="text-sm text-muted-foreground hover:text-indigo-600"
+            className="inline-flex items-center text-sm text-primary hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {certification.websiteUrl}
+            Visit Course
+            <ExternalLink className="ml-1 h-3 w-3" />
           </Link>
-        </p>
-        <div className="flex flex-wrap gap-2">
+        </div>
+
+        <div className="flex flex-wrap gap-2 pt-2">
           {certification.tags.map((tag) => (
             <Badge
               key={tag}
-              className="rounded-md bg-indigo-600/20 px-2 py-1 text-sm text-indigo-600 mt-2"
+              variant="secondary"
+              className="transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               {tag}
             </Badge>

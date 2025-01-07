@@ -31,11 +31,9 @@ export default function DiscloseImage({
   vertical?: boolean;
   priority?: boolean;
 }) {
-  const isMobile = useMediaQuery(breakpoints.sm);
-
   const [imageLoaded, setImageLoaded] = useState(false);
   const baseClassName =
-    "ease-[cubic-bezier(.405,_0,_.025,_1)] duration-[5000ms] absolute bg-sky-500 transition-all animate-out fill-mode-forwards";
+    "absolute bg-sky-500 transition-all animate-out fill-mode-forwards";
 
   return (
     <div
@@ -43,17 +41,15 @@ export default function DiscloseImage({
       style={{
         width: width,
         height: height,
-        maxWidth: isMobile ? "300px" : "100%",
       }}
     >
       <Image
         onLoad={() => setImageLoaded(true)}
         {...props}
-        className={cn("h-full w-full object-cover rounded-xl", className)}
+        className={cn("rounded-xl border-2 border-primary/50", className)}
         src={src as string}
         alt={alt as string}
-        width={width as number}
-        height={height as number}
+        fill
         priority={priority}
       />
 

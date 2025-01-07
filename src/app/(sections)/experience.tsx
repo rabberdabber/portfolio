@@ -7,8 +7,8 @@ export default function Experience() {
   return (
     <Layout id="experience">
       <div className="flex flex-col items-center justify-between gap-1">
-        <h1 className="text-4xl font-bold mb-2 flex items-center justify-center">
-          Experience
+        <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
+          Professional Experience
         </h1>
         <ExperienceTimeline
           experiences={[

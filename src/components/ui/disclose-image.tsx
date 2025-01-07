@@ -1,6 +1,8 @@
 import { ImgHTMLAttributes, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { breakpoints } from "@/hooks/useMediaQuery";
 
 /**
  * All the props are passed to the img element.
@@ -29,6 +31,8 @@ export default function DiscloseImage({
   vertical?: boolean;
   priority?: boolean;
 }) {
+  const isMobile = useMediaQuery(breakpoints.sm);
+
   const [imageLoaded, setImageLoaded] = useState(false);
   const baseClassName =
     "ease-[cubic-bezier(.405,_0,_.025,_1)] duration-[5000ms] absolute bg-sky-500 transition-all animate-out fill-mode-forwards";
@@ -36,7 +40,11 @@ export default function DiscloseImage({
   return (
     <div
       className="relative overflow-hidden rounded-xl"
-      style={{ width: width, height: height }}
+      style={{
+        width: width,
+        height: height,
+        maxWidth: isMobile ? "300px" : "100%",
+      }}
     >
       <Image
         onLoad={() => setImageLoaded(true)}

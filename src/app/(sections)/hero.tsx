@@ -11,7 +11,7 @@ import DiscloseImage from "@/components/ui/disclose-image";
 export default function Hero() {
   return (
     <Layout id="home" addPadding={false}>
-      <div className="relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground overflow-hidden">
+      <div className="relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground overflow-hidden pt-4">
         <main className="container grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[calc(100dvh-4rem)] relative z-10">
           {/* Left side content */}
           <div className="flex flex-col items-center justify-center space-y-8 text-center max-w-2xl mx-auto w-full">

@@ -6,23 +6,26 @@ import Layout from "@/components/layout";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import { breakpoints, useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function About() {
-  const theme = useTheme();
+  const isDesktop = useMediaQuery(breakpoints.md);
   return (
     <Layout id="about">
       <div className="container mx-auto py-24 px-4 md:px-6 relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90 text-foreground overflow-hidden">
         {/* Decorative Frame - Adjusted positioning */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Top Left Corner */}
-          <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/50" />
-          {/* Top Right Corner */}
-          <div className="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-primary/50" />
-          {/* Bottom Left Corner */}
-          <div className="absolute bottom-4 left-0 w-32 h-32 border-l-2 border-b-2 border-primary/50" />
-          {/* Bottom Right Corner */}
-          <div className="absolute bottom-4 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/50" />
-        </div>
+        {isDesktop && (
+          <div className="absolute inset-0 pointer-events-none">
+            {/* Top Left Corner */}
+            <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/50" />
+            {/* Top Right Corner */}
+            <div className="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-primary/50" />
+            {/* Bottom Left Corner */}
+            <div className="absolute bottom-4 left-0 w-32 h-32 border-l-2 border-b-2 border-primary/50" />
+            {/* Bottom Right Corner */}
+            <div className="absolute bottom-4 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/50" />
+          </div>
+        )}
 
         {/* Main Content - Adjusted padding top */}
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center relative z-10 pt-16">

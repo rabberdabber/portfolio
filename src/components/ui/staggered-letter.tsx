@@ -21,7 +21,7 @@ export default function StaggeredLetter({
   className,
   ...props
 }: DropLetterProps) {
-  const common = "text-4xl font-bold drop-shadow-lg";
+  const common = "text-2xl md:text-4xl font-bold drop-shadow-lg";
   return (
     <div
       className={cn(

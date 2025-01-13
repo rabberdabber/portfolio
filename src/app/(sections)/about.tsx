@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
+import { TextEffect } from "@/components/ui/text-effect";
 
 export default function About() {
   return (
@@ -33,16 +34,19 @@ export default function About() {
               </p>
             </div>
             <div className="space-y-4 text-center">
-              <p className="text-gray-500 dark:text-gray-400">
+              <TextEffect className="text-gray-500 dark:text-gray-400">
                 I&apos;m a passionate software developer specializing in
                 full-cycle web development. From product conceptualization to
                 deployment, I focus on building scalable applications that solve
                 real business problems using cutting-edge technologies.
-              </p>
-              <p className="text-gray-500 dark:text-gray-400">
+              </TextEffect>
+              <TextEffect
+                delay={3}
+                className="text-gray-500 dark:text-gray-400"
+              >
                 Curious and good problem solving skills. Believe I can be an
                 asset to any team building software.
-              </p>
+              </TextEffect>
             </div>
             <Card className="p-6 bg-muted/50">
               <div className="space-y-4">

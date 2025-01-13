@@ -7,14 +7,10 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { motion } from "framer-motion";
-import { useMediaQuery, breakpoints } from "@/hooks/useMediaQuery";
 import { TextEffect } from "@/components/ui/text-effect";
-import DiscloseImage from "@/components/ui/disclose-image";
 import ImagesWithBlur from "@/components/images-with-blur";
 
 export default function Hero() {
-  const isMobile = !useMediaQuery(breakpoints.md);
-
   return (
     <Layout id="home" addPadding={false}>
       <div className="relative min-h-[calc(100dvh-4rem)] overflow-hidden">
@@ -123,10 +119,11 @@ export default function Hero() {
               className="relative rounded-xl overflow-hidden shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent z-10" />
-              <DiscloseImage
+              <ImagesWithBlur
                 src="/coding_laptop.jpeg"
                 alt="Hero Background"
                 className="object-cover transition-transform duration-700 hover:scale-105"
+                fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
               />

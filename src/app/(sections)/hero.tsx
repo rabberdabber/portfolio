@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,8 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { motion } from "framer-motion";
 import { useMediaQuery, breakpoints } from "@/hooks/useMediaQuery";
 import { TextEffect } from "@/components/ui/text-effect";
+import DiscloseImage from "@/components/ui/disclose-image";
+import ImagesWithBlur from "@/components/images-with-blur";
 
 export default function Hero() {
   const isMobile = !useMediaQuery(breakpoints.md);
@@ -72,7 +73,7 @@ export default function Hero() {
               className="flex items-center space-x-4 bg-background/50 backdrop-blur-sm p-3 rounded-full shadow-lg"
             >
               <div className="relative">
-                <Image
+                <ImagesWithBlur
                   src="/profile.png"
                   alt="Author"
                   className="w-12 h-12 rounded-full ring-2 ring-primary/20"
@@ -122,11 +123,10 @@ export default function Hero() {
               className="relative rounded-xl overflow-hidden shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent z-10" />
-              <Image
+              <DiscloseImage
                 src="/coding_laptop.jpeg"
                 alt="Hero Background"
                 className="object-cover transition-transform duration-700 hover:scale-105"
-                fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
               />

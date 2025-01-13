@@ -1,11 +1,11 @@
 import React from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
 import { TextEffect } from "@/components/ui/text-effect";
+import ImagesWithBlur from "@/components/images-with-blur";
 
 export default function About() {
   return (
@@ -15,7 +15,7 @@ export default function About() {
         <div className="grid gap-12 lg:grid-cols-[auto_1fr] lg:gap-16 items-center justify-center relative z-10 pt-16">
           <div className="flex justify-center lg:justify-end">
             <div className="relative size-64 md:size-80">
-              <Image
+              <ImagesWithBlur
                 src="/profile.png"
                 alt="Profile photo"
                 fill

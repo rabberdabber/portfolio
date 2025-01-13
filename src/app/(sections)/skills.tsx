@@ -7,6 +7,7 @@ import Marquee from "@/components/marquee";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { TOOL_ICONS_AND_DESCRIPTIONS } from "@/config/skills";
 import { motion } from "framer-motion";
+import ImagesWithBlur from "@/components/images-with-blur";
 
 export default function Skills() {
   return (
@@ -41,7 +42,7 @@ export default function Skills() {
                 >
                   <CardHeader className="flex flex-row items-center gap-4 pb-2">
                     <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 p-3 ring-1 ring-primary/20">
-                      <Image
+                      <ImagesWithBlur
                         src={icon}
                         alt={`${tool} icon`}
                         fill

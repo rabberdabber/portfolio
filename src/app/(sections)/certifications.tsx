@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Card,
@@ -11,13 +10,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { CalendarIcon, ExternalLink, Award } from "lucide-react";
+import { CalendarIcon, ExternalLink, Award, Images } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import certifications from "@/config/certificates";
 import Layout from "@/components/layout";
 import { breakpoints, useMediaQuery } from "@/hooks/useMediaQuery";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import ImagesWithBlur from "@/components/images-with-blur";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -96,7 +96,7 @@ function CertificateDialog({
             exit={{ opacity: 0, scale: 0.9 }}
           >
             <div className="bg-card rounded-xl overflow-hidden shadow-2xl">
-              <Image
+              <ImagesWithBlur
                 src={certification.imageUrl}
                 alt={`${certification.name} Certificate`}
                 className="w-full h-auto transition-transform hover:scale-[1.02]"
@@ -143,7 +143,7 @@ function CertificateDrawer({
             className="w-full max-w-2xl mx-auto"
           >
             <div className="bg-card rounded-xl overflow-hidden shadow-2xl">
-              <Image
+              <ImagesWithBlur
                 src={certification.imageUrl}
                 alt={`${certification.name} Certificate`}
                 className="w-full h-auto"

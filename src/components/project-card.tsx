@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Icons } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import {
@@ -8,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import ImagesWithBlur from "./images-with-blur";
 
 interface Tag {
   name: string;
@@ -36,7 +36,7 @@ export function ProjectCard({
       <DialogTrigger asChild>
         <div className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-zinc-200/50 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800/50 dark:bg-zinc-900/50 dark:shadow-zinc-900/20 dark:hover:shadow-zinc-900/30 backdrop-blur-sm">
           <div className="relative h-48 overflow-hidden">
-            <Image
+            <ImagesWithBlur
               src={imageUrl}
               alt={title}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -101,7 +101,7 @@ export function ProjectCard({
       <DialogContent className="p-0">
         <DialogTitle className="sr-only">{title}</DialogTitle>
         <div className="relative h-64 w-full overflow-hidden">
-          <Image
+          <ImagesWithBlur
             src={imageUrl}
             alt={title}
             className="h-full w-full object-cover"

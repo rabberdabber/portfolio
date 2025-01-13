@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { DateBadge } from "@/components/ui/date-badge";
 import { Icons } from "./icons";
 import { Badge } from "@/components/ui/badge";
+import ImagesWithBlur from "./images-with-blur";
 
 interface TimelineItemProps {
   isActive?: boolean;
@@ -128,7 +128,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <div className="flex flex-col lg:flex-row justify-between items-start gap-4">
             <div className="w-full lg:w-3/4 flex items-center gap-4">
               <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-2">
-                <Image
+                <ImagesWithBlur
                   src={companyLogo}
                   alt={`${company} logo`}
                   width={48}

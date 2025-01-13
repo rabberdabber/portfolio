@@ -3,6 +3,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { breakpoints } from "@/hooks/useMediaQuery";
+import ImagesWithBlur from "../images-with-blur";
 
 /**
  * All the props are passed to the img element.

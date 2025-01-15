@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import SiteHeader from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import { SectionProvider } from "@/context/section-context";
 
 const fontSans = FontSans({
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <SiteHeader />
             <div className="flex-1">{children}</div>
           </SectionProvider>
+          <Toaster />
           <TailwindIndicator />
         </ThemeProvider>
       </body>

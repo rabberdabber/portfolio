@@ -18,18 +18,39 @@ import { Input } from "@/components/ui/input";
 import Layout from "@/components/layout";
 import contactSchema, { ContactData } from "../schemas/contact";
 import { Textarea } from "@/components/ui/textarea";
+import { sendEmail } from "../actions/contact";
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
   const form = useForm<ContactData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       email: "",
-      message: "hello there!",
+      message: "",
     },
   });
+  const { toast } = useToast();
 
-  function onSubmit(values: z.infer<typeof contactSchema>) {
-    // TODO: Implement email sending
+  async function onSubmit(values: z.infer<typeof contactSchema>) {
+    try {
+      const result = await sendEmail(values);
+
+      if (result.success) {
+        toast({
+          title: "Success",
+          description: "Your message has been sent successfully!",
+        });
+        form.reset();
+      } else {
+        throw new Error(result.error);
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (

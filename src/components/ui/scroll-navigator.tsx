@@ -26,6 +26,7 @@ export function ScrollNavigator({
       className={cn(
         "rounded-full p-3 bg-background/80 backdrop-blur-sm border border-border/40 shadow-lg",
         "hover:bg-accent hover:border-border/80 transition-colors",
+        "relative isolate z-50",
         className
       )}
       whileHover={{ scale: 1.1 }}

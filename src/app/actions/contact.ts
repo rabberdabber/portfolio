@@ -1,3 +1,4 @@
+"server-only";
 "use server";
 
 interface EmailPayload {
@@ -18,7 +19,7 @@ export async function sendEmail(formData: { email: string; message: string }) {
   try {
     const emailPayload: EmailPayload = {
       From: "bake@codebake.io",
-      To: "bake@codebake.io",
+      To: "bereketsiyum@gmail.com",
       Subject: "New Contact Form Submission",
       HtmlBody: `
         <h2>New Contact Form Submission</h2>

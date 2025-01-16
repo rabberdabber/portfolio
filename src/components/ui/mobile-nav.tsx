@@ -11,13 +11,15 @@ import { cn } from "@/lib/utils";
 export function MobileNav() {
   return (
     <Drawer direction="left">
-      <DrawerTrigger className={cn(
-        "ml-auto inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-      )}>
+      <DrawerTrigger
+        className={cn(
+          "ml-auto inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+        )}
+      >
         <Icons.menu className="h-6 w-6" />
         <span className="sr-only">Toggle menu</span>
       </DrawerTrigger>
-      <DrawerContent className="w-[280px] h-full">
+      <DrawerContent direction="left" className="w-[280px] h-full">
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center p-4 border-b">
@@ -28,15 +30,15 @@ export function MobileNav() {
           </div>
 
           {/* Navigation */}
-          <div className="flex-1 flex flex-col justify-center px-4">
+          <div className="flex-1 flex flex-col justify-around px-4">
             <NavigationMenu className="w-full">
-              <NavList className="flex-col space-y-4 w-full" />
+              <NavList className="flex-col w-full h-full space-y-4" />
             </NavigationMenu>
           </div>
 
           {/* Footer */}
           <div className="p-4 border-t">
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex items-center space-x-4">
               <Link
                 href={siteConfig.links.github}
                 target="_blank"
@@ -45,7 +47,7 @@ export function MobileNav() {
                   "inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 )}
               >
-                <Icons.gitHub className="h-5 w-5"/>
+                <Icons.gitHub className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link

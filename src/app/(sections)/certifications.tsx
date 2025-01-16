@@ -128,7 +128,7 @@ function CertificateDrawer({
           View Certificate
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="h-[90vh]">
+      <DrawerContent>
         <div className="flex flex-col items-center p-4 h-full overflow-y-auto">
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}

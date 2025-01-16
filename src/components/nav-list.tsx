@@ -30,14 +30,16 @@ export function NavList({ className }: { className?: string }) {
   };
 
   return (
-    <NavigationMenuList className={cn("gap-2 relative", className)}>
+    <NavigationMenuList
+      className={cn("gap-2 relative items-start md:items-center", className)}
+    >
       {siteConfig.mainNav.slice(1, 7).map((item) => (
         <NavigationMenuItem key={item.title}>
           <NavigationMenuLink
             href={item.href}
             className={cn(
               navigationMenuTriggerStyle(),
-              "gap-2 group rounded-full px-6 relative flex items-center text-sm font-medium text-foreground/60 hover:text-foreground",
+              "border border-foreground/25 md:border-none gap-2 group rounded-full px-6 relative flex items-center text-sm font-medium text-foreground/60 hover:text-foreground",
               activeSection === item.title && "text-foreground bg-muted",
               item.disabled && "cursor-not-allowed opacity-80"
             )}

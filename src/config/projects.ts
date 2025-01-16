@@ -14,11 +14,10 @@ interface ProjectCardProps {
 
 export const projects: ProjectCardProps[] = [
   {
-    title: "E-Commerce Dashboard",
+    title: "Content Platform",
     description:
       "A comprehensive dashboard for managing online store operations with real-time analytics and inventory management.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    imageUrl: "/content_platform.png",
     tags: [
       { name: "React", color: "bg-blue-100 text-blue-800" },
       { name: "TypeScript", color: "bg-indigo-100 text-indigo-800" },
@@ -28,11 +27,10 @@ export const projects: ProjectCardProps[] = [
     githubUrl: "https://github.com",
   },
   {
-    title: "Task Management App",
+    title: "Content Gen Server",
     description:
       "A collaborative task management platform with real-time updates and team collaboration features.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800",
+    imageUrl: "/contentgen.png",
     tags: [
       { name: "React", color: "bg-blue-100 text-blue-800" },
       { name: "Node.js", color: "bg-green-100 text-green-800" },
@@ -42,11 +40,10 @@ export const projects: ProjectCardProps[] = [
     githubUrl: "https://github.com",
   },
   {
-    title: "Weather Forecast App",
+    title: "Portfolio Website",
     description:
       "A modern weather application with detailed forecasts, interactive maps, and location-based services.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&q=80&w=800",
+    imageUrl: "/portfolio.png",
     tags: [
       { name: "React", color: "bg-blue-100 text-blue-800" },
       { name: "APIs", color: "bg-purple-100 text-purple-800" },

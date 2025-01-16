@@ -9,6 +9,7 @@ import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { SectionProvider } from "@/context/section-context";
+import { ScrollNavigation } from "@/components/scroll-navigation";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -53,9 +54,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <SectionProvider>
             <SiteHeader />
             <div className="flex-1">{children}</div>
+            <Toaster />
+            <TailwindIndicator />
+            <ScrollNavigation />
           </SectionProvider>
-          <Toaster />
-          <TailwindIndicator />
         </ThemeProvider>
       </body>
     </html>

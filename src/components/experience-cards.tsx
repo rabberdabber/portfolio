@@ -67,11 +67,11 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
   isActive,
 }) => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 min-w-fit">
       {!isActive && (
         <div className="flex">
           <TimelineItem isActive={true} />
-          <Card className="w-full max-w-2xl mx-auto bg-card hover:shadow-lg transition-shadow duration-200">
+          <Card className="max-w-full md:max-w-2xl mr-2 mx-auto bg-card hover:shadow-lg transition-shadow duration-200">
             <CardHeader className="flex flex-col items-center justify-center text-center space-y-4">
               <div className="w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mb-2 ring-4 ring-green-500/20">
                 <Icons.search className="w-10 h-10 text-green-500" />
@@ -87,7 +87,9 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
               </div>
               <div className="flex flex-wrap gap-2 justify-center">
                 <Badge variant="secondary">Full-time</Badge>
+                <Badge variant="secondary">On-site</Badge>
                 <Badge variant="secondary">Remote</Badge>
+                <Badge variant="secondary">Hybrid</Badge>
               </div>
             </CardHeader>
           </Card>

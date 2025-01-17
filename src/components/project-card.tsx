@@ -8,6 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import ImagesWithBlur from "./images-with-blur";
+import ContentGenProjectDescription from "./contentgen-project-description";
 
 interface Tag {
   name: string;
@@ -98,7 +99,7 @@ export function ProjectCard({
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="p-0">
+      <DialogContent className="p-0 overflow-y-auto max-h-screen">
         <DialogTitle className="sr-only">{title}</DialogTitle>
         <div className="relative h-64 w-full overflow-hidden">
           <ImagesWithBlur
@@ -110,7 +111,7 @@ export function ProjectCard({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
         </div>
-        <div className="relative -mt-12 space-y-6 px-6 pb-8">
+        {/* <div className="relative -mt-12 space-y-6 px-6 pb-8">
           <div className="relative rounded-lg bg-white/80 p-6 backdrop-blur-sm dark:bg-zinc-900/80">
             <h2 className="mb-3 text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               {title}
@@ -154,7 +155,8 @@ export function ProjectCard({
               )}
             </div>
           </div>
-        </div>
+        </div> */}
+        <ContentGenProjectDescription />
       </DialogContent>
     </Dialog>
   );

@@ -25,11 +25,24 @@ import {
   ChevronUp,
   ChevronDown,
   Menu,
+  Cloud,
+  Database,
+  Lock,
+  Server,
+  Terminal,
+  Workflow,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  brain: Brain,
+  cloud: Cloud,
+  database: Database,
+  lock: Lock,
+  server: Server,
+  terminal: Terminal,
+  workflow: Workflow,
   sun: Sun,
   moon: Moon,
   link: Link,
@@ -42,7 +55,6 @@ export const Icons = {
   user: User,
   briefcase: Briefcase,
   folderGit2: FolderGit2,
-  brain: Brain,
   graduationCap: GraduationCap,
   search: Search,
   serverIcon: ServerIcon,

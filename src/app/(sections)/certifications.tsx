@@ -167,7 +167,7 @@ function CertificationCard({
   const isMobile = !useMediaQuery(breakpoints.md);
 
   return (
-    <Card className="group h-full transition-all hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02]">
+    <Card className="group h-full transition-all hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-xl">
           <Award className="h-5 w-5 text-primary" />

@@ -26,12 +26,12 @@ export function NavList({ className }: { className?: string }) {
   const sectionToIcon = (section: Section) => {
     const IconComponent =
       sectionToIconObject[section as keyof typeof sectionToIconObject];
-    return <IconComponent className={cn("w-4 h-4 transition-colors")} />;
+    return <IconComponent className={cn("w-6 h-6 transition-colors")} />;
   };
 
   return (
     <NavigationMenuList
-      className={cn("gap-2 relative items-start md:items-center", className)}
+      className={cn("gap-2 relative items-start lg:items-center", className)}
     >
       {siteConfig.mainNav.slice(1, 7).map((item) => (
         <NavigationMenuItem key={item.title}>
@@ -46,9 +46,9 @@ export function NavList({ className }: { className?: string }) {
             onClick={() => setActiveSection(item.title)}
           >
             {sectionToIcon(item.title)}
-            <span>
+            <p className="text-xl lg:text-base">
               {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
-            </span>
+            </p>
             {activeSection === item.title && (
               <motion.div
                 layoutId="active-pill"

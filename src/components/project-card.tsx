@@ -83,23 +83,21 @@ function ProjectDrawer({
   return (
     <Drawer>
       <DrawerTrigger asChild>{children}</DrawerTrigger>
-      <DrawerContent className="max-h-screen overflow-y-auto">
-        <div className="flex flex-col items-center p-4 h-full overflow-y-auto">
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{
-              scale: 1,
-              opacity: 1,
-              transition: {
-                type: "spring",
-                duration: 0.4,
-              },
-            }}
-            className="w-full max-w-2xl mx-auto"
-          >
-            <ProjectContent imageUrl={imageUrl} title={title} />
-          </motion.div>
-        </div>
+      <DrawerContent>
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{
+            scale: 1,
+            opacity: 1,
+            transition: {
+              type: "spring",
+              duration: 0.4,
+            },
+          }}
+          className="w-full max-w-2xl mx-auto overflow-y-auto max-h-[80vh]"
+        >
+          <ProjectContent imageUrl={imageUrl} title={title} />
+        </motion.div>
       </DrawerContent>
     </Drawer>
   );

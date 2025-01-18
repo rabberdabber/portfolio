@@ -44,7 +44,7 @@ export default function Layout({
         addPadding ? "pt-16" : ""
       )}
     >
-      {children}
+      <div className="container mx-auto pt-24 px-4 md:px-6">{children}</div>
     </main>
   );
 }

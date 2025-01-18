@@ -31,11 +31,18 @@ import {
   Server,
   Terminal,
   Workflow,
+  Hourglass,
+  Building2,
+  Calendar,
+  BriefcaseIcon,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  building2: Building2,
+  calendar: Calendar,
+  briefcaseIcon: BriefcaseIcon,
   brain: Brain,
   cloud: Cloud,
   database: Database,
@@ -66,6 +73,7 @@ export const Icons = {
   chevronUp: ChevronUp,
   chevronDown: ChevronDown,
   menu: Menu,
+  hourglass: Hourglass,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

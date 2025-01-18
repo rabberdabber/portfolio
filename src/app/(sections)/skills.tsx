@@ -23,7 +23,10 @@ export default function Skills() {
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
           A collection of my skills and tools in software engineering I am
-          proficient in. I am open to learn new technologies and tools.
+          proficient in.
+        </p>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          I am open to learn new technologies and tools.
         </p>
       </motion.div>
       <SkillCards />

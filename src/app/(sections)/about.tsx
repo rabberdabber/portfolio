@@ -28,7 +28,7 @@ export default function About() {
             >
               <div className="relative size-64 md:size-80">
                 {/* Simple Frame */}
-                <div className="absolute -inset-6 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-[2rem]" />
+                <div className="absolute -inset-6 bg-gradient-to-r from-muted-foreground/10 via-muted-foreground/5 to-muted-foreground/10 rounded-[2rem]" />
 
                 {/* Corner Accents */}
                 <div className="absolute -top-4 -left-4 size-8 border-t-2 border-l-2 border-primary/30 rounded-tl-xl" />
@@ -91,7 +91,9 @@ export default function About() {
                       <span className="font-medium text-primary/80 min-w-24">
                         Experience:
                       </span>
-                      <span className="text-muted-foreground">2+ Years</span>
+                      <span className="text-muted-foreground">
+                        2+ Years as a Software Engineer
+                      </span>
                     </div>
                     <div className="flex items-center gap-4">
                       <span className="font-medium text-primary/80 min-w-24">
@@ -113,6 +115,15 @@ export default function About() {
                       </span>
                       <span className="text-muted-foreground">
                         English, Amharic, Beginner Korean
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <span className="font-medium text-primary/80 min-w-24">
+                        Hobbies:
+                      </span>
+                      <span className="text-muted-foreground">
+                        Reading articles, watching youtube, and offcourse
+                        building software
                       </span>
                     </div>
                   </div>

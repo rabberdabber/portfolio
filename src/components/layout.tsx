@@ -40,11 +40,11 @@ export default function Layout({
     <main
       ref={ref}
       className={cn(
-        "snap-y snap-mandatory min-h-screen",
-        addPadding ? "pt-16" : ""
+        "snap-y snap-mandatory min-h-[calc(100dvh-4rem)]",
+        addPadding ? "pt-20 px-4 md:px-6 pb-4" : ""
       )}
     >
-      <div className="container mx-auto pt-24 px-4 md:px-6">{children}</div>
+      {children}
     </main>
   );
 }

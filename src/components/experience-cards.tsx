@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { DateBadge } from "@/components/ui/date-badge";
-import { Icons } from "./icons";
+import { Icons } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import ImagesWithBlur from "./images-with-blur";
 
@@ -19,17 +19,18 @@ interface ExperienceCardProps {
   companyUrl: string;
   startDate: string;
   endDate: string;
-  description: string;
   companyLogo: string;
   isActive?: boolean;
   isLast?: boolean;
   skills: string[];
   certificate?: string;
+  children?: React.ReactNode;
 }
 
 interface ExperienceTimelineProps {
   experiences: Omit<ExperienceCardProps, "isLast">[];
   isActive: boolean;
+  children?: React.ReactNode;
 }
 
 const TimelineItem: React.FC<TimelineItemProps> = ({
@@ -65,6 +66,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
   experiences,
   isActive,
+  children,
 }) => {
   return (
     <div className="space-y-6 min-w-fit">
@@ -105,7 +107,9 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
             {...experience}
             isActive={isActive && index === 0}
             isLast={index === experiences.length - 1}
-          />
+          >
+            {children}
+          </ExperienceCard>
         </div>
       ))}
     </div>
@@ -118,10 +122,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   companyUrl,
   startDate,
   endDate,
-  description,
   companyLogo,
   certificate,
   skills,
+  children,
 }) => {
   return (
     <div className="w-full max-w-2xl mx-auto">
@@ -168,10 +172,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
-          <p className="text-sm text-muted-foreground">{description}</p>
+          {/* <p className="text-sm text-muted-foreground">{description}</p> */}
+          {children}
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <Badge key={skill} variant="outline">
+              <Badge
+                key={skill}
+                variant="outline"
+                className="text-muted-foreground bg-muted-foreground/10"
+              >
                 {skill}
               </Badge>
             ))}

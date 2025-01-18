@@ -22,16 +22,19 @@ export function MobileNav() {
       <DrawerContent direction="left" className="w-[280px] h-full">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center p-4 border-b">
-            <Link href="/" className="flex items-center space-x-2">
+          <div className="flex items-center p-4">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 hover:bg-accent hover:text-accent-foreground"
+            >
               <Icons.logo className="h-6 w-6" />
               <span className="inline-block font-bold">{siteConfig.name}</span>
             </Link>
           </div>
 
           {/* Navigation */}
-          <div className="flex-1 flex flex-col justify-around px-4">
-            <NavigationMenu className="w-full">
+          <div className="flex-1 flex flex-col justify-around px-0">
+            <NavigationMenu className="w-full border-2 border-border/40 p-1 backdrop-blur">
               <NavList className="flex-col w-full h-full space-y-4" />
             </NavigationMenu>
           </div>

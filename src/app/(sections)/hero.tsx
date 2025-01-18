@@ -13,14 +13,13 @@ import ImagesWithBlur from "@/components/images-with-blur";
 export default function Hero() {
   return (
     <Layout id="home" addPadding={false}>
-      <div className="relative min-h-[calc(100dvh-4rem)] overflow-hidden">
-        {/* Background gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/10 z-0" />
+      <div className="relative overflow-hidden min-h-screen w-screen">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-primary/5 z-0 " />
 
-        {/* Radial gradient for added depth */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary-rgb),0.1)_0%,transparent_65%)] z-0" />
+        {/* Radial gradient - made more subtle */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary-rgb),0.05)_0%,transparent_60%)] z-0" />
 
-        <main className="container grid grid-cols-1 pt-8 lg:grid-cols-2 lg:pt-0 gap-8 items-center justify-center min-h-[calc(100dvh-4rem)] relative z-10">
+        <main className="grid grid-cols-1 pt-8 lg:grid-cols-2 lg:pt-0 gap-8 px-4 md:px-6 items-center justify-center relative z-10 min-h-screen w-screen">
           {/* Left side content */}
           <div className="flex flex-col items-center justify-center space-y-8 text-center max-w-2xl mx-auto w-full">
             <motion.div
@@ -35,13 +34,17 @@ export default function Hero() {
                 transition={{ delay: 0.2 }}
                 className="text-xl text-muted-foreground md:text-2xl"
               >
-                Hi, I&apos;m Bereket
+                Hello there{" "}
+                <span className="animate-wave origin-[70%_70%] inline-block">
+                  👋
+                </span>
+                , I&apos;m <span className="font-bold">Bereket</span>
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50"
+                className="text-4xl font-bold tracking-tight leading-6 sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50 line"
               >
                 Full Stack Software Engineer
               </motion.h1>
@@ -66,7 +69,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="flex items-center space-x-4 bg-background/50 backdrop-blur-sm p-3 rounded-full shadow-lg"
+              className="flex items-center space-x-4 bg-background/80 backdrop-blur-sm p-3 rounded-full shadow-sm border border-border/50"
             >
               <div className="relative">
                 <ImagesWithBlur
@@ -99,7 +102,7 @@ export default function Hero() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="backdrop-blur-sm bg-background/50 shadow-lg hover:bg-background/80"
+                  className="backdrop-blur-sm bg-background/80 shadow-sm hover:bg-background/90"
                 >
                   View Projects
                 </Button>
@@ -116,9 +119,9 @@ export default function Hero() {
           >
             <AspectRatio
               ratio={12 / 9}
-              className="relative rounded-xl overflow-hidden shadow-2xl"
+              className="relative rounded-xl overflow-hidden shadow-lg"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/10 to-transparent z-10" />
               <ImagesWithBlur
                 src="/coding_laptop.jpeg"
                 alt="Hero Background"

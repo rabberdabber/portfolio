@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays } from "lucide-react";
-
+import { Icons } from "@/components/icons";
+import { Separator } from "@/components/ui/separator";
 interface DateBadgeProps {
   startDate: Date;
   endDate: Date;
@@ -41,9 +42,10 @@ export function DateBadge({ startDate, endDate, className }: DateBadgeProps) {
         <span className="font-medium">
           {formatDate(startDate)} - {formatDate(endDate)}
         </span>
-        <span className="ml-2 px-1.5 py-0.5 bg-primary/10 rounded-sm text-xs font-semibold">
+        <div className="ml-2 px-1.5 py-0.5 bg-primary/10 rounded-sm text-xs font-semibold flex gap-1 items-center justify-center">
+          <Icons.hourglass className="w-3 h-3 mr-1" />
           {calculateDuration(startDate, endDate)}
-        </span>
+        </div>
       </Badge>
     </div>
   );

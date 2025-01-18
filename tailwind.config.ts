@@ -63,20 +63,46 @@ const config = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
         },
         "marquee-x": {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+          from: {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(calc(-100% - var(--gap)))",
+          },
         },
         "marquee-y": {
-          from: { transform: "translateY(0)" },
-          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+          from: {
+            transform: "translateY(0)",
+          },
+          to: {
+            transform: "translateY(calc(-100% - var(--gap)))",
+          },
+        },
+        wave: {
+          "0%": { transform: "rotate(0.0deg)" },
+          "10%": { transform: "rotate(14.0deg)" },
+          "20%": { transform: "rotate(-8.0deg)" },
+          "30%": { transform: "rotate(14.0deg)" },
+          "40%": { transform: "rotate(-4.0deg)" },
+          "50%": { transform: "rotate(10.0deg)" },
+          "60%": { transform: "rotate(0.0deg)" },
+          "100%": { transform: "rotate(0.0deg)" },
         },
       },
       animation: {
@@ -84,6 +110,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "marquee-horizontal": "marquee-x var(--duration) infinite linear",
         "marquee-vertical": "marquee-y var(--duration) linear infinite",
+        wave: "wave 2.5s infinite",
       },
     },
   },

@@ -69,7 +69,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="flex items-center space-x-4 bg-background/80 backdrop-blur-sm p-3 rounded-full shadow-sm border border-border/50"
+              className="flex items-center space-x-4 bg-background/80 backdrop-blur-sm p-3 rounded-full shadow-sm"
             >
               <div className="relative">
                 <ImagesWithBlur

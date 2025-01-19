@@ -131,8 +131,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
     <div className="w-full max-w-2xl mx-auto">
       <Card className="bg-card hover:shadow-lg transition-shadow duration-200">
         <CardHeader className="pb-2">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-4">
-            <div className="w-full lg:w-3/4 flex items-center gap-4">
+          <div className="flex flex-col lg:flex-row justify-between align-baseline items-start gap-4">
+            <div className="w-full lg:w-3/4 flex items-center align-baseline gap-4">
               <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-2">
                 <ImagesWithBlur
                   src={companyLogo}
@@ -150,18 +150,46 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                 <CardTitle className="text-xl font-bold mb-1">
                   {title}
                 </CardTitle>
-                <Link
-                  href={companyUrl}
-                  className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 group"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <span className="truncate">{company}</span>
-                  <Icons.externalLink
-                    size={14}
-                    className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
-                  />
-                </Link>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-muted-foreground/20 pb-2">
+                  <div className="inline-flex items-center gap-1">
+                    <Icons.building2
+                      size={14}
+                      className="text-muted-foreground"
+                    />
+                    <Link
+                      href={companyUrl}
+                      className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 group"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <span className="truncate">{company}</span>
+                      <Icons.externalLink
+                        size={14}
+                        className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
+                      />
+                    </Link>
+                  </div>
+                  {certificate && (
+                    <div className="inline-flex items-center gap-1">
+                      <Icons.scroll
+                        size={14}
+                        className="text-muted-foreground"
+                      />
+                      <Link
+                        href={certificate}
+                        className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 group"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        <span className="truncate">Career Certificate</span>
+                        <Icons.fileText
+                          size={14}
+                          className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
+                        />
+                      </Link>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             <DateBadge
@@ -171,8 +199,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             />
           </div>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {/* <p className="text-sm text-muted-foreground">{description}</p> */}
+        <CardContent className="flex-1 flex flex-col justify-between">
           {children}
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
@@ -185,17 +212,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               </Badge>
             ))}
           </div>
-          {certificate && (
-            <Link
-              href={certificate}
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 group"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icons.fileText className="w-4 h-4" />
-              <span className="group-hover:underline">Career Certificate</span>
-            </Link>
-          )}
         </CardContent>
       </Card>
     </div>

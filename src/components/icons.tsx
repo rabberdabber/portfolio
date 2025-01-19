@@ -35,11 +35,16 @@ import {
   Building2,
   Calendar,
   BriefcaseIcon,
+  ChevronLeft,
+  ChevronRight,
+  Scroll,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  chevronLeft: ChevronLeft,
+  chevronRight: ChevronRight,
   building2: Building2,
   calendar: Calendar,
   briefcaseIcon: BriefcaseIcon,
@@ -123,4 +128,5 @@ export const Icons = {
       />
     </svg>
   ),
+  scroll: Scroll,
 };

@@ -6,7 +6,7 @@ import {
   useAnimationControls,
   LayoutGroup,
   useInView,
-} from "framer-motion";
+} from "motion/react";
 import { Code, Database, Layout as LayoutIcon, Server } from "lucide-react";
 
 const SKILLS = {

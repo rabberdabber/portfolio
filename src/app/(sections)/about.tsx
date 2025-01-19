@@ -8,7 +8,7 @@ import { Icons } from "@/components/icons";
 import Link from "next/link";
 import { TextEffect } from "@/components/ui/text-effect";
 import ImagesWithBlur from "@/components/images-with-blur";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function About() {
   return (

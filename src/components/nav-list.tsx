@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   NavigationMenuItem,
   NavigationMenuLink,
@@ -10,8 +10,11 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { useSection } from "@/context/section-context";
 import { Section } from "@/types/nav";
+import { breakpoints } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export function NavList({ className }: { className?: string }) {
+  const isMobile = !useMediaQuery(breakpoints.md);
   const { activeSection, setActiveSection } = useSection();
   const sectionToIconObject = {
     home: Icons.home,
@@ -41,9 +44,12 @@ export function NavList({ className }: { className?: string }) {
           <NavigationMenuLink
             href={item.href}
             className={cn(
-              navigationMenuTriggerStyle(),
+              isMobile
+                ? "w-full hover:text-foreground"
+                : navigationMenuTriggerStyle(),
               "w-full md:w-auto gap-2 group rounded-full px-6 relative flex items-center text-sm font-medium text-foreground/60 hover:text-foreground",
-              activeSection === item.title && "text-foreground bg-muted",
+              activeSection === item.title &&
+                "font-bold text-foreground md:bg-muted",
               item.disabled && "cursor-not-allowed opacity-80"
             )}
             onClick={() => setActiveSection(item.title)}

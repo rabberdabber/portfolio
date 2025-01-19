@@ -1,17 +1,19 @@
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays } from "lucide-react";
 import { Icons } from "@/components/icons";
-import { Separator } from "@/components/ui/separator";
+
 interface DateBadgeProps {
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   className?: string;
 }
 
 export function DateBadge({ startDate, endDate, className }: DateBadgeProps) {
-  const calculateDuration = (start: Date, end: Date) => {
-    const diffYears = end.getFullYear() - start.getFullYear();
-    const diffMonths = end.getMonth() - start.getMonth();
+  const calculateDuration = (start: string, end: string) => {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+
+    const diffYears = endDate.getFullYear() - startDate.getFullYear();
+    const diffMonths = endDate.getMonth() - startDate.getMonth();
 
     let years = diffYears;
     let months = diffMonths;
@@ -21,11 +23,11 @@ export function DateBadge({ startDate, endDate, className }: DateBadgeProps) {
       months = 12 + diffMonths;
     }
 
-    return `${years}y:${months}m`;
+    return `${years}yrs ${months}mos`;
   };
 
-  const formatDate = (date: Date) => {
-    return date.toLocaleDateString("en-US", {
+  const formatDate = (date: string) => {
+    return new Date(date).toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
       year: "numeric",
@@ -38,12 +40,11 @@ export function DateBadge({ startDate, endDate, className }: DateBadgeProps) {
         variant="secondary"
         className={`px-3 py-1 transition-all duration-200 hover:scale-105 ${className}`}
       >
-        <CalendarDays className="w-3 h-3 mr-1" />
+        <Icons.calendar className="w-3 h-3 mr-1" />
         <span className="font-medium">
           {formatDate(startDate)} - {formatDate(endDate)}
         </span>
         <div className="ml-2 px-1.5 py-0.5 bg-primary/10 rounded-sm text-xs font-semibold flex gap-1 items-center justify-center">
-          <Icons.hourglass className="w-3 h-3 mr-1" />
           {calculateDuration(startDate, endDate)}
         </div>
       </Badge>

@@ -6,7 +6,7 @@ import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { TextEffect } from "@/components/ui/text-effect";
 import ImagesWithBlur from "@/components/images-with-blur";
 

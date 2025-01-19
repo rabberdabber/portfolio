@@ -1,5 +1,3 @@
-import { motion, Variants } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { Icons } from "../icons";
 
 interface ScrollNavigatorProps {

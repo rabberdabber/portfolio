@@ -7,6 +7,7 @@ import { DateBadge } from "@/components/ui/date-badge";
 import { Icons } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import ImagesWithBlur from "./images-with-blur";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
 interface TimelineItemProps {
   isActive?: boolean;
@@ -131,73 +132,64 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
     <div className="w-full max-w-2xl mx-auto">
       <Card className="bg-card hover:shadow-lg transition-shadow duration-200">
         <CardHeader className="pb-2">
-          <div className="flex flex-col lg:flex-row justify-between align-baseline items-start gap-4">
-            <div className="w-full lg:w-3/4 flex items-center align-baseline gap-4">
-              <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-2">
-                <ImagesWithBlur
-                  src={companyLogo}
-                  alt={`${company} logo`}
-                  width={48}
-                  height={48}
-                  style={{
-                    objectFit: "contain",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-              </div>
-              <div className="min-w-0 flex-1">
-                <CardTitle className="text-xl font-bold mb-1">
-                  {title}
-                </CardTitle>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-muted-foreground/20 pb-2">
-                  <div className="inline-flex items-center gap-1">
-                    <Icons.building2
-                      size={14}
-                      className="text-muted-foreground"
-                    />
-                    <Link
-                      href={companyUrl}
-                      className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 group"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <span className="truncate">{company}</span>
-                      <Icons.externalLink
-                        size={14}
-                        className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
+          <Card className="w-full">
+            <CardContent className="p-6">
+              <div className="flex flex-col justify-between items-start gap-4">
+                <div className="w-full flex items-start gap-4">
+                  <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-border/40 bg-foreground p-2">
+                    <Avatar className="w-full h-full">
+                      <AvatarImage
+                        src={companyLogo}
+                        alt={`${company} logo`}
+                        className="object-contain w-full h-full"
                       />
-                    </Link>
+                      <AvatarFallback className="bg-foreground">
+                        {company[0]}
+                      </AvatarFallback>
+                    </Avatar>
                   </div>
-                  {certificate && (
-                    <div className="inline-flex items-center gap-1">
-                      <Icons.scroll
-                        size={14}
-                        className="text-muted-foreground"
-                      />
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-xl font-bold mb-1">{title}</h3>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-foreground/40 pb-2">
                       <Link
-                        href={certificate}
-                        className="text-muted-foreground hover:text-primary inline-flex items-center gap-1 group"
+                        href={companyUrl}
+                        className="inline-flex items-center gap-1 group"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <span className="truncate">Career Certificate</span>
-                        <Icons.fileText
+                        <Icons.building2 className="w-4 h-4" />
+                        <span className="truncate">{company}</span>
+                        <Icons.externalLink
                           size={14}
                           className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
                         />
                       </Link>
+                      {certificate && (
+                        <Link
+                          href={certificate}
+                          className="inline-flex items-center gap-1 group"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <Icons.scroll
+                            size={14}
+                            className="text-muted-foreground"
+                          />
+                          <span>Career Certificate</span>
+                          <Icons.fileText className="w-4 h-4" />
+                        </Link>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
+                <DateBadge
+                  startDate={startDate}
+                  endDate={endDate}
+                  className="w-max"
+                />
               </div>
-            </div>
-            <DateBadge
-              startDate={new Date(startDate)}
-              endDate={new Date(endDate)}
-              className="w-max"
-            />
-          </div>
+            </CardContent>
+          </Card>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-between">
           {children}

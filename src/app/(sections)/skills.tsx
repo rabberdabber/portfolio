@@ -6,8 +6,7 @@ import Layout from "@/components/layout";
 import Marquee from "@/components/marquee";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { TOOL_ICONS_AND_DESCRIPTIONS } from "@/config/skills";
-import { motion } from "framer-motion";
-import ImagesWithBlur from "@/components/images-with-blur";
+import { motion } from "motion/react";
 
 export default function Skills() {
   return (

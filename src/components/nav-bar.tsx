@@ -22,7 +22,7 @@ export default function MainNav() {
             <span className="inline-block font-bold">{siteConfig.name}</span>
           </Link>
           <NavigationMenu>
-            <div className="rounded-full border-2 border-border/40 p-1 backdrop-blur">
+            <div className="rounded-full p-1 backdrop-blur">
               <NavList />
             </div>
           </NavigationMenu>

@@ -11,7 +11,7 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import ImagesWithBlur from "./images-with-blur";
 import ContentGenProjectDescription from "./contentgen-project-description";
 import { breakpoints, useMediaQuery } from "@/hooks/useMediaQuery";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface Tag {
   name: string;

@@ -2,7 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { DateBadge } from "@/components/ui/date-badge";
 import { Icons } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
@@ -194,18 +200,20 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-between">
           {children}
-          <div className="flex flex-wrap gap-2">
+        </CardContent>
+        <CardFooter className="bg-muted/20 border-t border-border/40 py-4">
+          <div className="flex flex-wrap gap-2 px-8">
             {skills.map((skill) => (
               <Badge
                 key={skill}
                 variant="outline"
                 className="text-muted-foreground bg-muted-foreground/10"
               >
-                {skill}
+                #{skill.toLowerCase().replace(/\s+/g, "-")}
               </Badge>
             ))}
           </div>
-        </CardContent>
+        </CardFooter>
       </Card>
     </div>
   );

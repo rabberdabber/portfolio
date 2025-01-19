@@ -93,7 +93,16 @@ export default function Experience() {
               endDate: "2024-12-31",
               companyLogo: "/emocog_logo.png",
               certificate: "/career_certificate.pdf",
-              skills: ["Backend", "Frontend", "DevOps"],
+              skills: [
+                "REST-APIs",
+                "Responsive-UI",
+                "Self-Hosting",
+                "SQL",
+                "NoSQL",
+                "Microservices",
+                "Unit-Testing",
+                "DevOps",
+              ],
             },
           ]}
           isActive={false}

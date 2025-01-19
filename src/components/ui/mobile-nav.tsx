@@ -35,7 +35,7 @@ export function MobileNav() {
           {/* Navigation */}
           <div className="flex-1 flex flex-col justify-around px-0">
             <NavigationMenu className="w-full border-2 border-border/40 p-1 backdrop-blur">
-              <NavList className="flex-col w-full h-full space-y-4" />
+              <NavList className="flex-col w-full h-full space-y-4 py-2" />
             </NavigationMenu>
           </div>
 

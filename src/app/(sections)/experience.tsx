@@ -137,7 +137,7 @@ function WorkExperienceDetails() {
                 </p>
               </CardHeader>
 
-              <CardContent className="prose prose-sm dark:prose-invert max-w-none h-[600px]">
+              <CardContent className="prose prose-sm dark:prose-invert max-w-none min-h-[600px]">
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold mb-2">Summary</h4>
                   <p className="text-muted-foreground">{project.summary}</p>

@@ -9,23 +9,18 @@ import {
 } from "@/components/ui/accordion";
 import ExperienceTimeline from "@/components/experience-cards";
 import Layout from "@/components/layout";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Icons } from "@/components/icons";
 import workProjects from "@/config/work-projects";
 
 function WorkExperience() {
   return (
-    <div className="container mx-0 py-12 my-2 border border-border/40 shadow-md rounded-lg">
+    <div className="container mx-0 py-12 my-2 rounded-lg">
       <div className="space-y-4 mb-8">
         <div className="space-y-3">
-          <div className="flex items-center gap-2 bg-muted/50 p-4 rounded-lg mb-4">
-            <Icons.building2 className="h-5 w-5" />
-            <h2 className="font-semibold text-lg">Emocog</h2>
-          </div>
-          <h2 className="text-muted-foreground text-center">
+          <p className="text-muted-foreground text-center">
             A comprehensive overview of my professional journey at Emocog.
-          </h2>
+          </p>
         </div>
       </div>
 
@@ -36,35 +31,37 @@ function WorkExperience() {
             value={`item-${index}`}
             className="border rounded-lg overflow-hidden bg-card"
           >
-            <Card className="border-0">
-              <CardHeader className="p-0">
+            <div className="border-0">
+              <div className="p-0">
                 <AccordionTrigger className="px-6 py-4 hover:no-underline">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full gap-2">
-                    <div className="space-y-1">
+                    <div className="space-y-1 max-w-[250px] sm:max-w-none">
                       <h3 className="font-semibold text-lg flex items-center gap-2">
-                        <Icons.briefcaseIcon className="h-5 w-5" />
-                        {project.project}
+                        <Icons.briefcaseIcon className="h-5 w-5 flex-shrink-0" />
+                        <span className="line-clamp-1">{project.project}</span>
                       </h3>
                       <p className="text-sm text-muted-foreground flex items-center gap-2">
-                        <Icons.calendar className="h-4 w-4" />
-                        {project.period} · {project.duration}
+                        <Icons.calendar className="h-4 w-4 flex-shrink-0" />
+                        <span className="line-clamp-1">
+                          {project.period} · {project.duration}
+                        </span>
                       </p>
                     </div>
                     <Badge
                       variant="secondary"
-                      className="h-fit whitespace-nowrap"
+                      className="h-fit whitespace-nowrap w-fit"
                     >
                       Project
                     </Badge>
                   </div>
                 </AccordionTrigger>
-              </CardHeader>
-              <CardContent className="px-6 py-2">
-                <p className="text-sm text-muted-foreground">
+              </div>
+              <div className="px-6 py-2">
+                <p className="text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">
                   {project.summary}
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
             <AccordionContent className="px-6 pb-4">
               <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-4 pt-2">
                 {project.description.map((desc, i) => (

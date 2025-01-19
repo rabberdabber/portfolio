@@ -122,7 +122,7 @@ export default function About() {
                         Hobbies:
                       </span>
                       <span className="text-muted-foreground">
-                        Reading articles, watching youtube, and offcourse
+                        Reading articles, watching youtube, and of course
                         building software
                       </span>
                     </div>

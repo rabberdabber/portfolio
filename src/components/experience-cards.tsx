@@ -8,6 +8,7 @@ import { Icons } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import ImagesWithBlur from "./images-with-blur";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Separator } from "./ui/separator";
 
 interface TimelineItemProps {
   isActive?: boolean;
@@ -131,9 +132,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   return (
     <div className="w-full max-w-2xl mx-auto">
       <Card className="bg-card hover:shadow-lg transition-shadow duration-200">
-        <CardHeader className="pb-2">
-          <Card className="w-full">
-            <CardContent className="p-6">
+        <CardHeader className="pb-2 bg-muted/20 border-b border-border/40">
+          <div className="w-full">
+            <div className="p-6">
               <div className="flex flex-col justify-between items-start gap-4">
                 <div className="w-full flex items-start gap-4">
                   <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-border/40 bg-foreground p-2">
@@ -188,8 +189,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                   className="w-max"
                 />
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-between">
           {children}

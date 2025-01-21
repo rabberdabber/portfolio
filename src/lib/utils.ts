@@ -28,3 +28,18 @@ export async function dynamicBlurDataUrl(url: string) {
 
   return `data:image/svg+xml;base64,${toBase64(blurSvg)}`;
 }
+
+export const downloadFile = async (extension: string, filename: string) => {
+  try {
+    const response = await fetch(filename);
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `Resume.${extension}`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error("Error downloading file:", error);
+  }
+};

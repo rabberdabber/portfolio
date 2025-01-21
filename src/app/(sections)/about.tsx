@@ -9,6 +9,7 @@ import Link from "next/link";
 import { TextEffect } from "@/components/ui/text-effect";
 import ImagesWithBlur from "@/components/images-with-blur";
 import { motion } from "motion/react";
+import { downloadFile } from "@/lib/utils";
 
 export default function About() {
   return (
@@ -39,10 +40,10 @@ export default function About() {
                 {/* Profile Image */}
                 <div className="relative size-full overflow-hidden rounded-full border-2 border-primary/20">
                   <ImagesWithBlur
-                    src="/profile.png"
+                    src="/profile.jpg"
                     alt="Profile photo"
                     fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    className="object-cover object-top transition-transform duration-300 hover:scale-105"
                     priority
                   />
                 </div>
@@ -132,6 +133,7 @@ export default function About() {
 
               {/* Download Button */}
               <Button
+                onClick={() => downloadFile("pdf", "/cv.pdf")}
                 className="group px-6 py-2 text-sm font-medium"
                 variant="default"
               >

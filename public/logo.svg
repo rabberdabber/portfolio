@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path { fill: currentColor; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #fff; }
+    }
+    @media (prefers-color-scheme: light) {
+      :root { color: #000; }
+    }
+  </style>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M35 20C31.6863 20 29 22.6863 29 26V74C29 77.3137 31.6863 80 35 80H60C69.9411 80 78 71.9411 78 62C78 56.5233 75.3808 51.6338 71.2796 48.5C75.3808 45.3662 78 40.4767 78 35C78 25.0589 69.9411 17 60 17H35C31.6863 17 29 19.6863 29 23V26C29 22.6863 31.6863 20 35 20ZM40 30V45H60C65.5228 45 70 40.5228 70 35C70 29.4772 65.5228 25 60 25H40ZM40 55V70H60C65.5228 70 70 65.5228 70 60C70 54.4772 65.5228 50 60 50H40Z"/>
+  <path d="M15 50L35 35V65L15 50Z"/>
+</svg>

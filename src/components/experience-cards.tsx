@@ -15,6 +15,8 @@ import { Badge } from "@/components/ui/badge";
 import ImagesWithBlur from "./images-with-blur";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Separator } from "./ui/separator";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { breakpoints } from "@/hooks/useMediaQuery";
 
 interface TimelineItemProps {
   isActive?: boolean;
@@ -76,11 +78,12 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
   isActive,
   children,
 }) => {
+  const isMobile = !useMediaQuery(breakpoints.md);
   return (
     <div className="space-y-6 min-w-fit">
       {!isActive && (
         <div className="flex">
-          <TimelineItem isActive={true} />
+          {!isMobile && <TimelineItem isActive={true} />}
           <Card className="max-w-full md:max-w-2xl mr-2 mx-auto bg-card hover:shadow-lg transition-shadow duration-200">
             <CardHeader className="flex flex-col items-center justify-center text-center space-y-4">
               <div className="w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mb-2 ring-4 ring-green-500/20">
@@ -107,10 +110,12 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
       )}
       {experiences.map((experience, index) => (
         <div key={index} className="flex">
-          <TimelineItem
-            isActive={isActive && index === 0}
-            shouldHideLine={index === experiences.length - 1}
-          />
+          {!isMobile && (
+            <TimelineItem
+              isActive={isActive && index === 0}
+              shouldHideLine={index === experiences.length - 1}
+            />
+          )}
           <ExperienceCard
             {...experience}
             isActive={isActive && index === 0}

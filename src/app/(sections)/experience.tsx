@@ -15,7 +15,7 @@ import workProjects from "@/config/work-projects";
 
 function WorkExperience() {
   return (
-    <div className="container mx-0 py-12 my-2 rounded-lg">
+    <div className="container mx-0 py-12 my-2 rounded-lg w-full">
       <div className="space-y-4 mb-8">
         <div className="space-y-3">
           <p className="text-muted-foreground text-center">
@@ -24,12 +24,12 @@ function WorkExperience() {
         </div>
       </div>
 
-      <Accordion type="single" collapsible className="space-y-4">
+      <Accordion type="single" collapsible className="space-y-4 w-full">
         {workProjects.map((project, index) => (
           <AccordionItem
             key={index}
             value={`item-${index}`}
-            className="border rounded-lg overflow-hidden bg-card"
+            className="border rounded-lg overflow-hidden bg-card min-w-[500px]"
           >
             <div className="border-0">
               <div className="p-0">

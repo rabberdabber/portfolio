@@ -39,7 +39,7 @@ const mainNav = [
 ] as const satisfies NavItem[];
 
 export const siteConfig = {
-  name: "Bake's portfolio",
+  name: "portfolio",
   description: "my portfolio website.",
   mainNav,
   links: {

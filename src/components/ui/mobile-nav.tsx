@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { NavList } from "@/components/nav-list";
 import { Icons } from "@/components/icons";
@@ -22,12 +23,19 @@ export function MobileNav() {
       <DrawerContent direction="left" className="w-[280px] h-full">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center px-6 py-4">
+          <div className="flex items-center px-6 py-4 border-b border-border/50">
             <Link
               href="/"
               className="flex items-center space-x-2 hover:bg-accent hover:text-accent-foreground"
             >
-              <Icons.logo className="h-6 w-6" />
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                className="h-8 w-8 rounded-full object-contain select-none cursor-default focus:ring-0 focus:ring-offset-0"
+                width={32}
+                height={32}
+                draggable={false}
+              />
               <span className="inline-block font-bold">{siteConfig.name}</span>
             </Link>
           </div>

@@ -1,9 +1,9 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { NavList } from "@/components/nav-list";
 import { siteConfig } from "@/config/site";
-import { Icons } from "@/components/icons";
 import { NavigationMenu } from "@radix-ui/react-navigation-menu";
 import { useMediaQuery, breakpoints } from "@/hooks/useMediaQuery";
 import { MobileNav } from "@/components/ui/mobile-nav";
@@ -18,7 +18,14 @@ export default function MainNav() {
       ) : (
         <div className="flex gap-6 md:gap-10 items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <Icons.logo className="h-6 w-6" />
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              className="h-8 w-8 rounded-full object-contain select-none cursor-default focus:ring-0 focus:ring-offset-0"
+              width={32}
+              height={32}
+              draggable={false}
+            />
             <span className="inline-block font-bold">{siteConfig.name}</span>
           </Link>
           <NavigationMenu>

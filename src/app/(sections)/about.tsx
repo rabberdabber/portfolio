@@ -87,20 +87,45 @@ export default function About() {
                   <h2 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
                     Quick Facts
                   </h2>
-                  <div className="grid gap-4">
-                    <div className="flex items-center gap-4">
-                      <span className="font-medium text-primary/80 min-w-24">
-                        Experience:
-                      </span>
-                      <span className="text-muted-foreground">
-                        2+ Years as a Software Engineer
-                      </span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <Icons.user className="size-5 text-primary/70" />
+                        <span className="font-medium text-primary/80">
+                          Nickname
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground pl-8">Bake</p>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <span className="font-medium text-primary/80 min-w-24">
-                        Education:
-                      </span>
-                      <span className="text-muted-foreground">
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <Icons.calendar className="size-5 text-primary/70" />
+                        <span className="font-medium text-primary/80">Age</span>
+                      </div>
+                      <p className="text-muted-foreground pl-8">27</p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <Icons.briefcase className="size-5 text-primary/70" />
+                        <span className="font-medium text-primary/80">
+                          Experience
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground pl-8">
+                        2+ Years as a Software Engineer
+                      </p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <Icons.graduationCap className="size-5 text-primary/70" />
+                        <span className="font-medium text-primary/80">
+                          Education
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground pl-8">
                         BS Computer Science and Electrical Engineering from{" "}
                         <Link
                           href="https://www.topuniversities.com/universities/kaist-korea-advanced-institute-science-technology"
@@ -108,24 +133,32 @@ export default function About() {
                         >
                           KAIST
                         </Link>
-                      </span>
+                      </p>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <span className="font-medium text-primary/80 min-w-24">
-                        Speaks:
-                      </span>
-                      <span className="text-muted-foreground">
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <Icons.languages className="size-5 text-primary/70" />
+                        <span className="font-medium text-primary/80">
+                          Speaks
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground pl-8">
                         English, Amharic, Beginner Korean
-                      </span>
+                      </p>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <span className="font-medium text-primary/80 min-w-24">
-                        Hobbies:
-                      </span>
-                      <span className="text-muted-foreground">
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <Icons.hobby className="size-5 text-primary/70" />
+                        <span className="font-medium text-primary/80">
+                          Hobbies
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground pl-8">
                         Reading articles, watching youtube, and of course
                         building software
-                      </span>
+                      </p>
                     </div>
                   </div>
                 </div>

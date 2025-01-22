@@ -38,6 +38,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Scroll,
+  Paintbrush,
+  Languages,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -50,6 +52,8 @@ export const Icons = {
   briefcaseIcon: BriefcaseIcon,
   brain: Brain,
   cloud: Cloud,
+  hobby: Paintbrush,
+  languages: Languages,
   database: Database,
   lock: Lock,
   server: Server,

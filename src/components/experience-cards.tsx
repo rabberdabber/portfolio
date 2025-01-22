@@ -142,7 +142,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 }) => {
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <Card className="bg-card hover:shadow-lg transition-shadow duration-200">
+      <Card className="bg-card hover:shadow-lg transition-shadow duration-200 min-w-[500px] overflow-x-auto">
         <CardHeader className="pb-2 bg-muted/20 border-b border-border/40">
           <div className="w-full">
             <div className="p-6">

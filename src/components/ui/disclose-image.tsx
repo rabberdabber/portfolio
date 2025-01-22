@@ -1,9 +1,7 @@
+import Image, { ImageProps } from "next/image";
 import { ImgHTMLAttributes, useState } from "react";
-import Image from "next/image";
+
 import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { breakpoints } from "@/hooks/useMediaQuery";
-import ImagesWithBlur from "../images-with-blur";
 
 /**
  * All the props are passed to the img element.
@@ -14,13 +12,8 @@ export default function DiscloseImage({
   className,
   doorClassName,
   vertical = false,
-  src,
-  alt,
-  width,
-  height,
-  priority,
   ...props
-}: ImgHTMLAttributes<HTMLImageElement> & {
+}: ImageProps & {
   /**
    * Class name for the window on the left and right side of the image.
    */
@@ -30,28 +23,18 @@ export default function DiscloseImage({
    * If true, the doors will slide vertically.
    */
   vertical?: boolean;
-  priority?: boolean;
 }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const baseClassName =
-    "absolute bg-sky-500 transition-all animate-out fill-mode-forwards";
+    "ease-slow duration-mid absolute bg-sky-500 transition-all animate-out fill-mode-forwards";
 
   return (
-    <div
-      className="relative overflow-hidden rounded-xl"
-      style={{
-        width: width,
-        height: height,
-      }}
-    >
+    <>
       <Image
         onLoad={() => setImageLoaded(true)}
+        className={cn(className)}
         {...props}
-        className={cn("rounded-xl border-2 border-primary/50", className)}
-        src={src as string}
-        alt={alt as string}
-        fill
-        priority={priority}
+        alt={props.alt || "Image that is disclosed"}
       />
 
       {imageLoaded && (
@@ -70,6 +53,6 @@ export default function DiscloseImage({
           />
         </>
       )}
-    </div>
+    </>
   );
 }

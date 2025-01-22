@@ -9,6 +9,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { motion } from "motion/react";
 import { TextEffect } from "@/components/ui/text-effect";
 import ImagesWithBlur from "@/components/images-with-blur";
+import DiscloseImage from "@/components/ui/disclose-image";
 
 export default function Hero() {
   return (
@@ -26,7 +27,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="space-y-4 w-full flex flex-col items-center justify-center"
+              className="space-y-5 w-full flex flex-col items-center justify-center"
             >
               <motion.div
                 initial={{ opacity: 0 }}
@@ -44,7 +45,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl font-bold tracking-tight leading-relaxed sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50 line"
+                className="text-4xl font-bold tracking-tight leading-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50 p-2"
               >
                 Full Stack Software Engineer
               </motion.h1>
@@ -73,9 +74,9 @@ export default function Hero() {
             >
               <div className="relative">
                 <ImagesWithBlur
-                  src="/profile.png"
+                  src="/profile.jpg"
                   alt="Author"
-                  className="w-12 h-12 rounded-full ring-2 ring-primary/20"
+                  className="w-12 h-12 rounded-full ring-2 ring-primary/20 object-cover object-top"
                   width={48}
                   height={48}
                 />
@@ -122,7 +123,7 @@ export default function Hero() {
               className="relative rounded-xl overflow-hidden shadow-lg"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/10 to-transparent z-10" />
-              <ImagesWithBlur
+              <DiscloseImage
                 src="/coding_laptop.jpeg"
                 alt="Hero Background"
                 className="object-cover transition-transform duration-700 hover:scale-105"

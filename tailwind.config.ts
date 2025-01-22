@@ -21,6 +21,12 @@ const config = {
       },
     },
     extend: {
+      transitionTimingFunction: {
+        slow: "cubic-bezier(.405, 0, .025, 1)",
+      },
+      transitionDuration: {
+        mid: "3s",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

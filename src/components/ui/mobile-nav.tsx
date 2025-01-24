@@ -68,16 +68,6 @@ export function MobileNav() {
           </div>
         </div>
       </DrawerContent>
-      <DrawerFooter className="border-t border-border/50">
-        <div className="flex flex-col gap-2 items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/logo.svg" alt="Logo" width={32} height={32} />
-            <span className="inline-block font-bold m-0 p-0">
-              {siteConfig.name}
-            </span>
-          </Link>
-        </div>
-      </DrawerFooter>
     </Drawer>
   );
 }

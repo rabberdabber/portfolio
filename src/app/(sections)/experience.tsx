@@ -14,15 +14,15 @@ import { Icons } from "@/components/icons";
 import workProjects from "@/config/work-projects";
 
 function WorkExperience() {
-  function parseTextWithBadges(text: string): ReactNode {
+  function parseText(text: string): ReactNode {
     const parts = text.split(/(\{[^}]+\})/);
     return parts.map((part, index) => {
       if (part.startsWith("{") && part.endsWith("}")) {
         const content = part.slice(1, -1);
         return (
-          <Badge key={index} variant="secondary" className="mx-1">
+          <span key={index} className="font-bold">
             {content}
-          </Badge>
+          </span>
         );
       }
       return <Fragment key={index}>{part}</Fragment>;
@@ -75,7 +75,7 @@ function WorkExperience() {
                 </AccordionTrigger>
               </div>
               <div className="px-4 md:px-6 py-2">
-                <p className="text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">
+                <p className="text-sm text-muted-foreground line-clamp-5 sm:line-clamp-none">
                   {project.summary}
                 </p>
               </div>
@@ -83,7 +83,7 @@ function WorkExperience() {
             <AccordionContent className="px-4 md:px-6 pb-4">
               <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-4 pt-2">
                 {project.description.map((desc, i) => (
-                  <li key={i}>{parseTextWithBadges(desc)}</li>
+                  <li key={i}>{parseText(desc)}</li>
                 ))}
               </ul>
             </AccordionContent>
@@ -97,14 +97,36 @@ function WorkExperience() {
 export default function Experience() {
   return (
     <Layout id="experience">
-      <div className="min-h-screen grid place-content-center">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold mb-2">Work Experience</h2>
-          <p className="text-muted-foreground">
-            My professional journey so far.
-          </p>
-        </div>
-        <WorkExperience />
+      <div className="flex flex-col items-center justify-between gap-1">
+        <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
+          Professional Experience
+        </h1>
+        <ExperienceTimeline
+          experiences={[
+            {
+              title: "Software Engineer",
+              company: "Emocog",
+              companyUrl: "https://www.emocog.com/en",
+              startDate: "2022-08-22",
+              endDate: "2024-12-31",
+              companyLogo: "/emocog_logo.png",
+              certificate: "/career_certificate.pdf",
+              skills: [
+                "REST-APIs",
+                "Responsive-UI",
+                "Self-Hosting",
+                "SQL",
+                "NoSQL",
+                "Microservices",
+                "Unit-Testing",
+                "DevOps",
+              ],
+            },
+          ]}
+          isActive={false}
+        >
+          <WorkExperience />
+        </ExperienceTimeline>
       </div>
     </Layout>
   );

@@ -13,17 +13,16 @@ import ImagesWithBlur from "./images-with-blur";
 import { breakpoints, useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "motion/react";
 import { ProjectCardProps } from "@/config/projects";
-import { Badge } from "@/components/ui/badge";
 
-function parseTextWithBadges(text: string): ReactNode {
+function parseText(text: string): ReactNode {
   const parts = text.split(/(\{[^}]+\})/);
   return parts.map((part, index) => {
     if (part.startsWith("{") && part.endsWith("}")) {
       const content = part.slice(1, -1);
       return (
-        <Badge key={index} variant="secondary" className="mx-1">
+        <span key={index} className="font-bold underline">
           {content}
-        </Badge>
+        </span>
       );
     }
     return <Fragment key={index}>{part}</Fragment>;
@@ -106,7 +105,7 @@ function ProjectContent({
                     : "bg-zinc-100 dark:bg-zinc-800/90 shadow-sm"
                 )}
               >
-                {parseTextWithBadges(desc)}
+                {parseText(desc)}
               </motion.li>
             ))}
           </motion.ul>

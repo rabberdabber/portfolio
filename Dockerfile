@@ -57,7 +57,7 @@ FROM base as final
 ENV NODE_ENV production
 
 # Install Sharp runtime dependencies
-RUN apk add --no-cache vips-dev
+RUN apk add --no-cache vips-dev wget
 
 # Run the application as a non-root user.
 USER node
@@ -72,6 +72,10 @@ COPY --from=build /usr/src/app/. ./.
 
 # Expose the port that the application listens on.
 EXPOSE 3000
+
+# Add healthcheck to monitor the container
+HEALTHCHECK --interval=30s --timeout=3s --start-period=30s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
 
 # Run the application.
 CMD npm start

@@ -40,7 +40,7 @@ export default function Layout({
     <main
       ref={ref}
       className={cn(
-        "snap-y snap-mandatory min-h-[calc(100dvh-4rem)]",
+        "snap-y snap-mandatory",
         addPadding ? "pt-20 px-4 md:px-6 pb-4" : ""
       )}
     >

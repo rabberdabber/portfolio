@@ -18,7 +18,7 @@ export default function About() {
         {/* Simple Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px]" />
 
-        <div className="container mx-auto px-4 md:px-6 py-12 md:py-24 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-center">
             {/* Profile Image Section */}
             <motion.div
@@ -82,7 +82,7 @@ export default function About() {
               </div>
 
               {/* Quick Facts Card */}
-              <Card className="p-6 bg-card/50 backdrop-blur-sm border border-primary/10 shadow-lg">
+              <Card className="p-6 bg-card/50 backdrop-blur-sm border border-primary/10 shadow-xl">
                 <div className="space-y-6">
                   <h2 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
                     Quick Facts

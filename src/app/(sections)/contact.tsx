@@ -69,7 +69,7 @@ export function ContactForm() {
                 <Input placeholder="your@email.com" {...field} />
               </FormControl>
               <FormDescription className="text-sm text-muted-foreground">
-                We&apos;ll never share your email with anyone else.
+                I&apos;ll never share your email with anyone else.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -83,7 +83,7 @@ export function ContactForm() {
               <FormLabel>Your Message</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="How can we help you?"
+                  placeholder="How can I help you?"
                   className="resize-none min-h-[120px]"
                   {...field}
                 />
@@ -103,11 +103,11 @@ export function ContactForm() {
 export default function Home() {
   return (
     <Layout id="contact">
-      <div className="min-h-screen grid place-content-center">
+      <div className="grid place-content-center">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold mb-2">Get in Touch</h2>
           <p className="text-muted-foreground">
-            Have a question? We&apos;d love to hear from you.
+            Have a question? I&apos;d love to hear from you.
           </p>
         </div>
         <ContactForm />

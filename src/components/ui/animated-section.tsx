@@ -19,7 +19,6 @@ export function AnimatedSection({ children, id }: AnimatedSectionProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen"
       id={id}
     >
       {children}

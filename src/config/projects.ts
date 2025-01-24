@@ -35,7 +35,8 @@ export const projects: ProjectCardProps[] = [
         color: "bg-lime-100 text-lime-800 dark:bg-lime-900 dark:text-lime-100",
       },
     ],
-    summary: "Built my personal website using Next.js and Tailwind CSS.",
+    summary:
+      "AI-Powered Full-Stack Content Platform with an editor playground to create rich content.",
     description: [
       "Built a modern, responsive platform for content creation and management using {Next.js}, {NextAuth}, {shadcn/ui}, and {Tailwind CSS}",
       "Integrated {Tiptap} as a block-based WYSIWYG (Rich Text) editor, facilitating intuitive content creation.",
@@ -71,7 +72,8 @@ export const projects: ProjectCardProps[] = [
         color: "bg-lime-100 text-lime-800 dark:bg-lime-900 dark:text-lime-100",
       },
     ],
-    summary: "Asynchronous Microservice for AI Content.",
+    summary:
+      "Asynchronous Microservice backend for Content generation and management with AI capabilities.",
     description: [
       "Engineered a {FastAPI} server for generating AI-driven content and images, integrating {OpenAI}, {Flux} APIs, and {MinIO} (S3-compatible) for robust object storage.",
       "Utilized {Pydantic} and structured responses from {OpenAI} to maintain schema consistency across editor, database, and API endpoints.",
@@ -87,6 +89,8 @@ export const projects: ProjectCardProps[] = [
   },
   {
     title: "Personal Portfolio Website",
+    summary:
+      "Responsive Personal Portfolio showcasing my projects, skills, and experiences.",
     tags: [
       {
         name: "Next.js",
@@ -102,7 +106,6 @@ export const projects: ProjectCardProps[] = [
         color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-100",
       },
     ],
-    summary: "Responsive Personal Portfolio",
     description: [
       "Created a clean and modern portfolio site using {Next.js}, {shadcn/ui}, and {Tailwind CSS} to showcase professional projects and skill sets.",
       "Ensured seamless performance and scalability by self-hosting with {Docker} and {Coolify}, reducing hosting overhead and dependency on external platforms.",

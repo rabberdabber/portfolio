@@ -126,7 +126,7 @@ export default function Hero() {
               <DiscloseImage
                 src="/coding_laptop.jpeg"
                 alt="Hero Background"
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                className="object-cover transition-transform duration-700 hover:scale-105 [filter:saturate(1)]"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"

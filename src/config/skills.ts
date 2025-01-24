@@ -1,66 +1,71 @@
-export const SKILLS = {
+export const Skills = {
   Backend: {
     tools: ["FastAPI", "Node.js", "PostgreSQL", "Firebase", "Redis"],
-    description: "implement RESTful or GRPC APIs and manage databases",
+    description: "Implement RESTful or GRPC APIs and manage databases",
   },
   Frontend: {
     tools: ["React", "React Native", "Next.js", "TailwindCSS", "HTML", "CSS"],
-    description: "implement UI components",
+    description: "Implement Responsive and Accessible UI components",
   },
   DevOps: {
-    tools: ["Docker", "Kubernetes"],
-    description: "manage infrastructure and deployment",
+    tools: ["Docker", "Docker Compose", "Kubernetes"],
+    description: "Manage infrastructure and deployment",
   },
   Languages: {
-    tools: ["Typescript", "Python", "C/C++"],
-    description: "implement backend and frontend logic",
+    tools: ["JavaScript", "TypeScript", "Python", "C/C++"],
+    description: "Implement backend and frontend business logic",
   },
   Others: {
-    tools: ["Figma", "VS Code", "Git", "GitHub", "GitLab", "Cursor"],
-    description: "design and develop UI components",
+    tools: ["VSCode/Cursor", "Git", "GitHub", "GitLab"],
+    description: "Tools I use to develop and manage projects",
   },
 } satisfies Record<string, Record<string, string | string[]>>;
 
-export const TOOL_ICONS_AND_DESCRIPTIONS = {
+export const ToolIconsAndDescriptions = {
   Redis: {
     icon: "/logos/redis.svg",
-    description: "I use Redis as a database, cache, and message broker.",
+    description:
+      "I use Redis as a database, cache, and message broker for rate limiting and performance optimization.",
   },
   FastAPI: {
     icon: "/logos/fastapi.png",
     description:
-      "I use FastAPI to build Asynchronous RESTful APIs and manage databases.",
+      "I use FastAPI to build high-performance Asynchronous RESTful APIs with real-time capabilities.",
   },
   Node: {
     icon: "/logos/nodejs.svg",
     description:
-      "I use Node.js to build Asynchronous RESTful APIs and manage databases.",
+      "I use Node.js to build scalable server-side applications and APIs.",
   },
   PostgreSQL: {
     icon: "/logos/postgres.svg",
-    description: "I use PostgreSQL to manage databases.",
+    description:
+      "I use PostgreSQL for robust data storage with features like triggers and audit logging.",
   },
   Firebase: {
     icon: "/logos/firebase.svg",
-    description: "I use Firebase to build mobile and web applications.",
+    description:
+      "I use Firebase and Firestore for real-time data management and cloud storage.",
   },
   React: {
     icon: "/logos/react.svg",
-    description: "I use React to build user interfaces.",
+    description:
+      "I use React to build interactive web dashboards and user interfaces.",
   },
   ReactNative: {
     icon: "/logos/react_native.svg",
-    description: "I use React Native to build native mobile applications.",
+    description:
+      "I use React Native to build cross-platform mobile applications.",
   },
   Next: {
     icon: "/logos/nextjs.svg",
     description:
-      "I use Next.js to build server-side rendered React applications.",
+      "I use Next.js to build full-stack applications with App Router and Server Components.",
   },
   TailwindCSS: {
     icon: "/logos/tailwindcss.svg",
     description:
-      "I use TailwindCSS to build custom designs quickly and easily.",
+      "I use TailwindCSS for rapid UI development and responsive designs.",
   },
   HTML: {
     icon: "/logos/html.svg",
@@ -74,10 +79,10 @@ export const TOOL_ICONS_AND_DESCRIPTIONS = {
   Docker: {
     icon: "/logos/docker.svg",
     description:
-      "I use Docker to build, ship, and run applications in containers.",
+      "I use Docker to containerize and deploy applications with streamlined CI/CD.",
   },
   VSCode: {
     icon: "/logos/vscode.svg",
     description: "I use VS Code as my primary code editor.",
   },
-};
+} as const;

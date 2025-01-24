@@ -8,30 +8,13 @@ import {
   useInView,
 } from "motion/react";
 import { Code, Database, Layout as LayoutIcon, Server } from "lucide-react";
-
-const SKILLS = {
-  Backend: {
-    tools: ["FastAPI", "Node.js", "PostgreSQL", "Firebase", "Redis"],
-    description: "implement RESTful or GraphQL APIs and manage databases",
-  },
-  Frontend: {
-    tools: ["React", "React Native", "Next.js", "TailwindCSS", "HTML", "CSS"],
-    description: "implement UI components",
-  },
-  Languages: {
-    tools: ["TypeScript", "Python", "C/C++"],
-    description: "implement backend and frontend logic",
-  },
-  Others: {
-    tools: ["Figma", "VS Code", "Git", "GitHub", "GitLab", "Cursor"],
-    description: "design and develop UI components",
-  },
-};
+import { Skills } from "@/config/skills";
 
 const iconMap = {
   Backend: <Server className="w-8 h-8" />,
   Frontend: <LayoutIcon className="w-8 h-8" />,
   Languages: <Code className="w-8 h-8" />,
+  DevOps: <Server className="w-8 h-8" />,
   Others: <Database className="w-8 h-8" />,
 };
 
@@ -39,6 +22,7 @@ const bgColorMap = {
   Backend: "from-amber-500/20 to-amber-500/10",
   Frontend: "from-sky-500/20 to-sky-500/10",
   Languages: "from-emerald-500/20 to-emerald-500/10",
+  DevOps: "from-lime-500/20 to-lime-500/10",
   Others: "from-violet-500/20 to-violet-500/10",
 };
 
@@ -138,7 +122,7 @@ export default function SkillCards() {
           variants={containerVariants}
           className="grid grid-cols-1 lg:grid-cols-3 gap-6 "
         >
-          {Object.entries(SKILLS).map(
+          {Object.entries(Skills).map(
             ([key, { tools, description }], index) => (
               <motion.div
                 key={key}

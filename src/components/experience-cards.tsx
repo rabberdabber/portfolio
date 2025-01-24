@@ -12,9 +12,7 @@ import {
 import { DateBadge } from "@/components/ui/date-badge";
 import { Icons } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
-import ImagesWithBlur from "./images-with-blur";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { Separator } from "./ui/separator";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { breakpoints } from "@/hooks/useMediaQuery";
 

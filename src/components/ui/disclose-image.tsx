@@ -26,7 +26,7 @@ export default function DiscloseImage({
 }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const baseClassName =
-    "ease-slow duration-mid absolute bg-sky-500 transition-all animate-out fill-mode-forwards";
+    "ease-slow duration-mid absolute bg-background transition-all animate-out fill-mode-forwards bg-opacity-10";
 
   return (
     <>

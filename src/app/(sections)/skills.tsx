@@ -5,7 +5,7 @@ import SkillCards from "@/components/skill-cards";
 import Layout from "@/components/layout";
 import Marquee from "@/components/marquee";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { TOOL_ICONS_AND_DESCRIPTIONS } from "@/config/skills";
+import { ToolIconsAndDescriptions } from "@/config/skills";
 import { motion } from "motion/react";
 
 export default function Skills() {
@@ -36,7 +36,7 @@ export default function Skills() {
           <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
 
           <Marquee className="py-4">
-            {Object.entries(TOOL_ICONS_AND_DESCRIPTIONS).map(
+            {Object.entries(ToolIconsAndDescriptions).map(
               ([tool, { icon, description }]) => (
                 <Card
                   key={tool}

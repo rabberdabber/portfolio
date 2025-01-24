@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Fragment, ReactNode } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -14,6 +14,20 @@ import { Icons } from "@/components/icons";
 import workProjects from "@/config/work-projects";
 
 function WorkExperience() {
+  function parseTextWithBadges(text: string): ReactNode {
+    const parts = text.split(/(\{[^}]+\})/);
+    return parts.map((part, index) => {
+      if (part.startsWith("{") && part.endsWith("}")) {
+        const content = part.slice(1, -1);
+        return (
+          <Badge key={index} variant="secondary" className="mx-1">
+            {content}
+          </Badge>
+        );
+      }
+      return <Fragment key={index}>{part}</Fragment>;
+    });
+  }
   return (
     <div className="container mx-0 py-12 my-2 rounded-lg w-full">
       <div className="space-y-4 mb-8">
@@ -65,7 +79,7 @@ function WorkExperience() {
             <AccordionContent className="px-6 pb-4">
               <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-4 pt-2">
                 {project.description.map((desc, i) => (
-                  <li key={i}>{desc}</li>
+                  <li key={i}>{parseTextWithBadges(desc)}</li>
                 ))}
               </ul>
             </AccordionContent>

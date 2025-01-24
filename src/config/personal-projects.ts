@@ -1,40 +1,14 @@
-export interface Tag {
-  name: string;
-  color: string;
-}
-
-export interface ProjectCardProps {
-  title: string;
+interface PersonalProject {
+  project: string;
   summary: string;
   description: string[];
-  tags: Tag[];
   site: string;
   repo: string;
-  coverImage: Record<"dark" | "light", string>;
 }
 
-export const projects: ProjectCardProps[] = [
+export const personalProjects: PersonalProject[] = [
   {
-    title: "Content Bake",
-    tags: [
-      {
-        name: "Next.js",
-        color: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-100",
-      },
-      {
-        name: "TypeScript",
-        color:
-          "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100",
-      },
-      {
-        name: "Tailwind",
-        color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-100",
-      },
-      {
-        name: "Docker",
-        color: "bg-lime-100 text-lime-800 dark:bg-lime-900 dark:text-lime-100",
-      },
-    ],
+    project: "Content Bake",
     summary: "Built my personal website using Next.js and Tailwind CSS.",
     description: [
       "Built a modern, responsive platform for content creation and management using {Next.js}, {NextAuth}, {shadcn/ui}, and {Tailwind CSS}",
@@ -45,32 +19,9 @@ export const projects: ProjectCardProps[] = [
     ],
     site: "https://content.codebake.io",
     repo: "https://github.com/rabberdabber/blog",
-    coverImage: {
-      light: "/content_bake_light.png",
-      dark: "/content_bake_dark.png",
-    },
   },
   {
-    title: "Content Gen Server",
-    tags: [
-      {
-        name: "FastAPI",
-        color: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-100",
-      },
-      {
-        name: "Python",
-        color:
-          "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100",
-      },
-      {
-        name: "Docker",
-        color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-100",
-      },
-      {
-        name: "Redis",
-        color: "bg-lime-100 text-lime-800 dark:bg-lime-900 dark:text-lime-100",
-      },
-    ],
+    project: "Content Gen Server",
     summary: "Asynchronous Microservice for AI Content.",
     description: [
       "Engineered a {FastAPI} server for generating AI-driven content and images, integrating {OpenAI}, {Flux} APIs, and {MinIO} (S3-compatible) for robust object storage.",
@@ -80,38 +31,15 @@ export const projects: ProjectCardProps[] = [
     ],
     site: "https://contentgen.codebake.io",
     repo: "https://github.com/rabberdabber/ContentGen",
-    coverImage: {
-      light: "/contentgen.png",
-      dark: "/contentgen.png",
-    },
   },
   {
-    title: "Personal Portfolio Website",
-    tags: [
-      {
-        name: "Next.js",
-        color: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-100",
-      },
-      {
-        name: "Tailwind",
-        color:
-          "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100",
-      },
-      {
-        name: "Docker",
-        color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-100",
-      },
-    ],
+    project: "Personal Portfolio Website",
     summary: "Responsive Personal Portfolio",
     description: [
       "Created a clean and modern portfolio site using {Next.js}, {shadcn/ui}, and {Tailwind CSS} to showcase professional projects and skill sets.",
       "Ensured seamless performance and scalability by self-hosting with {Docker} and {Coolify}, reducing hosting overhead and dependency on external platforms.",
     ],
-    site: "https://rabberdabber.com",
+    site: "https://portfolio.codebake.io",
     repo: "https://github.com/rabberdabber/portfolio",
-    coverImage: {
-      light: "/portfolio_light.png",
-      dark: "/portfolio_dark.png",
-    },
   },
 ];

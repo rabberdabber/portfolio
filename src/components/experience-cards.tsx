@@ -139,8 +139,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   children,
 }) => {
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <Card className="bg-card hover:shadow-lg transition-shadow duration-200 min-w-[500px] overflow-x-auto">
+    <div className="w-full max-w-[calc(100dvw-2rem)] md:max-w-2xl mx-auto">
+      <Card className="bg-card hover:shadow-lg transition-shadow duration-200 min-w-[min(500px,calc(100dvw-2rem))] overflow-x-auto">
         <CardHeader className="pb-2 bg-muted/20 border-b border-border/40">
           <div className="w-full">
             <div className="p-6">
@@ -201,9 +201,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             </div>
           </div>
         </CardHeader>
-        <CardContent className="flex-1 flex flex-col justify-between">
-          {children}
-        </CardContent>
+        <CardContent className="flex-1 flex flex-col">{children}</CardContent>
         <CardFooter className="bg-muted/20 border-t border-border/40 py-4">
           <div className="flex flex-wrap gap-2 px-8">
             {skills.map((skill) => (

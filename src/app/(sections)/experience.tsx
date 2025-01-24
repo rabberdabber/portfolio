@@ -29,7 +29,7 @@ function WorkExperience() {
     });
   }
   return (
-    <div className="container mx-0 py-12 my-2 rounded-lg w-full">
+    <div className="w-full py-12">
       <div className="space-y-4 mb-8">
         <div className="space-y-3">
           <p className="text-muted-foreground text-center">
@@ -38,7 +38,11 @@ function WorkExperience() {
         </div>
       </div>
 
-      <Accordion type="single" collapsible className="space-y-4 w-full">
+      <Accordion
+        type="single"
+        collapsible
+        className="space-y-4 w-full px-4 md:px-6"
+      >
         {workProjects.map((project, index) => (
           <AccordionItem
             key={index}
@@ -47,7 +51,7 @@ function WorkExperience() {
           >
             <div className="border-0">
               <div className="p-0">
-                <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                <AccordionTrigger className="px-4 md:px-6 py-4 hover:no-underline">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full gap-2">
                     <div className="space-y-1 max-w-[250px] sm:max-w-none">
                       <h3 className="font-semibold text-lg flex items-center gap-2">
@@ -70,13 +74,13 @@ function WorkExperience() {
                   </div>
                 </AccordionTrigger>
               </div>
-              <div className="px-6 py-2">
+              <div className="px-4 md:px-6 py-2">
                 <p className="text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">
                   {project.summary}
                 </p>
               </div>
             </div>
-            <AccordionContent className="px-6 pb-4">
+            <AccordionContent className="px-4 md:px-6 pb-4">
               <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-4 pt-2">
                 {project.description.map((desc, i) => (
                   <li key={i}>{parseTextWithBadges(desc)}</li>

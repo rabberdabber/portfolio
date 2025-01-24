@@ -16,7 +16,7 @@ export default function MainNav() {
       {!isDesktop ? (
         <MobileNav />
       ) : (
-        <div className="flex gap-6 md:gap-10 items-center">
+        <div className="flex flex-col gap-2 items-center">
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/logo.svg"

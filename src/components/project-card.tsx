@@ -198,8 +198,6 @@ export function ProjectCard({
   const isMobile = !useMediaQuery(breakpoints.md);
   const theme = useTheme();
   const imageUrl = coverImage[theme.theme === "dark" ? "dark" : "light"];
-  console.log(theme.theme);
-  console.log(imageUrl);
 
   const cardContent = (
     <div className="group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border border-zinc-200/50 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800/50 dark:bg-zinc-900/50 dark:shadow-zinc-900/20 dark:hover:shadow-zinc-900/30 backdrop-blur-sm">

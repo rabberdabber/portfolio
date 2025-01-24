@@ -2,16 +2,36 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import { NavList } from "@/components/nav-list";
 import { Icons } from "@/components/icons";
 import { NavigationMenu } from "@radix-ui/react-navigation-menu";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { useEffect } from "react";
 
 export function MobileNav() {
+  // Add cleanup effect for body class
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
+
   return (
-    <Drawer direction="left">
+    <Drawer
+      direction="left"
+      onOpenChange={(open) => {
+        if (!open) {
+          document.body.classList.remove("overflow-hidden");
+        }
+      }}
+    >
       <DrawerTrigger
         className={cn(
           "ml-auto inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
@@ -41,13 +61,23 @@ export function MobileNav() {
           </div>
 
           {/* Navigation */}
-          <div className="flex-1 flex flex-col justify-around px-0">
+          <div className="flex-1 flex flex-col px-0">
             <NavigationMenu className="w-full backdrop-blur py-4 px-0">
-              <NavList className="flex-col w-full h-full space-y-6" />
+              <NavList className="flex-col w-full space-y-6" />
             </NavigationMenu>
           </div>
         </div>
       </DrawerContent>
+      <DrawerFooter className="border-t border-border/50">
+        <div className="flex flex-col gap-2 items-center">
+          <Link href="/" className="flex items-center space-x-2">
+            <Image src="/logo.svg" alt="Logo" width={32} height={32} />
+            <span className="inline-block font-bold m-0 p-0">
+              {siteConfig.name}
+            </span>
+          </Link>
+        </div>
+      </DrawerFooter>
     </Drawer>
   );
 }

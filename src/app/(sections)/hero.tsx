@@ -49,7 +49,10 @@ export default function Hero() {
               >
                 Full Stack Software Engineer
               </motion.h1>
-              <TextEffect className="text-lg text-muted-foreground md:text-xl text-center max-w-prose">
+              <TextEffect
+                delay={0.5}
+                className="text-lg text-muted-foreground md:text-xl text-center max-w-prose"
+              >
                 Transforming ideas into full-stack solutions with a focus on
                 scalability, clean architecture, and exceptional user
                 experiences.

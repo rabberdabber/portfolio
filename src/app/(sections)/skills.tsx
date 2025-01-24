@@ -11,24 +11,18 @@ import { motion } from "motion/react";
 export default function Skills() {
   return (
     <Layout id="skills">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-12"
-      >
-        <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-          Skills and Tools
-        </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          A collection of my skills and tools in software engineering I am
-          proficient in.
-        </p>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          I am open to learn new technologies and tools.
-        </p>
-      </motion.div>
-      <SkillCards />
+      <div className="min-h-screen grid place-content-center">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Technical Skills
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A comprehensive overview of my technical expertise and tools I work
+            with.
+          </p>
+        </div>
+        <SkillCards />
+      </div>
       <div className="w-full py-12 overflow-hidden bg-gradient-to-b from-background to-secondary/20">
         <div className="relative">
           {/* Fade edges */}

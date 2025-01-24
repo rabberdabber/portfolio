@@ -97,36 +97,14 @@ function WorkExperience() {
 export default function Experience() {
   return (
     <Layout id="experience">
-      <div className="flex flex-col items-center justify-between gap-1">
-        <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
-          Professional Experience
-        </h1>
-        <ExperienceTimeline
-          experiences={[
-            {
-              title: "Software Engineer",
-              company: "Emocog",
-              companyUrl: "https://www.emocog.com/en",
-              startDate: "2022-08-22",
-              endDate: "2024-12-31",
-              companyLogo: "/emocog_logo.png",
-              certificate: "/career_certificate.pdf",
-              skills: [
-                "REST-APIs",
-                "Responsive-UI",
-                "Self-Hosting",
-                "SQL",
-                "NoSQL",
-                "Microservices",
-                "Unit-Testing",
-                "DevOps",
-              ],
-            },
-          ]}
-          isActive={false}
-        >
-          <WorkExperience />
-        </ExperienceTimeline>
+      <div className="min-h-screen grid place-content-center">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold mb-2">Work Experience</h2>
+          <p className="text-muted-foreground">
+            My professional journey so far.
+          </p>
+        </div>
+        <WorkExperience />
       </div>
     </Layout>
   );

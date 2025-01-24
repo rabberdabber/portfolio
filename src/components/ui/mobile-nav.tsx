@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerFooter,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { NavList } from "@/components/nav-list";
 import { Icons } from "@/components/icons";
 import { NavigationMenu } from "@radix-ui/react-navigation-menu";
@@ -48,14 +43,7 @@ export function MobileNav() {
               href="/"
               className="flex items-center space-x-2 hover:bg-accent hover:text-accent-foreground"
             >
-              <Image
-                src="/logo.svg"
-                alt="Logo"
-                className="h-8 w-8 rounded-full object-contain select-none cursor-default focus:ring-0 focus:ring-offset-0 -mr-2"
-                width={32}
-                height={32}
-                draggable={false}
-              />
+              <Icons.logo className="h-12 w-12 rounded-full object-contain select-none cursor-default focus:ring-0 focus:ring-offset-0" />
               <span className="inline-block font-bold">{siteConfig.name}</span>
             </Link>
           </div>

@@ -15,28 +15,21 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { breakpoints } from "@/hooks/useMediaQuery";
+import { type Experience, type CompanyMeta } from "@/types/experience";
 
 interface TimelineItemProps {
   isActive?: boolean;
   shouldHideLine?: boolean;
 }
 
-interface ExperienceCardProps {
-  title: string;
-  company: string;
-  companyUrl: string;
-  startDate: string;
-  endDate: string;
-  companyLogo: string;
+interface ExperienceCardProps extends Experience {
   isActive?: boolean;
   isLast?: boolean;
-  skills: string[];
-  certificate?: string;
   children?: React.ReactNode;
 }
 
 interface ExperienceTimelineProps {
-  experiences: Omit<ExperienceCardProps, "isLast">[];
+  experiences: Experience[];
   isActive: boolean;
   children?: React.ReactNode;
 }
@@ -131,6 +124,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   title,
   company,
   companyUrl,
+  companyMeta,
   startDate,
   endDate,
   companyLogo,
@@ -141,69 +135,80 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   return (
     <div className="w-full max-w-[calc(100dvw-2rem)] md:max-w-2xl mx-auto">
       <Card className="bg-card hover:shadow-lg transition-shadow duration-200 min-w-[min(500px,calc(100dvw-2rem))] overflow-x-auto">
-        <CardHeader className="pb-2 bg-muted/20 border-b border-border/40">
-          <div className="w-full">
-            <div className="p-6">
-              <div className="flex flex-col justify-between items-start gap-4">
-                <div className="w-full flex items-start gap-4">
-                  <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-border/40 bg-foreground p-2">
-                    <Avatar className="w-full h-full">
-                      <AvatarImage
-                        src={companyLogo}
-                        alt={`${company} logo`}
-                        className="object-contain w-full h-full"
+        <CardHeader className="space-y-6 pb-2 bg-muted/20">
+          <div className="flex items-start gap-4">
+            <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-border/40 bg-foreground p-2">
+              <Avatar className="w-full h-full">
+                <AvatarImage
+                  src={companyLogo}
+                  alt={`${company} logo`}
+                  className="object-contain w-full h-full"
+                />
+                <AvatarFallback className="bg-foreground">
+                  {company[0]}
+                </AvatarFallback>
+              </Avatar>
+            </div>
+            <div className="min-w-0 flex-1 space-y-4">
+              <div className="space-y-1.5">
+                <h3 className="text-xl font-bold">{title}</h3>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <Link
+                    href={companyUrl}
+                    className="inline-flex items-center gap-1 group"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Icons.building2 className="w-4 h-4" />
+                    <span className="truncate">{company}</span>
+                    <Icons.externalLink
+                      size={14}
+                      className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
+                    />
+                  </Link>
+                  {certificate && (
+                    <Link
+                      href={certificate}
+                      className="inline-flex items-center gap-1 group"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <Icons.scroll
+                        size={14}
+                        className="text-muted-foreground"
                       />
-                      <AvatarFallback className="bg-foreground">
-                        {company[0]}
-                      </AvatarFallback>
-                    </Avatar>
+                      <span>Career Certificate</span>
+                      <Icons.fileText className="w-4 h-4" />
+                    </Link>
+                  )}
+                </div>
+              </div>
+              <div className="space-y-2 text-muted-foreground">
+                <p className="text-sm">{companyMeta.intro}</p>
+                <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-1.5">
+                    <Icons.mapPin className="w-3.5 h-3.5" />
+                    <span>{companyMeta.location}</span>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-xl font-bold mb-1">{title}</h3>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-foreground/40 pb-2">
-                      <Link
-                        href={companyUrl}
-                        className="inline-flex items-center gap-1 group"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        <Icons.building2 className="w-4 h-4" />
-                        <span className="truncate">{company}</span>
-                        <Icons.externalLink
-                          size={14}
-                          className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
-                        />
-                      </Link>
-                      {certificate && (
-                        <Link
-                          href={certificate}
-                          className="inline-flex items-center gap-1 group"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          <Icons.scroll
-                            size={14}
-                            className="text-muted-foreground"
-                          />
-                          <span>Career Certificate</span>
-                          <Icons.fileText className="w-4 h-4" />
-                        </Link>
-                      )}
-                    </div>
+                  <div className="flex items-center gap-1.5">
+                    <Icons.briefcase className="w-3.5 h-3.5" />
+                    <span>{companyMeta.industry}</span>
                   </div>
                 </div>
-                <DateBadge
-                  startDate={startDate}
-                  endDate={endDate}
-                  className="w-max"
-                />
               </div>
+              <DateBadge
+                startDate={startDate}
+                endDate={endDate}
+                className="w-max"
+              />
             </div>
           </div>
         </CardHeader>
-        <CardContent className="flex-1 flex flex-col">{children}</CardContent>
+        <CardContent className="flex-1 flex flex-col border-t border-border/40">
+          {children}
+        </CardContent>
         <CardFooter className="bg-muted/20 border-t border-border/40 py-4">
-          <div className="flex flex-wrap gap-2 px-8">
+          <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
               <Badge
                 key={skill}

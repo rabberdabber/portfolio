@@ -12,6 +12,7 @@ import Layout from "@/components/layout";
 import { Badge } from "@/components/ui/badge";
 import { Icons } from "@/components/icons";
 import workProjects from "@/config/work-projects";
+import experiences from "@/config/experiences";
 
 function WorkExperience() {
   function parseText(text: string): ReactNode {
@@ -101,30 +102,7 @@ export default function Experience() {
         <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
           Professional Experience
         </h1>
-        <ExperienceTimeline
-          experiences={[
-            {
-              title: "Software Engineer",
-              company: "Emocog",
-              companyUrl: "https://www.emocog.com/en",
-              startDate: "2022-08-22",
-              endDate: "2024-12-31",
-              companyLogo: "/emocog_logo.png",
-              certificate: "/career_certificate.pdf",
-              skills: [
-                "REST-APIs",
-                "Responsive-UI",
-                "Self-Hosting",
-                "SQL",
-                "NoSQL",
-                "Microservices",
-                "Unit-Testing",
-                "DevOps",
-              ],
-            },
-          ]}
-          isActive={false}
-        >
+        <ExperienceTimeline experiences={experiences} isActive={false}>
           <WorkExperience />
         </ExperienceTimeline>
       </div>

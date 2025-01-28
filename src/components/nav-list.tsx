@@ -54,7 +54,7 @@ export function NavList({ className }: { className?: string }) {
             )}
             onClick={() => setActiveSection(item.title)}
           >
-            {sectionToIcon(item.title)}
+            {isMobile && sectionToIcon(item.title)}
             <p className="text-xl lg:text-base">
               {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
             </p>

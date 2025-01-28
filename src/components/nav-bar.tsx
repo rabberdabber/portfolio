@@ -13,22 +13,22 @@ export default function MainNav() {
 
   return (
     <>
-      {!isDesktop ? (
-        <MobileNav />
-      ) : (
-        <div className="flex gap-2 items-center">
+      {isDesktop ? (
+        <>
           <Link href="/" className="flex items-center space-x-2">
             <Icons.logo className="h-12 w-12 rounded-full object-contain select-none cursor-default focus:ring-0 focus:ring-offset-0" />
             <span className="inline-block font-bold m-0 p-0">
               {siteConfig.name}
             </span>
           </Link>
-          <NavigationMenu>
+          <NavigationMenu className="flex-1 ml-auto w-fit">
             <div className="rounded-full p-1 backdrop-blur">
               <NavList />
             </div>
           </NavigationMenu>
-        </div>
+        </>
+      ) : (
+        <MobileNav />
       )}
     </>
   );

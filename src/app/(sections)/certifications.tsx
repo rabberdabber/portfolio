@@ -28,7 +28,7 @@ const fadeInUp = {
 export default function Certifications() {
   return (
     <Layout id="certifications">
-      <div className="min-h-screen">
+      <div>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

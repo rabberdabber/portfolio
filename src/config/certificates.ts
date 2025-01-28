@@ -11,6 +11,15 @@ interface Certification {
 const certifications: Certification[] = [
   {
     id: 1,
+    name: "Database Design and Basic SQL in PostgreSQL",
+    date: "2024-12-10",
+    instructor: "Charles Russell Severance",
+    imageUrl: "/certifications/db_design_and_basic_sql.jpeg",
+    websiteUrl: "https://www.coursera.org/learn/database-design-postgresql",
+    tags: ["PostgreSQL", "Database Design"],
+  },
+  {
+    id: 2,
     name: "Advanced React with TypeScript",
     date: "2024-08-25",
     instructor: "Matt Pocock",

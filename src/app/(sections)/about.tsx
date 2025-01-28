@@ -166,7 +166,7 @@ export default function About() {
 
               {/* Download Button */}
               <Button
-                onClick={() => downloadFile("pdf", "/cv.pdf")}
+                onClick={() => downloadFile("pdf", "/resume.pdf")}
                 className="group px-6 py-2 text-sm font-medium"
                 variant="default"
               >

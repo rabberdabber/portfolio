@@ -115,12 +115,7 @@ export default function Hero() {
           </div>
 
           {/* Right side image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="relative mx-auto w-full flex items-center justify-center"
-          >
+          <div className="relative mx-auto w-full flex items-center justify-center">
             <AspectRatio
               ratio={12 / 9}
               className="relative rounded-xl overflow-hidden shadow-lg"
@@ -135,7 +130,7 @@ export default function Hero() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </AspectRatio>
-          </motion.div>
+          </div>
         </main>
       </div>
     </Layout>

@@ -15,8 +15,12 @@ export const Skills = {
     tools: ["JavaScript", "TypeScript", "Python", "C/C++"],
     description: "Implement backend and frontend business logic",
   },
+  Productivity: {
+    tools: ["Cursor", "Bolt.new"],
+    description: "AI-powered tools that boost development productivity",
+  },
   Others: {
-    tools: ["VSCode/Cursor", "Git", "GitHub", "GitLab"],
+    tools: ["VSCode", "Git", "GitHub", "GitLab"],
     description: "Tools I use to develop and manage projects",
   },
 } satisfies Record<string, Record<string, string | string[]>>;

@@ -6,15 +6,14 @@ import Layout from "@/components/layout";
 import Marquee from "@/components/marquee";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ToolIconsAndDescriptions } from "@/config/skills";
-import { motion } from "motion/react";
 
 export default function Skills() {
   return (
     <Layout id="skills">
-      <div className="min-h-screen grid place-content-center">
+      <div className="grid place-content-center">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Technical Skills
+            Technologies and Tools
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A comprehensive overview of my technical expertise and tools I work

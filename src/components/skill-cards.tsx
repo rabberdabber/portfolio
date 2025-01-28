@@ -9,12 +9,15 @@ import {
 } from "motion/react";
 import { Code, Database, Layout as LayoutIcon, Server } from "lucide-react";
 import { Skills } from "@/config/skills";
+import { Icons } from "@/components/icons";
+import { cn } from "@/lib/utils";
 
 const iconMap = {
   Backend: <Server className="w-8 h-8" />,
   Frontend: <LayoutIcon className="w-8 h-8" />,
   Languages: <Code className="w-8 h-8" />,
   DevOps: <Server className="w-8 h-8" />,
+  Productivity: <Icons.brain className="w-8 h-8" />,
   Others: <Database className="w-8 h-8" />,
 };
 
@@ -23,14 +26,8 @@ const bgColorMap = {
   Frontend: "from-sky-500/20 to-sky-500/10",
   Languages: "from-emerald-500/20 to-emerald-500/10",
   DevOps: "from-lime-500/20 to-lime-500/10",
+  Productivity: "from-rose-500/20 to-rose-500/10",
   Others: "from-violet-500/20 to-violet-500/10",
-};
-
-const sizeMap = {
-  Backend: "lg:col-span-2 lg:row-span-1",
-  Frontend: "lg:col-span-1 lg:row-span-2",
-  Languages: "lg:col-span-1 lg:row-span-1",
-  Others: "lg:col-span-2 lg:row-span-1",
 };
 
 const containerVariants = {
@@ -70,18 +67,21 @@ function BentoCard({
   icon,
   tools,
   className,
-  index,
 }: BentoCardProps) {
   return (
     <div
-      className={`group relative overflow-hidden ${className} hover:shadow-lg transition-all duration-300`}
+      className={cn(
+        "group relative overflow-hidden h-full",
+        "hover:shadow-lg transition-all duration-300",
+        className
+      )}
     >
       <div className="relative z-10 h-full">
         <div className="flex items-start gap-4">
-          <div className="text-foreground/80 group-hover:text-foreground transition-colors">
+          <div className="text-foreground/80 group-hover:text-foreground transition-colors shrink-0">
             {icon}
           </div>
-          <div>
+          <div className="flex-1">
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-muted-foreground mb-4">{description}</p>
             <div className="flex flex-wrap gap-2">
@@ -113,14 +113,14 @@ export default function SkillCards() {
   }, [controls, isInView]);
 
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-7xl px-4">
       <LayoutGroup>
         <motion.div
           ref={ref}
           initial="hidden"
           animate={controls}
           variants={containerVariants}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-6 "
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-6"
         >
           {Object.entries(Skills).map(
             ([key, { tools, description }], index) => (
@@ -131,16 +131,16 @@ export default function SkillCards() {
                 transition={{
                   layout: { duration: 0.4, ease: "easeOut" },
                 }}
-                className="p-4"
+                className="h-full"
               >
                 <BentoCard
                   title={key}
                   description={description}
                   icon={iconMap[key as keyof typeof iconMap]}
                   tools={tools}
-                  className={`bg-gradient-to-br p-6 rounded-3xl w-full md:w-auto flex flex-col justify-center items-center ${
+                  className={`bg-gradient-to-br p-6 rounded-3xl w-full h-full ${
                     bgColorMap[key as keyof typeof bgColorMap]
-                  } ${sizeMap[key as keyof typeof sizeMap]}`}
+                  }`}
                   index={index}
                 />
               </motion.div>

@@ -189,6 +189,7 @@ export function ProjectCard({
   title,
   summary,
   description,
+  descriptionUrl,
   coverImage,
   tags,
   site,
@@ -243,7 +244,19 @@ export function ProjectCard({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Icons.externalLink size={14} />
-                <span>Live Demo</span>
+                <span>Live Site</span>
+              </a>
+            )}
+            {descriptionUrl && (
+              <a
+                href={site}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Icons.externalLink size={14} />
+                <span>Description (server)</span>
               </a>
             )}
             {repo && (
@@ -255,7 +268,7 @@ export function ProjectCard({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Icons.gitHub size={14} />
-                <span>Code</span>
+                <span>Repository</span>
               </a>
             )}
           </div>

@@ -8,9 +8,10 @@ export interface ProjectCardProps {
   summary: string;
   description: string[];
   tags: Tag[];
-  site: string;
-  repo: string;
+  site?: string;
+  repo?: string;
   coverImage: Record<"dark" | "light", string>;
+  descriptionUrl?: string;
 }
 
 export const projects: ProjectCardProps[] = [
@@ -80,7 +81,8 @@ export const projects: ProjectCardProps[] = [
       "Incorporated {OAuth 2.0} for secure {authorization} and {role-based access control}, as well as {Redis} rate limiting to prevent service abuse.",
       "Deployed via {Docker Compose} and {Coolify}, simplifying infrastructure management and automated deployments.",
     ],
-    site: "https://contentgen.codebake.io",
+    descriptionUrl:
+      "https://github.com/rabberdabber/content-gen/blob/main/README.md",
     repo: "https://github.com/rabberdabber/ContentGen",
     coverImage: {
       light: "/contentgen.png",
@@ -110,7 +112,7 @@ export const projects: ProjectCardProps[] = [
       "Created a clean and modern portfolio site using {Next.js}, {shadcn/ui}, and {Tailwind CSS} to showcase professional projects and skill sets.",
       "Ensured seamless performance and scalability by self-hosting with {Docker} and {Coolify}, reducing hosting overhead and dependency on external platforms.",
     ],
-    site: "https://rabberdabber.com",
+    site: "https://portfolio.codebake.io",
     repo: "https://github.com/rabberdabber/portfolio",
     coverImage: {
       light: "/portfolio_light.png",

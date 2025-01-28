@@ -14,7 +14,7 @@ import DiscloseImage from "@/components/ui/disclose-image";
 export default function Hero() {
   return (
     <Layout id="home" addPadding={false}>
-      <div className="relative overflow-hidden min-h-screen w-screen">
+      <div className="relative overflow-hidden min-h-screen w-screen pt-6">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-primary/5 z-0 " />
 
         {/* Radial gradient - made more subtle */}

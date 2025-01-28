@@ -103,7 +103,7 @@ export function ContactForm() {
 export default function Home() {
   return (
     <Layout id="contact">
-      <div className="grid place-content-center">
+      <div className="grid place-content-center py-6">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold mb-2">Get in Touch</h2>
           <p className="text-muted-foreground">

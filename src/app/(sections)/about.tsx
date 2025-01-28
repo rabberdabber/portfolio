@@ -29,7 +29,7 @@ export default function About() {
             >
               <div className="relative size-64 md:size-80">
                 {/* Simple Frame */}
-                <div className="absolute -inset-6 bg-gradient-to-r from-muted-foreground/10 via-muted-foreground/5 to-muted-foreground/10 rounded-[2rem]" />
+                <div className="absolute -inset-6  rounded-[2rem]" />
 
                 {/* Corner Accents */}
                 <div className="absolute -top-4 -left-4 size-8 border-t-2 border-l-2 border-primary/30 rounded-tl-xl" />

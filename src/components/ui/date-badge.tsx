@@ -35,7 +35,7 @@ export function DateBadge({ startDate, endDate, className }: DateBadgeProps) {
   };
 
   return (
-    <div className="inline-flex items-center gap-2 group w-max">
+    <div className="inline-flex flex-wrap items-center gap-2 group w-fit max-w-full">
       <Badge
         variant="secondary"
         className={`px-3 py-1 transition-all duration-200 hover:scale-105 ${className}`}

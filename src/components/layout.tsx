@@ -30,7 +30,7 @@ export default function Layout({
     <main
       ref={ref}
       className={cn(
-        "snap-y snap-mandatory scroll-smooth relative min-h-screen",
+        "snap-y snap-mandatory scroll-smooth relative",
         addPadding ? "pt-20 px-4 md:px-6 pb-4" : ""
       )}
       id={id}

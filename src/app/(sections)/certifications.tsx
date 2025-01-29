@@ -191,11 +191,15 @@ function CertificateDrawer({
           variant="outline"
           className="w-full transition-all hover:scale-105 hover:shadow-lg"
         >
-          <Icons.award className="mr-2 h-4 w-4" />
+          {certification.type === "specialization" ? (
+            <Icons.medal className="mr-2 h-4 w-4" />
+          ) : (
+            <Icons.award className="mr-2 h-4 w-4" />
+          )}
           View Certificate
         </Button>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="min-h-[50dvh]">
         <div className="flex flex-col items-center p-4 h-full overflow-y-auto">
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}

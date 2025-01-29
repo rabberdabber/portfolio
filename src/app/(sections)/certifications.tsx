@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { CalendarIcon, ExternalLink, Award, Images } from "lucide-react";
+import { Icons } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import certifications from "@/config/certificates";
@@ -58,7 +58,7 @@ export default function Certifications() {
         >
           {certifications.map((cert, index) => (
             <motion.div
-              key={cert.id}
+              key={cert.name}
               variants={fadeInUp}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
@@ -83,7 +83,7 @@ function CertificateDialog({
           variant="outline"
           className="w-full transition-all hover:scale-105 hover:shadow-lg"
         >
-          <Award className="mr-2 h-4 w-4" />
+          <Icons.award className="mr-2 h-4 w-4" />
           View Certificate
         </Button>
       </DialogTrigger>
@@ -124,7 +124,7 @@ function CertificateDrawer({
           variant="outline"
           className="w-full transition-all hover:scale-105 hover:shadow-lg"
         >
-          <Award className="mr-2 h-4 w-4" />
+          <Icons.award className="mr-2 h-4 w-4" />
           View Certificate
         </Button>
       </DrawerTrigger>
@@ -170,13 +170,13 @@ function CertificationCard({
     <Card className="group h-full transition-all hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-xl">
-          <Award className="h-5 w-5 text-primary" />
+          <Icons.award className="h-5 w-5 text-primary" />
           {certification.name}
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-grow space-y-4">
         <div className="flex items-center text-sm text-muted-foreground">
-          <CalendarIcon className="mr-2 h-4 w-4" />
+          <Icons.calendar className="mr-2 h-4 w-4" />
           {new Date(certification.date).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -195,7 +195,7 @@ function CertificationCard({
             rel="noopener noreferrer"
           >
             Visit Course
-            <ExternalLink className="ml-1 h-3 w-3" />
+            <Icons.externalLink className="ml-1 h-3 w-3" />
           </Link>
         </div>
 

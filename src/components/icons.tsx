@@ -40,6 +40,7 @@ import {
   Scroll,
   Paintbrush,
   Languages,
+  Award,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -84,6 +85,7 @@ export const Icons = {
   menu: Menu,
   hourglass: Hourglass,
   scroll: Scroll,
+  award: Award,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

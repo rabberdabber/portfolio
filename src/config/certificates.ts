@@ -1,5 +1,4 @@
 interface Certification {
-  id: number;
   name: string;
   date: string;
   instructor: string;
@@ -8,9 +7,8 @@ interface Certification {
   websiteUrl: string;
 }
 
-const certifications: Certification[] = [
+const unsortedCertifications: Certification[] = [
   {
-    id: 1,
     name: "Database Design and Basic SQL in PostgreSQL",
     date: "2024-12-10",
     instructor: "Charles Russell Severance",
@@ -19,7 +17,22 @@ const certifications: Certification[] = [
     tags: ["PostgreSQL", "Database Design"],
   },
   {
-    id: 2,
+    name: "CSS for JavaScript Developers",
+    date: "2024-09-03",
+    instructor: "Josh Comeau",
+    imageUrl: "/certifications/css_for_javascript.png",
+    tags: ["React", "JavaScript"],
+    websiteUrl: "https://css-for-js.dev/",
+  },
+  {
+    name: "The Joy of React",
+    date: "2024-09-03",
+    instructor: "Josh Comeau",
+    imageUrl: "/certifications/joy_of_react.png",
+    tags: ["React", "JavaScript"],
+    websiteUrl: "https://www.joyofreact.com/",
+  },
+  {
     name: "Advanced React with TypeScript",
     date: "2024-08-25",
     instructor: "Matt Pocock",
@@ -29,7 +42,6 @@ const certifications: Certification[] = [
     tags: ["React", "TypeScript"],
   },
   {
-    id: 2,
     name: "Zod Workshop",
     date: "2024-07-10",
     instructor: "Matt Pocock",
@@ -37,24 +49,10 @@ const certifications: Certification[] = [
     tags: ["typescript", "data validation"],
     websiteUrl: "https://www.totaltypescript.com/tutorials/zod",
   },
-  {
-    id: 3,
-    name: "CSS for JavaScript Developers",
-    date: "2024-06-01",
-    instructor: "Josh Comeau",
-    imageUrl: "/certifications/css_for_javascript.png",
-    tags: ["React", "JavaScript"],
-    websiteUrl: "https://css-for-js.dev/",
-  },
-  {
-    id: 4,
-    name: "The Joy of React",
-    date: "2024-05-15",
-    instructor: "Josh Comeau",
-    imageUrl: "/certifications/joy_of_react.png",
-    tags: ["React", "JavaScript"],
-    websiteUrl: "https://www.joyofreact.com/",
-  },
-] as const satisfies Certification[];
+] as const;
+
+const certifications = [...unsortedCertifications].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 
 export default certifications;

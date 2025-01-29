@@ -1,20 +1,32 @@
-interface Certification {
+type Certification = {
   name: string;
   date: string;
   instructor: string;
-  imageUrl: string;
   tags: string[];
   websiteUrl: string;
-}
+} & (
+  | {
+      type: "course";
+      imageUrl: string;
+    }
+  | {
+      type: "specialization";
+      imageUrl: string[];
+    }
+);
 
 const unsortedCertifications: Certification[] = [
   {
     name: "Database Design and Basic SQL in PostgreSQL",
     date: "2024-12-10",
     instructor: "Charles Russell Severance",
-    imageUrl: "/certifications/db_design_and_basic_sql.jpeg",
+    imageUrl: [
+      "/certifications/intermediate_postgres.jpg",
+      "/certifications/database_design_and_basic_sql.jpg",
+    ],
     websiteUrl: "https://www.coursera.org/learn/database-design-postgresql",
     tags: ["PostgreSQL", "Database Design"],
+    type: "specialization",
   },
   {
     name: "CSS for JavaScript Developers",
@@ -23,6 +35,7 @@ const unsortedCertifications: Certification[] = [
     imageUrl: "/certifications/css_for_javascript.png",
     tags: ["React", "JavaScript"],
     websiteUrl: "https://css-for-js.dev/",
+    type: "course",
   },
   {
     name: "The Joy of React",
@@ -31,6 +44,7 @@ const unsortedCertifications: Certification[] = [
     imageUrl: "/certifications/joy_of_react.png",
     tags: ["React", "JavaScript"],
     websiteUrl: "https://www.joyofreact.com/",
+    type: "course",
   },
   {
     name: "Advanced React with TypeScript",
@@ -40,6 +54,7 @@ const unsortedCertifications: Certification[] = [
     websiteUrl:
       "https://www.totaltypescript.com/workshops/advanced-react-with-typescript",
     tags: ["React", "TypeScript"],
+    type: "course",
   },
   {
     name: "Zod Workshop",
@@ -48,6 +63,7 @@ const unsortedCertifications: Certification[] = [
     imageUrl: "/certifications/zod.png",
     tags: ["typescript", "data validation"],
     websiteUrl: "https://www.totaltypescript.com/tutorials/zod",
+    type: "course",
   },
 ] as const;
 

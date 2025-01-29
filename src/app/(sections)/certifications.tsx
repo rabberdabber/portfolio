@@ -18,6 +18,15 @@ import Layout from "@/components/layout";
 import { breakpoints, useMediaQuery } from "@/hooks/useMediaQuery";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import ImagesWithBlur from "@/components/images-with-blur";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselApi,
+} from "@/components/ui/carousel";
+import React from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -76,6 +85,21 @@ function CertificateDialog({
 }: {
   certification: (typeof certifications)[number];
 }) {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -96,14 +120,42 @@ function CertificateDialog({
             exit={{ opacity: 0, scale: 0.9 }}
           >
             <div className="bg-card rounded-xl overflow-hidden shadow-2xl">
-              <ImagesWithBlur
-                src={certification.imageUrl}
-                alt={`${certification.name} Certificate`}
-                className="w-full h-auto transition-transform hover:scale-[1.02]"
-                width={1200}
-                height={800}
-                priority
-              />
+              {certification.type === "specialization" &&
+              Array.isArray(certification.imageUrl) ? (
+                <Carousel setApi={setApi} className="w-full relative">
+                  <CarouselContent>
+                    {certification.imageUrl.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <ImagesWithBlur
+                          src={image}
+                          alt={`${certification.name} Certificate - Part ${
+                            index + 1
+                          }`}
+                          className="w-full h-auto transition-transform hover:scale-[1.02]"
+                          width={1200}
+                          height={800}
+                          priority
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  {current > 0 && (
+                    <CarouselPrevious className="transition-transform absolute left-4 hover:scale-105" />
+                  )}
+                  {current < count - 1 && (
+                    <CarouselNext className="transition-transform absolute right-4 hover:scale-105" />
+                  )}
+                </Carousel>
+              ) : (
+                <ImagesWithBlur
+                  src={certification.imageUrl as string}
+                  alt={`${certification.name} Certificate`}
+                  className="w-full h-auto transition-transform hover:scale-[1.02]"
+                  width={1200}
+                  height={800}
+                  priority
+                />
+              )}
             </div>
           </motion.div>
         </AnimatePresence>
@@ -117,6 +169,21 @@ function CertificateDrawer({
 }: {
   certification: (typeof certifications)[number];
 }) {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -143,14 +210,42 @@ function CertificateDrawer({
             className="w-full max-w-2xl mx-auto"
           >
             <div className="bg-card rounded-xl overflow-hidden shadow-2xl">
-              <ImagesWithBlur
-                src={certification.imageUrl}
-                alt={`${certification.name} Certificate`}
-                className="w-full h-auto"
-                width={1200}
-                height={800}
-                priority
-              />
+              {certification.type === "specialization" &&
+              Array.isArray(certification.imageUrl) ? (
+                <Carousel setApi={setApi} className="w-full relative">
+                  <CarouselContent>
+                    {certification.imageUrl.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <ImagesWithBlur
+                          src={image}
+                          alt={`${certification.name} Certificate - Part ${
+                            index + 1
+                          }`}
+                          className="w-full h-auto"
+                          width={1200}
+                          height={800}
+                          priority
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  {current > 0 && (
+                    <CarouselPrevious className="transition-transform absolute left-4 hover:scale-105" />
+                  )}
+                  {current < count - 1 && (
+                    <CarouselNext className="transition-transform absolute right-4 hover:scale-105" />
+                  )}
+                </Carousel>
+              ) : (
+                <ImagesWithBlur
+                  src={certification.imageUrl as string}
+                  alt={`${certification.name} Certificate`}
+                  className="w-full h-auto"
+                  width={1200}
+                  height={800}
+                  priority
+                />
+              )}
             </div>
           </motion.div>
         </div>

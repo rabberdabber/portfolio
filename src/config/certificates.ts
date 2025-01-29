@@ -17,8 +17,8 @@ type Certification = {
 
 const unsortedCertifications: Certification[] = [
   {
-    name: "Database Design and Basic SQL in PostgreSQL",
-    date: "2024-12-10",
+    name: "PostgreSQL for Everybody Specialization",
+    date: "2025-01-29",
     instructor: "Charles Russell Severance",
     imageUrl: [
       "/certifications/intermediate_postgres.jpg",

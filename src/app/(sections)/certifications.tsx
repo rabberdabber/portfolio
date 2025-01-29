@@ -265,7 +265,11 @@ function CertificationCard({
     <Card className="group h-full transition-all hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-xl">
-          <Icons.award className="h-5 w-5 text-primary" />
+          {certification.type === "specialization" ? (
+            <Icons.medal className="h-5 w-5 text-primary" />
+          ) : (
+            <Icons.award className="h-5 w-5 text-primary" />
+          )}
           {certification.name}
         </CardTitle>
       </CardHeader>

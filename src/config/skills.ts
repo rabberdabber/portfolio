@@ -1,7 +1,7 @@
 export const Skills = {
   Backend: {
     tools: ["FastAPI", "Node.js", "PostgreSQL", "Firebase", "Redis"],
-    description: "Implement RESTful or GRPC APIs and manage databases",
+    description: "Implement RESTful or GRPC APIs and design databases",
   },
   Frontend: {
     tools: ["React", "React Native", "Next.js", "TailwindCSS", "HTML", "CSS"],
@@ -29,7 +29,7 @@ export const ToolIconsAndDescriptions = {
   Redis: {
     icon: "/logos/redis.svg",
     description:
-      "I use Redis as a database, cache, and message broker for rate limiting and performance optimization.",
+      "I use Redis as a database, cache, for rate limiting and performance optimization.",
   },
   FastAPI: {
     icon: "/logos/fastapi.png",

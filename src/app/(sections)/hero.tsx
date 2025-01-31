@@ -102,13 +102,13 @@ export default function Hero() {
                   Learn More <Icons.arrowRight className="size-4" />
                 </Button>
               </Link>
-              <Link href="/#projects">
+              <Link href="/#experience">
                 <Button
                   variant="outline"
                   size="lg"
                   className="backdrop-blur-sm bg-background/80 shadow-sm hover:bg-background/90"
                 >
-                  View Projects
+                  View Experience
                 </Button>
               </Link>
             </motion.div>

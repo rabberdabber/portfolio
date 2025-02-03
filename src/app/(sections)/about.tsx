@@ -14,15 +14,14 @@ import { useInView } from "framer-motion";
 
 export default function About() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  if (!isInView) {
-    return null;
-  }
+  useInView(ref, { once: true });
 
   return (
     <Layout id="about">
-      <div className="relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90">
+      <div
+        ref={ref}
+        className="relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90"
+      >
         {/* Simple Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px]" />
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Layout from "@/components/layout";
@@ -10,8 +10,16 @@ import { TextEffect } from "@/components/ui/text-effect";
 import ImagesWithBlur from "@/components/images-with-blur";
 import { motion } from "motion/react";
 import { downloadFile } from "@/lib/utils";
+import { useInView } from "framer-motion";
 
 export default function About() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  if (!isInView) {
+    return null;
+  }
+
   return (
     <Layout id="about">
       <div className="relative min-h-[calc(100dvh-4rem)] bg-gradient-to-b from-background via-background to-background/90">

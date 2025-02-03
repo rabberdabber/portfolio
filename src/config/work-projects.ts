@@ -24,7 +24,7 @@ const workProjects: WorkProject[] = [
     duration: "1 year",
     project: "Cogthera Backend",
     summary:
-      "Involved in and implemented and maintained some backend with a Microservice architecture for the Cogthera (DiGA (Digital treatment and medical applications) mobile application.",
+      "Involved in and implemented and maintained some backend with a Microservice architecture for the Cogthera (DiGA, Digital Health Applications) mobile application.",
     description: [
       "Collaborated with Emocog's German subsidiary to design a {microservice-based backend} architecture and ensure {ISO 27001} compliance.",
       "Implemented audit logging using {PostgreSQL triggers} and integrated an {OAuth 2.0}-compatible authentication server for secure user management.",

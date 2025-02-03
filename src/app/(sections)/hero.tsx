@@ -82,6 +82,7 @@ export default function Hero() {
                   className="w-12 h-12 rounded-full ring-2 ring-primary/20 object-cover object-top"
                   width={48}
                   height={48}
+                  priority
                 />
                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full ring-2 ring-background animate-pulse"></span>
               </div>

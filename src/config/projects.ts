@@ -12,6 +12,7 @@ export interface ProjectCardProps {
   repo?: string;
   coverImage: Record<"dark" | "light", string>;
   descriptionUrl?: string;
+  portfolio?: boolean;
 }
 
 export const projects: ProjectCardProps[] = [
@@ -118,5 +119,6 @@ export const projects: ProjectCardProps[] = [
       light: "/portfolio_light.png",
       dark: "/portfolio_dark.png",
     },
+    portfolio: true,
   },
 ];

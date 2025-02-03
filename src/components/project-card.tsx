@@ -194,6 +194,7 @@ export function ProjectCard({
   tags,
   site,
   repo,
+  portfolio,
 }: ProjectCardProps) {
   const isMobile = !useMediaQuery(breakpoints.md);
   const theme = useTheme();
@@ -237,14 +238,18 @@ export function ProjectCard({
           <div className="flex gap-4">
             {site && (
               <a
-                href={site}
+                href={portfolio ? "#" : site}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
                 onClick={(e) => e.stopPropagation()}
               >
-                <Icons.externalLink size={14} />
-                <span>Live Site</span>
+                {portfolio ? (
+                  <Icons.chevronUp size={14} />
+                ) : (
+                  <Icons.externalLink size={14} />
+                )}
+                <span>{portfolio ? "This Website" : "Live Site"}</span>
               </a>
             )}
             {descriptionUrl && (

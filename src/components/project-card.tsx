@@ -249,7 +249,7 @@ export function ProjectCard({
             )}
             {descriptionUrl && (
               <a
-                href={site}
+                href={descriptionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"

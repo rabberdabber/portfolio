@@ -222,7 +222,7 @@ export default function About() {
               </Card>
               {/* Download Button */}
               <Button
-                onClick={() => downloadFile("pdf", "/resume.pdf")}
+                onClick={() => downloadFile("pdf", "/Bereket_Resume_V2.0.pdf")}
                 className="group px-6 py-2 text-sm font-medium"
                 variant="default"
               >

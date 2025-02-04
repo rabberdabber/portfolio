@@ -42,11 +42,15 @@ import {
   Languages,
   Award,
   Medal,
+  Book,
+  Check,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  book: Book,
+  check: Check,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   building2: Building2,

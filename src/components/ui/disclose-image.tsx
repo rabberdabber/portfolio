@@ -35,6 +35,7 @@ export default function DiscloseImage({
         className={cn(className)}
         {...props}
         alt={props.alt || "Image that is disclosed"}
+        quality={75}
       />
 
       {imageLoaded && (

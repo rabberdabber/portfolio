@@ -37,7 +37,7 @@ const fadeInUp = {
 export default function Certifications() {
   return (
     <Layout id="certifications">
-      <div>
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -266,7 +266,7 @@ function CertificationCard({
   const isMobile = !useMediaQuery(breakpoints.md);
 
   return (
-    <Card className="group h-full transition-all hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950">
+    <Card className="group h-full max-w-md mx-auto transition-all hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-xl">
           {certification.type === "specialization" ? (

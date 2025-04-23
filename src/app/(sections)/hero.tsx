@@ -44,13 +44,13 @@ export default function Hero() {
                   👋
                 </span>
                 , {t("introduction")}{" "}
-                <span className="font-bold">{t("name")}</span>
+                <span className="font-bold truncate">{t("name")}</span>
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl font-bold tracking-tight leading-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50 p-2"
+                className="text-3xl font-bold tracking-tight leading-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50 p-2"
               >
                 {t("title")}
               </motion.h1>

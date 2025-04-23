@@ -81,13 +81,3 @@ export const workProjects: Project[] = [
     ],
   },
 ];
-
-// export const experiences: Experience[] = [
-//   {
-//     company: "emocog",
-//     title: "company.emocog.title",
-//     period: "Aug 2022 - Dec 2024",
-//     location: "Remote",
-//     industry: "Technology",
-//   },
-// ];

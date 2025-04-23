@@ -13,8 +13,10 @@ import { Badge } from "@/components/ui/badge";
 import { Icons } from "@/components/icons";
 import workProjects from "@/config/work-projects";
 import experiences from "@/config/experiences";
+import { useTranslations } from "next-intl";
 
 function WorkExperience() {
+  const t = useTranslations("experience");
   const [hoveredItem, setHoveredItem] = React.useState<string | null>(null);
   const hoverTimeoutRef = React.useRef<NodeJS.Timeout>();
 
@@ -39,28 +41,11 @@ function WorkExperience() {
     };
   }, []);
 
-  function parseText(text: string): ReactNode {
-    const parts = text.split(/(\{[^}]+\})/);
-    return parts.map((part, index) => {
-      if (part.startsWith("{") && part.endsWith("}")) {
-        const content = part.slice(1, -1);
-        return (
-          <span key={index} className="font-bold">
-            {content}
-          </span>
-        );
-      }
-      return <Fragment key={index}>{part}</Fragment>;
-    });
-  }
-
   return (
     <div className="w-full py-12">
       <div className="space-y-4 mb-8">
         <div className="space-y-3">
-          <p className="text-muted-foreground text-center">
-            A comprehensive overview of my professional journey at Emocog.
-          </p>
+          <p className="text-muted-foreground text-center">{t("overview")}</p>
         </div>
       </div>
 
@@ -91,7 +76,7 @@ function WorkExperience() {
                         <h3 className="font-semibold text-lg flex items-center gap-2">
                           <Icons.briefcaseIcon className="h-5 w-5 flex-shrink-0" />
                           <span className="line-clamp-1">
-                            {project.project}
+                            {t(`projects.${project.project}.title`)}
                           </span>
                         </h3>
                         <p className="text-sm text-muted-foreground flex items-center gap-2">
@@ -105,22 +90,26 @@ function WorkExperience() {
                         variant="secondary"
                         className="h-fit whitespace-nowrap w-fit"
                       >
-                        Project
+                        {t("project")}
                       </Badge>
                     </div>
                   </AccordionTrigger>
                 </div>
                 <div className="px-4 md:px-6 py-2">
                   <p className="text-sm text-muted-foreground line-clamp-5 sm:line-clamp-none">
-                    {project.summary}
+                    {t(`projects.${project.project}.summary`)}
                   </p>
                 </div>
               </div>
               <AccordionContent className="px-4 md:px-6 pb-4 transition-all duration-500 ease-in-out min-h-[200px] overflow-y-auto">
                 <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-4 pt-2">
-                  {project.description.map((desc, i) => (
-                    <li key={i}>{parseText(desc)}</li>
-                  ))}
+                  {Array.from({ length: project.descriptionCount }).map(
+                    (_, i) => (
+                      <li key={i}>
+                        {t(`projects.${project.project}.description_${i + 1}`)}
+                      </li>
+                    )
+                  )}
                 </ul>
               </AccordionContent>
             </AccordionItem>
@@ -132,11 +121,13 @@ function WorkExperience() {
 }
 
 export default function Experience() {
+  const t = useTranslations("experience");
+
   return (
     <Layout id="experience">
       <div className="flex flex-col items-center justify-between gap-1">
         <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
-          Professional Experience
+          {t("title")}
         </h1>
         <ExperienceTimeline experiences={experiences} isActive={false}>
           <WorkExperience />

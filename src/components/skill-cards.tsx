@@ -11,6 +11,7 @@ import { Code, Database, Layout as LayoutIcon, Server } from "lucide-react";
 import { Skills } from "@/config/skills";
 import { Icons } from "@/components/icons";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const iconMap = {
   Backend: <Server className="w-8 h-8" />,
@@ -53,21 +54,15 @@ const itemVariants = {
 };
 
 interface BentoCardProps {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
+  category: string;
   tools: string[];
   className?: string;
   index: number;
 }
 
-function BentoCard({
-  title,
-  description,
-  icon,
-  tools,
-  className,
-}: BentoCardProps) {
+function BentoCard({ category, tools, className }: BentoCardProps) {
+  const t = useTranslations("skills.categories");
+
   return (
     <div
       className={cn(
@@ -79,11 +74,15 @@ function BentoCard({
       <div className="relative z-10 h-full">
         <div className="flex items-start gap-4">
           <div className="text-foreground/80 group-hover:text-foreground transition-colors shrink-0">
-            {icon}
+            {iconMap[category as keyof typeof iconMap]}
           </div>
           <div className="flex-1">
-            <h3 className="text-xl font-semibold mb-2">{title}</h3>
-            <p className="text-muted-foreground mb-4">{description}</p>
+            <h3 className="text-xl font-semibold mb-2">
+              {t(`${category}.title`)}
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              {t(`${category}.description`)}
+            </p>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool) => (
                 <span
@@ -122,30 +121,26 @@ export default function SkillCards() {
           variants={containerVariants}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-6"
         >
-          {Object.entries(Skills).map(
-            ([key, { tools, description }], index) => (
-              <motion.div
-                key={key}
-                variants={itemVariants}
-                layoutId={`skill-card-${index}`}
-                transition={{
-                  layout: { duration: 0.4, ease: "easeOut" },
-                }}
-                className="h-full"
-              >
-                <BentoCard
-                  title={key}
-                  description={description}
-                  icon={iconMap[key as keyof typeof iconMap]}
-                  tools={tools}
-                  className={`bg-gradient-to-br p-6 rounded-3xl w-full h-full ${
-                    bgColorMap[key as keyof typeof bgColorMap]
-                  }`}
-                  index={index}
-                />
-              </motion.div>
-            )
-          )}
+          {Object.entries(Skills).map(([key, { tools }], index) => (
+            <motion.div
+              key={key}
+              variants={itemVariants}
+              layoutId={`skill-card-${index}`}
+              transition={{
+                layout: { duration: 0.4, ease: "easeOut" },
+              }}
+              className="h-full"
+            >
+              <BentoCard
+                category={key}
+                tools={tools}
+                className={`bg-gradient-to-br p-6 rounded-3xl w-full h-full ${
+                  bgColorMap[key as keyof typeof bgColorMap]
+                }`}
+                index={index}
+              />
+            </motion.div>
+          ))}
         </motion.div>
       </LayoutGroup>
     </div>

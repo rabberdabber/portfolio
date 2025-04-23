@@ -13,21 +13,8 @@ import ImagesWithBlur from "./images-with-blur";
 import { breakpoints, useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "motion/react";
 import { ProjectCardProps } from "@/config/projects";
-
-function parseText(text: string): ReactNode {
-  const parts = text.split(/(\{[^}]+\})/);
-  return parts.map((part, index) => {
-    if (part.startsWith("{") && part.endsWith("}")) {
-      const content = part.slice(1, -1);
-      return (
-        <span key={index} className="font-bold underline">
-          {content}
-        </span>
-      );
-    }
-    return <Fragment key={index}>{part}</Fragment>;
-  });
-}
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 function ProjectContent({
   imageUrl,
@@ -40,6 +27,7 @@ function ProjectContent({
   description: string[];
   summary: string;
 }) {
+  const t = useTranslations("projects");
   // Calculate the stagger delay based on description length
   const staggerDelay = 0.5 / (description.length || 1); // Ensures all items animate within 0.5s
 
@@ -48,7 +36,7 @@ function ProjectContent({
       <div className="relative h-64 w-full overflow-hidden">
         <ImagesWithBlur
           src={imageUrl}
-          alt={title}
+          alt={t(title)}
           className="h-full w-full object-cover object-top"
           width={672}
           height={256}
@@ -61,8 +49,8 @@ function ProjectContent({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold">{title}</h2>
-          <p className="text-muted-foreground mt-2">{summary}</p>
+          <h2 className="text-3xl font-bold">{t(title)}</h2>
+          <p className="text-muted-foreground mt-2">{t(summary)}</p>
         </motion.div>
 
         <motion.div
@@ -73,7 +61,7 @@ function ProjectContent({
         >
           <div className="flex items-center gap-2 text-primary">
             <Icons.terminal className="h-5 w-5" />
-            <h3 className="font-semibold">Technical Details</h3>
+            <h3 className="font-semibold">{t("technicalDetails")}</h3>
           </div>
           <motion.ul
             initial="hidden"
@@ -105,7 +93,7 @@ function ProjectContent({
                     : "bg-zinc-100 dark:bg-zinc-800/90 shadow-sm"
                 )}
               >
-                {parseText(desc)}
+                {t(desc)}
               </motion.li>
             ))}
           </motion.ul>
@@ -198,6 +186,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   const isMobile = !useMediaQuery(breakpoints.md);
   const theme = useTheme();
+  const t = useTranslations("projects");
   const imageUrl = coverImage[theme.theme === "dark" ? "dark" : "light"];
 
   const cardContent = (
@@ -205,7 +194,7 @@ export function ProjectCard({
       <div className="relative h-48 overflow-hidden">
         <ImagesWithBlur
           src={imageUrl}
-          alt={title}
+          alt={t(title)}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 object-top"
           width={500}
           height={500}
@@ -215,10 +204,10 @@ export function ProjectCard({
       <div className="flex h-full flex-col justify-between p-6">
         <div>
           <h3 className="mb-2 text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-            {title}
+            {t(title)}
           </h3>
           <p className="mb-4 line-clamp-2 text-sm text-zinc-600 dark:text-zinc-400">
-            {summary}
+            {t(summary)}
           </p>
         </div>
         <div>
@@ -249,11 +238,11 @@ export function ProjectCard({
                 ) : (
                   <Icons.externalLink size={14} />
                 )}
-                <span>{portfolio ? "This Website" : "Live Site"}</span>
+                <span>{portfolio ? t("thisWebsite") : t("liveSite")}</span>
               </a>
             )}
             {descriptionUrl && (
-              <a
+              <Link
                 href={descriptionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -261,20 +250,20 @@ export function ProjectCard({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Icons.externalLink size={14} />
-                <span>Description (server)</span>
-              </a>
+                <span>{t("descriptionServer")}</span>
+              </Link>
             )}
             {repo && (
-              <a
+              <Link
                 href={repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-300"
+                className="flex items-center gap-1.5 text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-30"
                 onClick={(e) => e.stopPropagation()}
               >
-                <Icons.gitHub size={14} />
-                <span>Repository</span>
-              </a>
+                <Icons.folderGitIcon size={14} />
+                <span>{t("repository")}</span>
+              </Link>
             )}
           </div>
         </div>

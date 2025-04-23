@@ -1,15 +1,14 @@
-import { type Experience } from "@/types/experience";
+import { Experience } from "@/types/experience";
 
 const experiences: Experience[] = [
   {
-    title: "Software Engineer",
-    company: "Emocog",
+    title: "company.title",
+    company: "company.name",
     companyUrl: "https://www.emocog.com/en",
     companyMeta: {
-      intro:
-        "a software as a medical device company that develops digital healthcare solutions",
-      location: "Seoul, South Korea",
-      industry: "Digital therapeutics",
+      intro: "company.intro",
+      location: "company.location",
+      industry: "company.industry",
     },
     startDate: "2022-08-22",
     endDate: "2024-12-31",

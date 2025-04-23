@@ -1,17 +1,18 @@
 import { z } from "zod";
 
-const contactSchema = z.object({
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .email("Please enter a valid email address"),
-  message: z
-    .string()
-    .min(1, "Message is required")
-    .min(10, "Message must be at least 10 characters")
-    .max(1000, "Message must not exceed 1000 characters"),
-});
+const getContactSchema = (t: (key: string) => string) =>
+  z.object({
+    email: z
+      .string()
+      .min(1, t("validation.emailRequired"))
+      .email(t("validation.emailInvalid")),
+    message: z
+      .string()
+      .min(1, t("validation.messageRequired"))
+      .min(10, t("validation.messageTooShort"))
+      .max(1000, t("validation.messageTooLong")),
+  });
 
-export type ContactData = z.infer<typeof contactSchema>;
+export type ContactData = z.infer<ReturnType<typeof getContactSchema>>;
 
-export default contactSchema;
+export default getContactSchema;

@@ -16,6 +16,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { breakpoints } from "@/hooks/useMediaQuery";
 import { type Experience, type CompanyMeta } from "@/types/experience";
+import { useTranslations } from "use-intl";
+import { Button } from "@/components/ui/button";
 
 interface TimelineItemProps {
   isActive?: boolean;
@@ -70,6 +72,8 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
   children,
 }) => {
   const isMobile = !useMediaQuery(breakpoints.md);
+  const t = useTranslations("experience");
+
   return (
     <div className="space-y-6 min-w-fit">
       {!isActive && (
@@ -82,18 +86,25 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
               </div>
               <div>
                 <CardTitle className="text-2xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
-                  Looking for New Opportunities
+                  {t("openToWork.title")}
                 </CardTitle>
                 <p className="text-base text-muted-foreground mt-2">
-                  Open to exciting new roles and challenges in software
-                  development
+                  {t("openToWork.description")}
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 justify-center">
-                <Badge variant="secondary">Full-time</Badge>
-                <Badge variant="secondary">On-site</Badge>
-                <Badge variant="secondary">Remote</Badge>
-                <Badge variant="secondary">Hybrid</Badge>
+                <Badge variant="secondary">
+                  {t("openToWork.badges.fullTime")}
+                </Badge>
+                <Badge variant="secondary">
+                  {t("openToWork.badges.onSite")}
+                </Badge>
+                <Badge variant="secondary">
+                  {t("openToWork.badges.remote")}
+                </Badge>
+                <Badge variant="secondary">
+                  {t("openToWork.badges.hybrid")}
+                </Badge>
               </div>
             </CardHeader>
           </Card>
@@ -132,6 +143,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   skills,
   children,
 }) => {
+  const t = useTranslations("experience");
+
   return (
     <div className="w-full max-w-[calc(100dvw-2rem)] md:max-w-2xl mx-auto">
       <Card className="bg-card hover:shadow-lg transition-shadow duration-200 min-w-[min(500px,calc(100dvw-2rem))] overflow-x-auto">
@@ -141,7 +154,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
               <Avatar className="w-full h-full">
                 <AvatarImage
                   src={companyLogo}
-                  alt={`${company} logo`}
+                  alt={t("companyLogoAlt", { company: t(company) })}
                   className="object-contain w-full h-full"
                 />
                 <AvatarFallback className="bg-foreground">
@@ -151,7 +164,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             </div>
             <div className="min-w-0 flex-1 space-y-4">
               <div className="space-y-1.5">
-                <h3 className="text-xl font-bold">{title}</h3>
+                <h3 className="text-xl font-bold">{t(title)}</h3>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                   <Link
                     href={companyUrl}
@@ -160,39 +173,32 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                     target="_blank"
                   >
                     <Icons.building2 className="w-4 h-4" />
-                    <span className="truncate">{company}</span>
-                    <Icons.externalLink
-                      size={14}
-                      className="text-muted-foreground group-hover:translate-x-0.5 transition-transform"
-                    />
+                    <span className="truncate">{t(company)}</span>
                   </Link>
                   {certificate && (
                     <Link
                       href={certificate}
-                      className="inline-flex items-center gap-1 group"
-                      rel="noopener noreferrer"
                       target="_blank"
+                      rel="noopener noreferrer"
+                      title={t("careerCertificate")}
+                      className="inline-flex items-center gap-1 group"
                     >
-                      <Icons.scroll
-                        size={14}
-                        className="text-muted-foreground"
-                      />
-                      <span>Career Certificate</span>
-                      <Icons.fileText className="w-4 h-4" />
+                      <Icons.fileText className="h-4 w-4" />
+                      <span>{t("careerCertificate")}</span>
                     </Link>
                   )}
                 </div>
               </div>
               <div className="space-y-2 text-muted-foreground">
-                <p className="text-sm">{companyMeta.intro}</p>
+                <p className="text-sm">{t(companyMeta.intro)}</p>
                 <div className="flex items-center gap-4 text-sm">
                   <div className="flex items-center gap-1.5">
                     <Icons.mapPin className="w-3.5 h-3.5" />
-                    <span>{companyMeta.location}</span>
+                    <span>{t(companyMeta.location)}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <Icons.briefcase className="w-3.5 h-3.5" />
-                    <span>{companyMeta.industry}</span>
+                    <span>{t(companyMeta.industry)}</span>
                   </div>
                 </div>
               </div>

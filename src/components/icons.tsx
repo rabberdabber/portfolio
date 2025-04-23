@@ -2,6 +2,7 @@ import {
   LucideIcon,
   LucideProps,
   Link,
+  Languages,
   Sun,
   Moon,
   Download,
@@ -39,11 +40,11 @@ import {
   ChevronRight,
   Scroll,
   Paintbrush,
-  Languages,
   Award,
   Medal,
   Book,
   Check,
+  FolderGitIcon,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -91,6 +92,8 @@ export const Icons = {
   hourglass: Hourglass,
   scroll: Scroll,
   award: Award,
+  language: Languages,
+  folderGitIcon: FolderGitIcon,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

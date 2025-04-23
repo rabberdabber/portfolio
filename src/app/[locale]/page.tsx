@@ -12,8 +12,10 @@ import { siteConfig } from "@/config/site";
 import { useSection } from "@/context/section-context";
 import { Section } from "@/types/nav";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations();
   const containerRef = useRef<HTMLDivElement>(null);
   const { activeSection, setActiveSection } = useSection();
   const sections = useRef(siteConfig.mainNav.map((item) => item.title));

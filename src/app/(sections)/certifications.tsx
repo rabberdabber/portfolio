@@ -27,6 +27,7 @@ import {
   CarouselApi,
 } from "@/components/ui/carousel";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -35,6 +36,8 @@ const fadeInUp = {
 };
 
 export default function Certifications() {
+  const t = useTranslations("certifications");
+
   return (
     <Layout id="certifications">
       <div className="container mx-auto px-4">
@@ -45,11 +48,10 @@ export default function Certifications() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Professional Certifications
+            {t("title")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A collection of my professional certifications in software
-            engineering.
+            {t("description")}
           </p>
         </motion.div>
 
@@ -88,6 +90,7 @@ function CertificateDialog({
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
+  const t = useTranslations("certifications");
 
   React.useEffect(() => {
     if (!api) return;
@@ -108,7 +111,7 @@ function CertificateDialog({
           className="w-full transition-all hover:scale-105 hover:shadow-lg"
         >
           <Icons.award className="mr-2 h-4 w-4" />
-          View Certificate
+          {t("viewCertificate")}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-4xl">
@@ -172,6 +175,7 @@ function CertificateDrawer({
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
+  const t = useTranslations("certifications");
 
   React.useEffect(() => {
     if (!api) return;
@@ -196,7 +200,7 @@ function CertificateDrawer({
           ) : (
             <Icons.award className="mr-2 h-4 w-4" />
           )}
-          View Certificate
+          {t("viewCertificate")}
         </Button>
       </DrawerTrigger>
       <DrawerContent className="min-h-[50dvh]">
@@ -264,6 +268,7 @@ function CertificationCard({
   certification: (typeof certifications)[number];
 }) {
   const isMobile = !useMediaQuery(breakpoints.md);
+  const t = useTranslations("certifications");
 
   return (
     <Card className="group h-full max-w-md mx-auto transition-all hover:shadow-lg dark:hover:shadow-primary/5 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950">
@@ -289,7 +294,7 @@ function CertificationCard({
 
         <div className="space-y-2">
           <p className="text-sm font-medium">
-            Instructor: {certification.instructor}
+            {t("instructor")}: {certification.instructor}
           </p>
           <Link
             href={certification.websiteUrl}
@@ -297,7 +302,7 @@ function CertificationCard({
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit Course
+            {t("visitCourse")}
             <Icons.externalLink className="ml-1 h-3 w-3" />
           </Link>
         </div>

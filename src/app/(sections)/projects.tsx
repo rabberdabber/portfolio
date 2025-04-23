@@ -4,8 +4,11 @@ import Layout from "@/components/layout";
 import { projects } from "@/config/projects";
 import { ProjectCard } from "@/components/project-card";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 export default function Projects() {
+  const t = useTranslations("projects");
+
   return (
     <Layout id="projects">
       <div className="">
@@ -17,10 +20,10 @@ export default function Projects() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              My Projects
+              {t("title")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A selection of my personal projects.
+              {t("description")}
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

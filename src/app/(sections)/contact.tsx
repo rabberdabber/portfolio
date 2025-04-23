@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -16,14 +16,16 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Layout from "@/components/layout";
-import contactSchema, { ContactData } from "../schemas/contact";
+import getContactSchema, { ContactData } from "../schemas/contact";
 import { Textarea } from "@/components/ui/textarea";
 import { sendEmail } from "../actions/contact";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslations } from "next-intl";
 
 export function ContactForm() {
+  const t = useTranslations("contact");
   const form = useForm<ContactData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(getContactSchema(t)),
     defaultValues: {
       email: "",
       message: "",
@@ -31,14 +33,16 @@ export function ContactForm() {
   });
   const { toast } = useToast();
 
-  async function onSubmit(values: z.infer<typeof contactSchema>) {
+  async function onSubmit(
+    values: z.infer<ReturnType<typeof getContactSchema>>
+  ) {
     try {
       const result = await sendEmail(values);
 
       if (result.success) {
         toast({
           title: "Success",
-          description: "Your message has been sent successfully!",
+          description: t("success"),
         });
         form.reset();
       } else {
@@ -47,7 +51,7 @@ export function ContactForm() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again later.",
+        description: t("error"),
         variant: "destructive",
       });
     }
@@ -64,12 +68,12 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email Address</FormLabel>
+              <FormLabel>{t("email.label")}</FormLabel>
               <FormControl>
-                <Input placeholder="your@email.com" {...field} />
+                <Input placeholder={t("email.placeholder")} {...field} />
               </FormControl>
               <FormDescription className="text-sm text-muted-foreground">
-                I&apos;ll never share your email with anyone else.
+                {t("email.description")}
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -80,10 +84,10 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Message</FormLabel>
+              <FormLabel>{t("message.label")}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="How can I help you?"
+                  placeholder={t("message.placeholder")}
                   className="resize-none min-h-[120px]"
                   {...field}
                 />
@@ -93,22 +97,31 @@ export function ContactForm() {
           )}
         />
         <Button type="submit" className="w-full">
-          Send Message
+          {t("submit")}
         </Button>
       </form>
     </Form>
   );
 }
 
-export default function Home() {
+export default function Contact() {
+  const t = useTranslations("contact");
+  const schema = getContactSchema(t);
+
+  const form = useForm<ContactData>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      email: "",
+      message: "",
+    },
+  });
+
   return (
     <Layout id="contact">
       <div className="grid place-content-center py-6">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold mb-2">Get in Touch</h2>
-          <p className="text-muted-foreground">
-            Have a question? I&apos;d love to hear from you.
-          </p>
+          <h2 className="text-2xl font-bold mb-2">{t("title")}</h2>
+          <p className="text-muted-foreground">{t("description")}</p>
         </div>
         <ContactForm />
       </div>

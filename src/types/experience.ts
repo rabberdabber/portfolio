@@ -8,10 +8,14 @@ export interface Experience {
   title: string;
   company: string;
   companyUrl: string;
-  companyMeta: CompanyMeta;
+  companyMeta: {
+    intro: string;
+    location: string;
+    industry: string;
+  };
   startDate: string;
   endDate: string;
   companyLogo: string;
-  certificate?: string;
+  certificate: string;
   skills: string[];
 }

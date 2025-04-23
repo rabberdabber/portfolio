@@ -12,10 +12,12 @@ import { useSection } from "@/context/section-context";
 import { Section } from "@/types/nav";
 import { breakpoints } from "@/hooks/useMediaQuery";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useTranslations } from "next-intl";
 
 export function NavList({ className }: { className?: string }) {
   const isMobile = !useMediaQuery(breakpoints.md);
   const { activeSection, setActiveSection } = useSection();
+  const t = useTranslations("navigation");
   const sectionToIconObject = {
     home: Icons.home,
     about: Icons.user,
@@ -55,9 +57,7 @@ export function NavList({ className }: { className?: string }) {
             onClick={() => setActiveSection(item.title)}
           >
             {isMobile && sectionToIcon(item.title)}
-            <p className="text-xl lg:text-base">
-              {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
-            </p>
+            <p className="text-xl lg:text-base">{t(item.title)}</p>
             {activeSection === item.title && (
               <motion.div
                 layoutId="active-pill"

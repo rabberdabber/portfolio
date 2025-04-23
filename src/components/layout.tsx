@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+"use client";
+import { useEffect } from "react";
 import { useSection } from "@/context/section-context";
 import { Section } from "@/types/nav";
 import { cn } from "@/lib/utils";

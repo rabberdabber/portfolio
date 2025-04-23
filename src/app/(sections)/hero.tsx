@@ -10,8 +10,12 @@ import { motion } from "motion/react";
 import { TextEffect } from "@/components/ui/text-effect";
 import ImagesWithBlur from "@/components/images-with-blur";
 import DiscloseImage from "@/components/ui/disclose-image";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("home");
+  const commonT = useTranslations("common");
+
   return (
     <Layout id="home" addPadding={false}>
       <div className="relative overflow-hidden min-h-screen w-screen pt-6">
@@ -35,11 +39,12 @@ export default function Hero() {
                 transition={{ delay: 0.2 }}
                 className="text-xl text-muted-foreground md:text-2xl"
               >
-                Hello there{" "}
+                {t("greeting")}{" "}
                 <span className="animate-wave origin-[70%_70%] inline-block">
                   👋
                 </span>
-                , I&apos;m <span className="font-bold">Bereket</span>
+                , {t("introduction")}{" "}
+                <span className="font-bold">{t("name")}</span>
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -47,15 +52,13 @@ export default function Hero() {
                 transition={{ delay: 0.3 }}
                 className="text-4xl font-bold tracking-tight leading-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50 p-2"
               >
-                Full Stack Software Engineer
+                {t("title")}
               </motion.h1>
               <TextEffect
                 delay={0.5}
                 className="text-lg text-muted-foreground md:text-xl text-center max-w-prose"
               >
-                Transforming ideas into full-stack solutions with a focus on
-                scalability, clean architecture, and exceptional user
-                experiences.
+                {t("description")}
               </TextEffect>
             </motion.div>
 
@@ -66,7 +69,7 @@ export default function Hero() {
               className="flex items-center space-x-2 text-muted-foreground text-sm"
             >
               <Icons.mapPin className="w-4 h-4" />
-              <span>Seoul, South Korea</span>
+              <span>{t("location")}</span>
             </motion.div>
 
             <motion.div
@@ -87,7 +90,7 @@ export default function Hero() {
                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full ring-2 ring-background animate-pulse"></span>
               </div>
               <p className="text-lg flex items-center">
-                Open to work
+                {t("status")}
                 <span className="ml-2 inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               </p>
             </motion.div>
@@ -100,7 +103,7 @@ export default function Hero() {
             >
               <Link href="/#about">
                 <Button size="lg" className="gap-2 shadow-lg">
-                  Learn More <Icons.arrowRight className="size-4" />
+                  {t("learnMore")} <Icons.arrowRight className="size-4" />
                 </Button>
               </Link>
               <Link href="/#experience">
@@ -109,7 +112,7 @@ export default function Hero() {
                   size="lg"
                   className="backdrop-blur-sm bg-background/80 shadow-sm hover:bg-background/90"
                 >
-                  View Experience
+                  {t("viewExperience")}
                 </Button>
               </Link>
             </motion.div>

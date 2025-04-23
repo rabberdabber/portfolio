@@ -1,92 +1,81 @@
 export const Skills = {
   Backend: {
     tools: ["FastAPI", "Node.js", "PostgreSQL", "Firebase", "Redis"],
-    description: "Implement RESTful or GRPC APIs and design databases",
+    description: "skills.categories.Backend.description",
   },
   Frontend: {
     tools: ["React", "React Native", "Next.js", "TailwindCSS", "HTML", "CSS"],
-    description: "Implement Responsive and Accessible UI components",
+    description: "skills.categories.Frontend.description",
   },
   DevOps: {
     tools: ["Docker", "Docker Compose", "Kubernetes"],
-    description: "Manage infrastructure and deployment",
+    description: "skills.categories.DevOps.description",
   },
   Languages: {
     tools: ["JavaScript", "TypeScript", "Python", "C/C++"],
-    description: "Implement backend and frontend business logic",
+    description: "skills.categories.Languages.description",
   },
   Productivity: {
     tools: ["Cursor", "Bolt.new"],
-    description: "AI-powered tools that boost development productivity",
+    description: "skills.categories.Productivity.description",
   },
   Others: {
     tools: ["VSCode", "Git", "GitHub", "GitLab"],
-    description: "Tools I use to develop and manage projects",
+    description: "skills.categories.Others.description",
   },
 } satisfies Record<string, Record<string, string | string[]>>;
 
 export const ToolIconsAndDescriptions = {
   Redis: {
     icon: "/logos/redis.svg",
-    description:
-      "I use Redis as a database, cache, for rate limiting and performance optimization.",
+    description: "skills.tools.Redis.description",
   },
   FastAPI: {
     icon: "/logos/fastapi.png",
-    description:
-      "I use FastAPI to build high-performance Asynchronous RESTful APIs with real-time capabilities.",
+    description: "skills.tools.FastAPI.description",
   },
   Node: {
     icon: "/logos/nodejs.svg",
-    description:
-      "I use Node.js to build scalable server-side applications and APIs.",
+    description: "skills.tools.Node.description",
   },
   PostgreSQL: {
     icon: "/logos/postgres.svg",
-    description:
-      "I use PostgreSQL for robust data storage with features like triggers and audit logging.",
+    description: "skills.tools.PostgreSQL.description",
   },
   Firebase: {
     icon: "/logos/firebase.svg",
-    description:
-      "I use Firebase and Firestore for real-time data management and cloud storage.",
+    description: "skills.tools.Firebase.description",
   },
   React: {
     icon: "/logos/react.svg",
-    description:
-      "I use React to build interactive web dashboards and user interfaces.",
+    description: "skills.tools.React.description",
   },
   ReactNative: {
     icon: "/logos/react_native.svg",
-    description:
-      "I use React Native to build cross-platform mobile applications.",
+    description: "skills.tools.ReactNative.description",
   },
   Next: {
     icon: "/logos/nextjs.svg",
-    description:
-      "I use Next.js to build full-stack applications with App Router and Server Components.",
+    description: "skills.tools.Next.description",
   },
   TailwindCSS: {
     icon: "/logos/tailwindcss.svg",
-    description:
-      "I use TailwindCSS for rapid UI development and responsive designs.",
+    description: "skills.tools.TailwindCSS.description",
   },
   HTML: {
     icon: "/logos/html.svg",
-    description: "I use HTML to structure and present content on the web.",
+    description: "skills.tools.HTML.description",
   },
   CSS: {
     icon: "/logos/css.svg",
-    description:
-      "I use CSS to style the presentation of a document written in HTML.",
+    description: "skills.tools.CSS.description",
   },
   Docker: {
     icon: "/logos/docker.svg",
-    description:
-      "I use Docker to containerize and deploy applications with streamlined CI/CD.",
+    description: "skills.tools.Docker.description",
   },
   VSCode: {
     icon: "/logos/vscode.svg",
-    description: "I use VS Code as my primary code editor.",
+    description: "skills.tools.VSCode.description",
   },
 } as const;

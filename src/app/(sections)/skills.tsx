@@ -6,18 +6,20 @@ import Layout from "@/components/layout";
 import Marquee from "@/components/marquee";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ToolIconsAndDescriptions } from "@/config/skills";
+import { useTranslations } from "next-intl";
 
 export default function Skills() {
+  const t = useTranslations("skills");
+
   return (
     <Layout id="skills">
       <div className="grid place-content-center">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Technologies and Tools
+            {t("title")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my technical expertise and tools I work
-            with.
+            {t("description")}
           </p>
         </div>
         <SkillCards />
@@ -30,7 +32,7 @@ export default function Skills() {
 
           <Marquee className="py-4">
             {Object.entries(ToolIconsAndDescriptions).map(
-              ([tool, { icon, description }]) => (
+              ([tool, { icon }]) => (
                 <Card
                   key={tool}
                   className="mx-4 w-[300px] bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-300 border-primary/10 hover:border-primary/20"
@@ -50,7 +52,7 @@ export default function Skills() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground line-clamp-2">
-                      {description}
+                      {t(`tools.${tool}.description`)}
                     </p>
                   </CardContent>
                 </Card>

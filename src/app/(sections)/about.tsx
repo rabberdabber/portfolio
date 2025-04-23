@@ -12,8 +12,10 @@ import { motion, useInView } from "framer-motion";
 import { downloadFile } from "@/lib/utils";
 import { useAnimation } from "framer-motion";
 import { COURSEWORK } from "@/config/education";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations("about");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -76,24 +78,20 @@ export default function About() {
               {/* Header */}
               <div className="space-y-3 -mt-6">
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                  About Me
+                  {t("title")}
                 </h1>
                 <p className="text-xl text-muted-foreground font-medium">
-                  Full Stack Engineer
+                  {t("subtitle")}
                 </p>
               </div>
 
               {/* Description */}
               <div className="space-y-6 text-lg leading-relaxed">
                 <TextEffect className="text-muted-foreground/90">
-                  I&apos;m a passionate software developer specializing in
-                  full-cycle web development. From product conceptualization to
-                  deployment, I focus on building scalable applications that
-                  solve real business problems using cutting-edge technologies.
+                  {t("description")}
                 </TextEffect>
                 <TextEffect delay={3} className="text-muted-foreground/90">
-                  Curious and good problem solving skills. Believe I can be an
-                  asset to any team building software.
+                  {t("description2")}
                 </TextEffect>
               </div>
 
@@ -101,36 +99,42 @@ export default function About() {
               <Card className="p-6 bg-card/50 backdrop-blur-sm border border-primary/10 shadow-xl">
                 <div className="space-y-6">
                   <h2 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                    Quick Facts
+                    {t("quickFacts.title")}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
                         <Icons.user className="size-5 text-primary/70" />
                         <span className="font-medium text-primary/80">
-                          Nickname
+                          {t("quickFacts.nickname")}
                         </span>
                       </div>
-                      <p className="text-muted-foreground pl-8">Bake</p>
+                      <p className="text-muted-foreground pl-8">
+                        {t("quickFacts.nicknameValue")}
+                      </p>
                     </div>
 
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
                         <Icons.calendar className="size-5 text-primary/70" />
-                        <span className="font-medium text-primary/80">Age</span>
+                        <span className="font-medium text-primary/80">
+                          {t("quickFacts.age")}
+                        </span>
                       </div>
-                      <p className="text-muted-foreground pl-8">27</p>
+                      <p className="text-muted-foreground pl-8">
+                        {t("quickFacts.ageValue")}
+                      </p>
                     </div>
 
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
                         <Icons.briefcase className="size-5 text-primary/70" />
                         <span className="font-medium text-primary/80">
-                          Experience
+                          {t("quickFacts.experience")}
                         </span>
                       </div>
                       <p className="text-muted-foreground pl-8">
-                        2+ Years as a Software Engineer
+                        {t("quickFacts.experienceValue")}
                       </p>
                     </div>
 
@@ -138,11 +142,11 @@ export default function About() {
                       <div className="flex items-center gap-3">
                         <Icons.languages className="size-5 text-primary/70" />
                         <span className="font-medium text-primary/80">
-                          Speaks
+                          {t("quickFacts.languages")}
                         </span>
                       </div>
                       <p className="text-muted-foreground pl-8">
-                        English, Amharic, Beginner Korean
+                        {t("quickFacts.languagesValue")}
                       </p>
                     </div>
 
@@ -150,12 +154,11 @@ export default function About() {
                       <div className="flex items-center gap-3">
                         <Icons.hobby className="size-5 text-primary/70" />
                         <span className="font-medium text-primary/80">
-                          Hobbies
+                          {t("quickFacts.hobbies")}
                         </span>
                       </div>
                       <p className="text-muted-foreground pl-8">
-                        Reading articles, watching youtube, and of course
-                        building software
+                        {t("quickFacts.hobbiesValue")}
                       </p>
                     </div>
 
@@ -163,13 +166,13 @@ export default function About() {
                       <div className="flex items-center gap-3">
                         <Icons.graduationCap className="size-5 text-primary/70" />
                         <span className="font-medium text-primary/80">
-                          Education
+                          {t("quickFacts.education")}
                         </span>
                       </div>
                       <div className="pl-8 space-y-4">
                         <div className="space-y-2">
                           <p className="text-muted-foreground">
-                            BS Computer Science and Electrical Engineering from{" "}
+                            {t("quickFacts.educationValue")}{" "}
                             <Link
                               href="https://www.topuniversities.com/universities/kaist-korea-advanced-institute-science-technology"
                               className="text-primary underline hover:text-primary/80 transition-colors duration-200"
@@ -181,13 +184,13 @@ export default function About() {
                             <p className="text-sm text-muted-foreground/90">
                               <span className="inline-flex items-center gap-1.5">
                                 <Icons.graduationCap className="size-3.5 text-primary/60" />
-                                Full-fledged scholarship recipient
+                                {t("quickFacts.scholarship")}
                               </span>
                             </p>
                             <p className="text-sm text-muted-foreground/90">
                               <span className="inline-flex items-center gap-1.5">
                                 <Icons.briefcase className="size-3.5 text-primary/60" />
-                                Ranked #53 in QS World University Rankings 2025
+                                {t("quickFacts.ranking")}
                               </span>
                             </p>
                           </div>
@@ -199,7 +202,9 @@ export default function About() {
                             <div key={index} className="space-y-2">
                               <h3 className="font-medium text-primary/80 flex items-center gap-2">
                                 <Icons.book className="size-4 text-primary/60" />
-                                {category.category}
+                                {t(
+                                  `quickFacts.coursework.${category.category}`
+                                )}
                               </h3>
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pl-6">
                                 {category.courses.map((course, courseIndex) => (
@@ -208,7 +213,9 @@ export default function About() {
                                     className="text-sm text-muted-foreground/90 flex items-center gap-1.5"
                                   >
                                     <Icons.check className="size-3.5 text-primary/50" />
-                                    {course}
+                                    {t(
+                                      `quickFacts.coursework.courses.${course}`
+                                    )}
                                   </p>
                                 ))}
                               </div>
@@ -227,7 +234,7 @@ export default function About() {
                 variant="default"
               >
                 <Icons.download className="mr-2 size-4 transition-transform duration-200 group-hover:-translate-y-0.5" />
-                Download Resume
+                {t("downloadResume")}
               </Button>
             </motion.div>
           </div>

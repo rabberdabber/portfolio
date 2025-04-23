@@ -1,0 +1,318 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome": "Welcome to My Portfolio",
+    "greeting": "Hello there",
+    "introduction": "I'm",
+    "name": "Bereket",
+    "title": "Full Stack Software Engineer",
+    "description": "Transforming ideas into full-stack solutions with a focus on scalability, clean architecture, and exceptional user experiences.",
+    "location": "Seoul, South Korea",
+    "status": "Open to work",
+    "learnMore": "Learn More",
+    "viewExperience": "View Experience"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Full Stack Engineer",
+    "description": "I'm a passionate software developer specializing in full-cycle web development. From product conceptualization to deployment, I focus on building scalable applications that solve real business problems using cutting-edge technologies.",
+    "description2": "Curious and good problem solving skills. Believe I can be an asset to any team building software.",
+    "quickFacts": {
+      "title": "Quick Facts",
+      "nickname": "Nickname",
+      "nicknameValue": "Bake",
+      "age": "Age",
+      "ageValue": "27",
+      "experience": "Experience",
+      "experienceValue": "2+ Years as a Software Engineer",
+      "languages": "Speaks",
+      "languagesValue": "English, Amharic, Beginner Korean",
+      "hobbies": "Hobbies",
+      "hobbiesValue": "Reading articles, watching youtube, and of course building software",
+      "education": "Education",
+      "educationValue": "BS Computer Science and Electrical Engineering from",
+      "scholarship": "Full-fledged scholarship recipient",
+      "ranking": "Ranked #53 in QS World University Rankings 2025",
+      "coursework": {
+        "Computer Science": "Computer Science",
+        "Electrical Engineering": "Electrical Engineering",
+        "courses": {
+          "Data Structures and Algorithms": "Data Structures and Algorithms",
+          "Operating Systems": "Operating Systems",
+          "Software Engineering": "Software Engineering",
+          "Introduction to Algorithms": "Introduction to Algorithms",
+          "Programming Principles": "Programming Principles",
+          "Introduction to Artificial Intelligence": "Introduction to Artificial Intelligence",
+          "Introduction to Database": "Introduction to Database",
+          "Introduction to Information Security": "Introduction to Information Security",
+          "System Programming": "System Programming",
+          "Advanced Programming": "Advanced Programming",
+          "Programming Structures": "Programming Structures",
+          "Computer Networks": "Computer Networks",
+          "Network Programming": "Network Programming"
+        }
+      }
+    },
+    "downloadResume": "Download Resume"
+  },
+  "experience": {
+    "title": "Experience",
+    "overview": "A comprehensive overview of my professional journey at Emocog.",
+    "project": "Project",
+    "projects": {
+      "lims": {
+        "title": "Laboratory Information Management System (LIMS)",
+        "summary": "Led the development of a Next.js dashboard application that transformed the bio team's workflow from manual Excel sheets to an automated system, significantly improving operational efficiency.",
+        "description_1": "Maintained and optimized a Next.js dashboard application (App Router with Server Components/Actions), integrating Firestore and Google APIs for data management and secure cloud storage.",
+        "description_2": "Streamlined laboratory workflows by replacing manual Excel-based processes with an automated LIMS, improving efficiency for the bio team.",
+        "description_3": "Orchestrated complex business logic around Firestore collections, ensuring robust sample tracking and seamless user experiences."
+      },
+      "cogthera_backend": {
+        "title": "Cogthera Backend",
+        "summary": "Involved in and implemented and maintained some backend with a Microservice architecture for the Cogthera (DiGA, Digital Health Applications) mobile application.",
+        "description_1": "Collaborated with Emocog's German subsidiary to design a microservice-based backend architecture and ensure ISO 27001 compliance.",
+        "description_2": "Implemented audit logging using PostgreSQL triggers and integrated an OAuth 2.0-compatible authentication server for secure user management.",
+        "description_3": "Researched and deployed a custom German language model using the open-source VOSK toolkit, reducing speech-to-text latency by 50%—vital for real-time training feedback.",
+        "description_4": "Enhanced the VOSK + gRPC-based STT system to improve efficiency, speed, and accuracy by adapting model vocabularies via a dedicated language server.",
+        "description_5": "Built a secure aggregation service using FastAPI and WebSockets for real-time dashboard data.",
+        "description_6": "Self-hosted Sentry for error monitoring, providing timely incident detection and streamlined debugging processes.",
+        "description_7": "Led the development of an asynchronous Text-To-Speech (TTS) server, leveraging audio caching in AWS S3-compatible storage (Scaleway) to optimize performance and cost."
+      },
+      "mobile_app": {
+        "title": "Mobile Application & REST API",
+        "summary": "Developed a comprehensive healthcare solution including a React Native mobile app for Parkinson's disease testing, backed by a FastAPI server and React dashboard for data visualization.",
+        "description_1": "Developed and maintained a cross-platform mobile application using React Native, implementing features such as swipe, touch, and speech tests for Parkinson's disease assessment.",
+        "description_2": "Built and optimized a RESTful API with FastAPI, ensuring high performance and scalability.",
+        "description_3": "Created an interactive web dashboard with React, enabling real-time data visualization and user-friendly analytics."
+      }
+    },
+    "company": {
+      "title": "Software Engineer",
+      "name": "Emocog",
+      "intro": "a software as a medical device company that develops digital healthcare solutions",
+      "location": "Gwacheon, Gyeonggi-do, South Korea",
+      "industry": "Digital therapeutics"
+    },
+    "description": "My professional journey and work experience.",
+    "openToWork": {
+      "title": "Looking for New Opportunities",
+      "description": "Open to exciting new roles and challenges in software development",
+      "badges": {
+        "fullTime": "Full-time",
+        "onSite": "On-site",
+        "remote": "Remote",
+        "hybrid": "Hybrid"
+      }
+    },
+    "careerCertificate": "Career Certificate",
+    "companyLogoAlt": "{company} logo",
+    "companies": {
+      "contentBake": {
+        "title": "Full Stack Developer",
+        "company": "Content Bake",
+        "meta": {
+          "intro": "A modern content creation platform with AI capabilities",
+          "location": "Seoul, South Korea",
+          "industry": "Content Platform"
+        },
+        "projects": {
+          "contentPlatform": {
+            "title": "Content Creation Platform",
+            "summary": "Led the development of a Next.js content platform that transformed content creation with AI capabilities.",
+            "description": [
+              "Built and optimized a Next.js platform (App Router with Server Components/Actions), integrating OpenAI and Google APIs for content management and secure cloud storage.",
+              "Streamlined content creation workflows by implementing a block-based WYSIWYG editor with Tiptap.",
+              "Orchestrated complex business logic around content generation and management, ensuring robust content tracking and seamless user experiences."
+            ]
+          }
+        }
+      },
+      "contentGen": {
+        "title": "Backend Developer",
+        "company": "Content Gen",
+        "meta": {
+          "intro": "AI-powered content generation service",
+          "location": "Seoul, South Korea",
+          "industry": "AI/ML"
+        },
+        "projects": {
+          "contentGenServer": {
+            "title": "Content Generation Server",
+            "summary": "Developed and maintained a microservice-based content generation server with AI capabilities.",
+            "description": [
+              "Designed and implemented a microservice-based backend architecture ensuring high performance and scalability.",
+              "Implemented audit logging using PostgreSQL triggers and integrated OAuth 2.0 for secure user management.",
+              "Built a secure content generation service using FastAPI and WebSockets for real-time updates.",
+              "Self-hosted monitoring tools for error tracking, providing timely incident detection and streamlined debugging processes.",
+              "Led the development of an asynchronous content generation server, leveraging caching in S3-compatible storage to optimize performance and cost."
+            ]
+          }
+        }
+      }
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "A selection of my personal projects.",
+    "viewProject": "View Project",
+    "technicalDetails": "Technical Details",
+    "liveSite": "Live Site",
+    "thisWebsite": "This Website",
+    "descriptionServer": "Description (server)",
+    "repository": "Repository",
+    "items": {
+      "contentBake": {
+        "title": "Content Bake",
+        "summary": "AI-Powered Full-Stack Content Platform with an editor playground to create rich content.",
+        "description": [
+          "Built a modern, responsive platform for content creation and management using Next.js, NextAuth, shadcn/ui, and Tailwind CSS",
+          "Integrated Tiptap as a block-based WYSIWYG (Rich Text) editor, facilitating intuitive content creation.",
+          "Leveraged Server Components, Server Actions, and Static Site Generation to optimize performance for content posts.",
+          "Enforced secure session management and access control via NextAuth for reliable user authentication.",
+          "Deployed and self-hosted the entire stack on a virtual machine using Docker and Coolify, ensuring streamlined CI/CD and maintainability."
+        ]
+      },
+      "contentGen": {
+        "title": "Content Gen Server",
+        "summary": "Asynchronous Microservice backend for Content generation and management with AI capabilities.",
+        "description": [
+          "Engineered a FastAPI server for generating AI-driven content and images, integrating OpenAI, Flux APIs, and MinIO (S3-compatible) for robust object storage.",
+          "Utilized Pydantic and structured responses from OpenAI to maintain schema consistency across editor, database, and API endpoints.",
+          "Incorporated OAuth 2.0 for secure authorization and role-based access control, as well as Redis rate limiting to prevent service abuse.",
+          "Deployed via Docker Compose and Coolify, simplifying infrastructure management and automated deployments."
+        ]
+      },
+      "portfolio": {
+        "title": "Personal Portfolio Website",
+        "summary": "Responsive Personal Portfolio showcasing my projects, skills, and experiences.",
+        "description": [
+          "Created a clean and modern portfolio site using Next.js, shadcn/ui, and Tailwind CSS to showcase professional projects and skill sets.",
+          "Ensured seamless performance and scalability by self-hosting with Docker and Coolify, reducing hosting overhead and dependency on external platforms."
+        ]
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Have a question? I'd love to hear from you.",
+    "email": {
+      "label": "Email Address",
+      "placeholder": "your@email.com",
+      "description": "I'll never share your email with anyone else."
+    },
+    "message": {
+      "label": "Your Message",
+      "placeholder": "How can I help you?"
+    },
+    "submit": "Send Message",
+    "success": "Your message has been sent successfully!",
+    "error": "Failed to send message. Please try again later.",
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "messageRequired": "Message is required",
+      "messageTooShort": "Message must be at least 10 characters",
+      "messageTooLong": "Message must not exceed 1000 characters"
+    }
+  },
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "korean": "한국어",
+    "searchLanguage": "Search language...",
+    "noLanguageFound": "No language found.",
+    "selectLanguage": "Select language",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "header": {
+    "github": "GitHub Profile",
+    "linkedin": "LinkedIn Profile"
+  },
+  "certifications": {
+    "title": "Professional Certifications",
+    "description": "A collection of my professional certifications in software engineering.",
+    "viewCertificate": "View Certificate",
+    "visitCourse": "Visit Course",
+    "instructor": "Instructor"
+  },
+  "skills": {
+    "title": "Technologies and Tools",
+    "description": "A comprehensive overview of my technical expertise and tools I work with.",
+    "categories": {
+      "Backend": {
+        "title": "Backend",
+        "description": "Implement RESTful or GRPC APIs and design databases"
+      },
+      "Frontend": {
+        "title": "Frontend",
+        "description": "Implement Responsive and Accessible UI components"
+      },
+      "Languages": {
+        "title": "Languages",
+        "description": "Implement backend and frontend business logic"
+      },
+      "DevOps": {
+        "title": "DevOps",
+        "description": "Manage infrastructure and deployment"
+      },
+      "Productivity": {
+        "title": "Productivity",
+        "description": "AI-powered tools that boost development productivity"
+      },
+      "Others": {
+        "title": "Others",
+        "description": "Tools I use to develop and manage projects"
+      }
+    },
+    "tools": {
+      "Redis": {
+        "description": "I use Redis as a database, cache, for rate limiting and performance optimization."
+      },
+      "FastAPI": {
+        "description": "I use FastAPI to build high-performance Asynchronous RESTful APIs with real-time capabilities."
+      },
+      "Node": {
+        "description": "I use Node.js to build scalable server-side applications and APIs."
+      },
+      "PostgreSQL": {
+        "description": "I use PostgreSQL for robust data storage with features like triggers and audit logging."
+      },
+      "Firebase": {
+        "description": "I use Firebase and Firestore for real-time data management and cloud storage."
+      },
+      "React": {
+        "description": "I use React to build interactive web dashboards and user interfaces."
+      },
+      "ReactNative": {
+        "description": "I use React Native to build cross-platform mobile applications."
+      },
+      "Next": {
+        "description": "I use Next.js to build full-stack applications with App Router and Server Components."
+      },
+      "TailwindCSS": {
+        "description": "I use TailwindCSS for rapid UI development and responsive designs."
+      },
+      "HTML": {
+        "description": "I use HTML to structure and present content on the web."
+      },
+      "CSS": {
+        "description": "I use CSS to style the presentation of a document written in HTML."
+      },
+      "Docker": {
+        "description": "I use Docker to containerize and deploy applications with streamlined CI/CD."
+      },
+      "VSCode": {
+        "description": "I use VS Code as my primary code editor."
+      }
+    }
+  }
+} 

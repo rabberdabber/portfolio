@@ -61,7 +61,13 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html suppressHydrationWarning lang={locale}>
-      <head />
+      <head>
+        <script
+          defer
+          data-domain="portfolio.codebake.io"
+          src="https://plausible.codebake.io/js/script.js"
+        ></script>
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
